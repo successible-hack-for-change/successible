@@ -1,15 +1,15 @@
-import { render, screen } from '@testing-library/react'
-import Home from '../pages/index'
-import '@testing-library/jest-dom'
+import { render, screen } from '@testing-library/react';
+import Home from '../pages/index';
+import '@testing-library/jest-dom';
 
 describe('Home', () => {
   it('renders a heading', () => {
-    render(<Home />)
+    render(<Home />);
 
     const heading = screen.getByRole('heading', {
       name: /successible/i,
-    })
+    });
 
-    expect(heading).toBeInTheDocument()
-  })
-})
+    expect(heading).toBeInTheDocument();
+  });
+});
