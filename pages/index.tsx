@@ -3,9 +3,6 @@ import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.scss';
 
-//  Testing eslint on commit
-const test = true;
-
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
