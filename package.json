@@ -10,7 +10,8 @@
     "test": "jest --watch",
     "format:fix": "prettier --write **/*.{ts,tsx}",
     "format:check": "prettier --check **/*.{ts,tsx}",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "ts:check": "tsc --noEmit"
   },
   "dependencies": {
     "next": "12.3.1",
