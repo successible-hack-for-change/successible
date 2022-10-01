@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-const Footer = () => {
+const Footer = (): JSX.Element => {
   return (
     <footer>
       <p>Place holder footer</p>

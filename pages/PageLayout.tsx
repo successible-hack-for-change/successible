@@ -3,9 +3,9 @@ import Head from 'next/head';
 import Header from '../components/header';
 import Footer from '../components/footer';
 
-export type pageLayoutProps = { children: any };
+type PageLayoutProps = { children: React.ReactNode };
 
-const PageLayout = ({ children }: pageLayoutProps): JSX.Element => {
+const PageLayout = ({ children }: PageLayoutProps): JSX.Element => {
   return (
     <div>
       <Head>
