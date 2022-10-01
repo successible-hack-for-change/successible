@@ -1,11 +1,14 @@
 import type { NextPage } from 'next';
 import PageLayout from '../PageLayout';
+import OptionalExtras from '../../components/optionalExtras';
+import { H1 } from '@blueprintjs/core';
 
 const ExampleQuestion: NextPage = () => {
   return (
     <PageLayout>
-      <h1>Example question page</h1>
+      <H1>Example question page</H1>
       <p>This is where we explain how to do our test.</p>
+      <OptionalExtras />
     </PageLayout>
   );
 };
