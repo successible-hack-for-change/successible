@@ -1,10 +1,16 @@
 import { H1 } from '@blueprintjs/core';
+import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
+import PageLayout from '../../PageLayout';
 
-const Question = (): JSX.Element => {
+const Question: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
-  return <H1>Question {id}</H1>;
+  return (
+    <PageLayout>
+      <H1>Question {id}</H1>
+    </PageLayout>
+  );
 };
 
 export default Question;
