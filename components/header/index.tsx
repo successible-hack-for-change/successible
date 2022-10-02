@@ -22,7 +22,7 @@ const Header = (): JSX.Element => {
               text="Example question"
             />
           </Link>
-          <Link href="/example-question">
+          <Link href="/start-test">
             <Button className="bp4-minimal" icon="play" text="Start test" />
           </Link>
         </Navbar.Group>
