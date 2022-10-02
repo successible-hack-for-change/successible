@@ -22,9 +22,9 @@ module.exports = {
       dark: '#4a4e69',
       darkest: '#22223b',
       accent: {
-        accentLight: '#FFCAD4',
+        light: '#FFCAD4',
         DEFAULT: '#C1666B',
-        accentDark: '#913B3F',
+        dark: '#913B3F',
       },
     },
   },
