@@ -7,7 +7,7 @@ type PageLayoutProps = { children: React.ReactNode };
 
 const PageLayout = ({ children }: PageLayoutProps): JSX.Element => {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <Head>
         <title>Successible</title>
         <meta
