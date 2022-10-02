@@ -2,27 +2,26 @@ import { H1 } from '@blueprintjs/core';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import PageLayout from '../../PageLayout';
+import mockData from '../../../data/questions.json';
 
-const mockQuestions = [
-  {
-    id: 1,
-    question: 'Hello, world?',
-    answer: 'Hi',
-    resA: 'Hey',
-    resB: 'Hi',
-    resC: 'Hello',
-    resD: 'Hiya',
-    highlight: 'Hello',
-    image: 'imageLink',
-    timeLimit: 60,
-  },
-];
+interface Question {
+  id: number;
+  question: string;
+  answer: string;
+  resA: string;
+  resB: string;
+  resC: string;
+  resD: string;
+  highlight: string;
+  image: string;
+  timeLimit: number;
+}
 
 const Question: NextPage = () => {
   const router = useRouter();
   const { id } = router.query;
   const integerId = Number(id);
-
+  const mockQuestions: Question[] = mockData.questionSet;
   return (
     <PageLayout>
       {integerId <= mockQuestions.length ? (
