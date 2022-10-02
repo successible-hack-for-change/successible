@@ -6,7 +6,7 @@ import { Radio, RadioGroup } from '@blueprintjs/core';
 const ExampleQuestion: NextPage = () => {
   return (
     <PageLayout>
-      <h1>Example question page</h1>
+      <h1>Example question</h1>
       <div className="flex gap-5 bg-light rounded-lg p-5">
         <div className="flex-1">
           <h3>Question:</h3>
