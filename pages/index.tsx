@@ -19,7 +19,7 @@ const Home: NextPage = () => {
         </p>
         <h2>Why this is important</h2>
         <p>
-          Having a more divergent workforce brings talents, perspectives and
+          Having a more diverse workforce brings talents, perspectives and
           skills that can be beneficial in many work environments. Hiring
           diverse and neurodiverse employees can provide companies with a
           competitive edge that brings measurable benefits, both financially and

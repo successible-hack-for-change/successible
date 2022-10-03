@@ -15,7 +15,7 @@ const Instructions: NextPage = () => {
         After you have read the instructions and completed the example question,
         you can click the “Start test” button at the top of the page. On this
         page, you will be asked to enter your full name, email address, and the
-        entry code that was emailed to you on your invitation to the test.
+        entry code that was emailed to you on your invitation to take the test.
         Please take the time to make sure these details are correct.
       </p>
       <p>
@@ -47,7 +47,7 @@ const Instructions: NextPage = () => {
       </p>
       <p>
         After completing your final question you will see a page confirming
-        there are no further questions, and then you can close the page, no
+        there are no further questions. You can then close the page as no
         further action is required.
       </p>
     </PageLayout>
