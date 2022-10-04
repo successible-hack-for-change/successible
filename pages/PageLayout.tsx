@@ -7,7 +7,7 @@ type PageLayoutProps = { children: React.ReactNode };
 
 const PageLayout = ({ children }: PageLayoutProps): JSX.Element => {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <Head>
         <title>Successible</title>
         <meta
@@ -17,7 +17,9 @@ const PageLayout = ({ children }: PageLayoutProps): JSX.Element => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main>{children}</main>
+      <main className="p-4 max-w-4xl flex-col justify-center mx-auto">
+        {children}
+      </main>
       <Footer />
     </div>
   );
