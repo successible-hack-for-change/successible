@@ -8,6 +8,7 @@ interface Question {
   resD: string;
   highlight: string;
   image: string;
+  definition: string;
   timeLimit: number;
 }
 

@@ -1,44 +1,25 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { RouterContext } from 'next/dist/shared/lib/router-context';
-import Question from '../pages/question/[id]';
-import createMockRouter from '../test-utils/createMockRouter';
+import QuestionDisplay from '../components/questionDisplay';
+import mockData from '../data/questions.json';
 
-test('The question 1 page has a heading of Question 1', () => {
-  render(
-    <RouterContext.Provider value={createMockRouter({ query: { id: '1' } })}>
-      <Question />
-    </RouterContext.Provider>,
-  );
-  const heading = screen.getByRole('heading');
-  expect(heading).toHaveTextContent('Question 1');
-});
+const mockQuestions = mockData.setOfQuestions;
 
-test('The question 1 page shows the question text for the correct question', () => {
+test('The question displays the expected question number and text', () => {
   render(
-    <RouterContext.Provider value={createMockRouter({ query: { id: '1' } })}>
-      <Question />
-    </RouterContext.Provider>,
+    <QuestionDisplay
+      id={mockQuestions[0].id}
+      question={mockQuestions[0].question}
+      answer={mockQuestions[0].answer}
+      resA={mockQuestions[0].resA}
+      resB={mockQuestions[0].resB}
+      resC={mockQuestions[0].resC}
+      resD={mockQuestions[0].resD}
+      highlight={mockQuestions[0].highlight}
+      image={mockQuestions[0].image}
+      definition={mockQuestions[0].definition}
+      timeLimit={mockQuestions[0].timeLimit}
+    />,
   );
   expect(screen.getByText(/If Daves/i)).toBeInTheDocument();
-});
-
-test('If a question does not exist, the user is shown an error message', () => {
-  render(
-    <RouterContext.Provider value={createMockRouter({ query: { id: '2' } })}>
-      <Question />
-    </RouterContext.Provider>,
-  );
-  const heading = screen.getByRole('heading');
-  expect(heading).toHaveTextContent('There is no question 2');
-});
-
-test('There should be a submit button', () => {
-  render(
-    <RouterContext.Provider value={createMockRouter({ query: { id: '1' } })}>
-      <Question />
-    </RouterContext.Provider>,
-  );
-  const button = screen.getByRole('button', { name: 'Submit' });
-  expect(button).toBeInTheDocument();
 });
