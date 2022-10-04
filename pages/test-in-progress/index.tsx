@@ -1,40 +1,57 @@
+import { useState } from 'react';
 import { NextPage } from 'next';
+import { useRouter } from 'next/router';
+import { Button } from '@blueprintjs/core';
 import type { Question, SetOfQuestions } from '../../interfaces/questionTypes';
 import mockData from '../../data/questions.json';
 import PageLayout from '../PageLayout';
 import QuestionDisplay from '../../components/questionDisplay';
-import { Button } from '@blueprintjs/core';
+import Break from '../../components/break';
 
 const TestInProgress: NextPage = () => {
-  // in here, do the logic for the questions, so that we can keep track of which question we are on
-  const mockSetOfQuestions: SetOfQuestions = mockData;
+  const router = useRouter();
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [questionNumber, setQuestionNumber] = useState(0);
 
+  const mockSetOfQuestions: SetOfQuestions = mockData;
   const mockQuestions: Question[] = mockSetOfQuestions.setOfQuestions;
-  // integerId <= mockQuestions.length ?
-  {
-    /* Routing logic: click submit button, if id === mockQuestions.length -1, go to complete page. 
-      Otherwise, go to break page
-      If a user navigates to a question link that doesn't exist, show them an error page
-      Need to figure out how to stop them changing the url and hence navigating back, maybe some random hash
-      But that is more for the future
-       */
-  }
+
+  const handleSubmitOnClick = () => {
+    if (questionNumber === mockQuestions.length - 1) {
+      router.push('/completed');
+    }
+    setIsSubmitted(true);
+  };
+
+  const handleContinueOnClick = () => {
+    setQuestionNumber((prevState) => prevState + 1);
+    setIsSubmitted(false);
+  };
+
   return (
     <PageLayout>
-      <QuestionDisplay
-        id={mockQuestions[0].id}
-        question={mockQuestions[0].question}
-        answer={mockQuestions[0].answer}
-        resA={mockQuestions[0].resA}
-        resB={mockQuestions[0].resB}
-        resC={mockQuestions[0].resC}
-        resD={mockQuestions[0].resD}
-        highlight={mockQuestions[0].highlight}
-        image={mockQuestions[0].image}
-        definition={mockQuestions[0].definition}
-        timeLimit={mockQuestions[0].timeLimit}
-      />
-      <Button type="submit">Submit</Button>
+      {isSubmitted ? (
+        <Break handleContinueOnClick={handleContinueOnClick} />
+      ) : (
+        <>
+          <QuestionDisplay
+            id={mockQuestions[questionNumber].id}
+            question={mockQuestions[questionNumber].question}
+            answer={mockQuestions[questionNumber].answer}
+            resA={mockQuestions[questionNumber].resA}
+            resB={mockQuestions[questionNumber].resB}
+            resC={mockQuestions[questionNumber].resC}
+            resD={mockQuestions[questionNumber].resD}
+            highlight={mockQuestions[questionNumber].highlight}
+            image={mockQuestions[questionNumber].image}
+            definition={mockQuestions[questionNumber].definition}
+            timeLimit={mockQuestions[questionNumber].timeLimit}
+          />
+          <Button type="submit" onClick={handleSubmitOnClick}>
+            Submit
+          </Button>
+        </>
+      )}
     </PageLayout>
   );
 };
