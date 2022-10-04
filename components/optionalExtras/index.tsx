@@ -27,23 +27,15 @@ const OptionalExtras = (): JSX.Element => {
 
   return (
     <div>
+      <h3>Optional extras</h3>
       <ButtonGroup fill={true} className="flex flex-row gap-2">
-        <Button
-          onClick={() => handleHighlightsOnClick(isHighlightsOpen)}
-          style={{ minWidth: 200, backgroundColor: 'blue' }}
-        >
+        <Button onClick={() => handleHighlightsOnClick(isHighlightsOpen)}>
           Highlights
         </Button>
-        <Button
-          onClick={() => handleDiagramOnClick(isDiagramOpen)}
-          style={{ minWidth: 200, backgroundColor: 'pink' }}
-        >
+        <Button onClick={() => handleDiagramOnClick(isDiagramOpen)}>
           Diagram
         </Button>
-        <Button
-          onClick={() => handleDefinitionsOnClick(isDefinitionsOpen)}
-          style={{ minWidth: 200, backgroundColor: 'orange' }}
-        >
+        <Button onClick={() => handleDefinitionsOnClick(isDefinitionsOpen)}>
           Definitions
         </Button>
       </ButtonGroup>
@@ -60,9 +52,6 @@ const OptionalExtras = (): JSX.Element => {
       <Collapse isOpen={isDefinitionsOpen}>
         <Pre>Im just here to watch the fight.</Pre>
       </Collapse>
-      <Popover2 content={<div>Squark</div>}>
-        <div>Im a happy parrot</div>
-      </Popover2>
     </div>
   );
 };
