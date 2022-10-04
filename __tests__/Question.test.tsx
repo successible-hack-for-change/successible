@@ -20,7 +20,7 @@ test('The question 1 page shows the question text for the correct question', () 
       <Question />
     </RouterContext.Provider>,
   );
-  expect(screen.getByText('Hello, world?')).toBeInTheDocument();
+  expect(screen.getByText(/If Daves/i)).toBeInTheDocument();
 });
 
 test('If a question does not exist, the user is shown an error message', () => {

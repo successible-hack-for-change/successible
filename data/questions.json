@@ -1,16 +1,22 @@
 {
-  "questionSet": [
+  "id": "abc123",
+  "setOfQuestions": [
     {
       "id": 1,
-      "question": "Hello, world?",
-      "answer": "Hi",
-      "resA": "Hey",
-      "resB": "Hi",
-      "resC": "Hello",
-      "resD": "Hiya",
-      "highlight": "Hello",
+      "question": "If Daves Corner Shop had 16 employees in 2020 and and 21 employees in 2022 what percentage increase of employees was there between 2020 and 2022?",
+      "answer": "31.25% increase",
+      "resA": "100% increase",
+      "resB": "14.7% increase",
+      "resC": "31.25% increase",
+      "resD": "20% increase",
+      "highlight": "highlights",
       "image": "imageLink",
+      "definition": "definition",
       "timeLimit": 60
     }
-  ]
+  ],
+  "maxScore": 1,
+  "highlightSwitch": true,
+  "imageSwitch": true,
+  "definitionSwitch": true
 }
