@@ -6,6 +6,8 @@ import type {
   SetOfQuestions,
 } from '../../../interfaces/questionTypes';
 import mockData from '../../../data/questions.json';
+import Link from 'next/link';
+import { Button } from '@blueprintjs/core';
 
 const QuestionPage: NextPage = () => {
   const router = useRouter();
@@ -26,6 +28,9 @@ const QuestionPage: NextPage = () => {
       ) : (
         <h1>There is no question {id}</h1>
       )}
+      <Link href="/break">
+        <Button>Submit</Button>
+      </Link>
       {/* Routing logic: click submit button, if id === mockQuestions.length -1, go to complete page. 
       Otherwise, go to break page
       If a user navigates to a question link that doesn't exist, show them an error page

@@ -32,3 +32,13 @@ test('If a question does not exist, the user is shown an error message', () => {
   const heading = screen.getByRole('heading');
   expect(heading).toHaveTextContent('There is no question 2');
 });
+
+test('There should be a submit button', () => {
+  render(
+    <RouterContext.Provider value={createMockRouter({ query: { id: '1' } })}>
+      <Question />
+    </RouterContext.Provider>,
+  );
+  const button = screen.getByRole('button', { name: 'Submit' });
+  expect(button).toBeInTheDocument();
+});
