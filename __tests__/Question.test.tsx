@@ -3,6 +3,7 @@ import '@testing-library/jest-dom';
 import { RouterContext } from 'next/dist/shared/lib/router-context';
 import Question from '../pages/question/[id]';
 import createMockRouter from '../test-utils/createMockRouter';
+import { SWRConfig } from 'swr';
 
 test('The question 1 page has a heading of Question 1', () => {
   render(

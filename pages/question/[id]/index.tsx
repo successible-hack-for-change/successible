@@ -1,8 +1,8 @@
 import { H1 } from '@blueprintjs/core';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
+import useSWR from 'swr';
 import PageLayout from '../../PageLayout';
-import mockData from '../../../data/questions.json';
 
 interface Question {
   id: number;
@@ -17,11 +17,19 @@ interface Question {
   timeLimit: number;
 }
 
+const fetcher = (url: string) => {
+  fetch(url).then((res) => res.json());
+};
+
 const Question: NextPage = () => {
   const router = useRouter();
+  const { data, error, isValidating } = useSWR('/api/questions', fetcher);
+  console.log('isValidating: ', isValidating);
+  console.log('error: ', error);
+  console.log('data: ', data);
   const { id } = router.query;
   const integerId = Number(id);
-  const mockQuestions: Question[] = mockData.questionSet;
+  const mockQuestions: Question[] = data ? data : [];
   return (
     <PageLayout>
       {integerId <= mockQuestions.length ? (
