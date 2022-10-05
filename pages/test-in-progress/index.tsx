@@ -19,8 +19,9 @@ const TestInProgress: NextPage = () => {
   const handleSubmitOnClick = () => {
     if (questionNumber === mockQuestions.length - 1) {
       router.push('/completed');
+    } else if (questionNumber < mockQuestions.length - 1) {
+      setIsSubmitted(true);
     }
-    setIsSubmitted(true);
   };
 
   const handleContinueOnClick = () => {
