@@ -1,4 +1,3 @@
-import { NextPage } from 'next';
 import { Button } from '@blueprintjs/core';
 
 interface BreakProps {
