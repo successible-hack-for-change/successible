@@ -1,5 +1,4 @@
 import type { NextPage } from 'next';
-import PageLayout from '../PageLayout';
 import {
   Button,
   Callout,
@@ -8,8 +7,14 @@ import {
   Label,
 } from '@blueprintjs/core';
 import { Tooltip2 } from '@blueprintjs/popover2';
+import { useRouter } from 'next/router';
+import PageLayout from '../PageLayout';
 
 const StartTest: NextPage = () => {
+  const router = useRouter();
+  const handleStartOnClick = () => {
+    router.push('/test-in-progress');
+  };
   return (
     <PageLayout>
       <h1>Are you ready to take your test?</h1>
@@ -32,7 +37,11 @@ const StartTest: NextPage = () => {
             <InputGroup leftIcon="lock" placeholder="Entry code" />
           </Tooltip2>
         </Label>
-        <Button type="submit" className="!bg-accent-dark !text-white">
+        <Button
+          type="submit"
+          className="!bg-accent-dark !text-white"
+          onClick={handleStartOnClick}
+        >
           Start test
         </Button>
       </FormGroup>
