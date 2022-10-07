@@ -1,3 +1,4 @@
+// Needed for tests if we use Next dynamic routes
 import { NextRouter } from 'next/router';
 
 const createMockRouter = (router: Partial<NextRouter>): NextRouter => {
