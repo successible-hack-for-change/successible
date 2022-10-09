@@ -1,3 +1,4 @@
+import { Radio, RadioGroup } from '@blueprintjs/core';
 import type { Question } from '../../interfaces/questionTypes';
 
 const QuestionDisplay = ({
@@ -16,6 +17,12 @@ const QuestionDisplay = ({
     <>
       <h1>Question {id}</h1>
       <p>{question}</p>
+      <RadioGroup onChange={() => {}}>
+        <Radio value={'A'} label={resA} />
+        <Radio value={'B'} label={resB} />
+        <Radio value={'C'} label={resC} />
+        <Radio value={'D'} label={resD} />
+      </RadioGroup>
     </>
   );
 };
