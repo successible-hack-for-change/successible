@@ -24,6 +24,7 @@ const customJestConfig = {
     '!<rootDir>/coverage/**',
     '!.lintstagedrc.js',
     '!<rootDir>/test-utils/**',
+    '!<rootDir>/pages/_app.tsx',
   ],
 };
 
