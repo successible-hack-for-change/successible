@@ -3,13 +3,13 @@ import { Popover2 } from '@blueprintjs/popover2';
 import React, { useState } from 'react';
 
 interface OptionalExtraProps {
-  hightlightContent: string;
+  highlightContent: string;
   diagramContent: string;
   definitionsContent: string;
 }
 
 const OptionalExtras = ({
-  hightlightContent,
+  highlightContent,
   diagramContent,
   definitionsContent,
 }: OptionalExtraProps): JSX.Element => {
@@ -51,7 +51,7 @@ const OptionalExtras = ({
       </ButtonGroup>
       <Collapse isOpen={isHighlightsOpen}>
         {/* <Pre> is basically and pre-styled div */}
-        <Pre>{hightlightContent}</Pre>
+        <Pre>{highlightContent}</Pre>
       </Collapse>
       <Collapse isOpen={isDiagramOpen}>
         <Pre>{diagramContent}</Pre>

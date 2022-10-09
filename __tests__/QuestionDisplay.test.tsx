@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import QuestionDisplay from '../components/questionDisplay';
 
-test('The question displays the expected props', () => {
+test('The question displays the expected question and answer props', () => {
   render(
     <QuestionDisplay
       id={1}

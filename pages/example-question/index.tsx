@@ -27,7 +27,7 @@ const ExampleQuestion: NextPage = () => {
         </div>
       </div>
       <OptionalExtras
-        hightlightContent="Sometimes I hide because I&#39;m shy."
+        highlightContent="Sometimes I hide because I&#39;m shy."
         diagramContent="I like to be center of attention so everything else should be closed
         when I&#39;m open."
         definitionsContent="I&#39;m just here to watch the fight."

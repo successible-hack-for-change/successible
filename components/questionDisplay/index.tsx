@@ -1,4 +1,5 @@
 import { Radio, RadioGroup } from '@blueprintjs/core';
+import OptionalExtras from '../optionalExtras';
 import type { Question } from '../../interfaces/questionTypes';
 
 const QuestionDisplay = ({
@@ -23,6 +24,11 @@ const QuestionDisplay = ({
         <Radio value={'C'} label={resC} />
         <Radio value={'D'} label={resD} />
       </RadioGroup>
+      <OptionalExtras
+        highlightContent={highlight}
+        diagramContent={image}
+        definitionsContent={definition}
+      />
     </>
   );
 };
