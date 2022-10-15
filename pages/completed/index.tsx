@@ -4,7 +4,7 @@ import PageLayout from '../PageLayout';
 const Completed: NextPage = () => {
   return (
     <PageLayout>
-      <div>Completed</div>
+      <h1>Completed</h1>
     </PageLayout>
   );
 };

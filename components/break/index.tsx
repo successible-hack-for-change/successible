@@ -7,7 +7,7 @@ interface BreakProps {
 const Break = ({ handleContinueOnClick }: BreakProps): JSX.Element => {
   return (
     <>
-      <div>Break Page</div>
+      <h1>Break Page</h1>
       <Button onClick={handleContinueOnClick}>Continue</Button>
     </>
   );

@@ -42,7 +42,7 @@ const StartTest: NextPage = () => {
           className="!bg-accent-dark !text-white"
           onClick={handleStartOnClick}
         >
-          Start test
+          Start your test
         </Button>
       </FormGroup>
     </PageLayout>

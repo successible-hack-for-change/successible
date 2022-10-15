@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest --watch",
+    "test:withCoverage": "jest --coverage",
     "format:fix": "prettier --write **/*.{ts,tsx}",
     "format:check": "prettier --check **/*.{ts,tsx}",
     "prepare": "husky install",
