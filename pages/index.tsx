@@ -7,7 +7,7 @@ const Home: NextPage = () => {
     <div>
       <PageLayout>
         <h1 className="text-center">Successible</h1>
-        <Callout title="Our Vision" className="!bg-lightest">
+        <Callout title="Our Vision" className="!bg-light">
           We aim to level the playing field for everyone by providing an equal
           opportunity of employment regardless of background, neurodiversity, or
           additional requirements.

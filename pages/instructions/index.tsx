@@ -6,7 +6,7 @@ const Instructions: NextPage = () => {
   return (
     <PageLayout>
       <h1 className="text-center">Instructions</h1>
-      <Callout title="Important!" className="mb-4 !bg-lightest">
+      <Callout title="Important!" className="mb-4 !bg-light">
         Successible tests may be a little different to those you have taken
         before, so please read these instructions carefully and complete the
         example question before begining your test.

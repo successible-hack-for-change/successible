@@ -37,27 +37,47 @@ const OptionalExtras = ({
 
   return (
     <div>
-      <h3>Optional extras</h3>
-      <ButtonGroup fill={true} className="flex flex-row gap-2">
-        <Button onClick={() => handleHighlightsOnClick(isHighlightsOpen)}>
+      <h3 className="mt-5">Optional extras</h3>
+      <ButtonGroup fill={true} className="flex flex-row gap-2 h-10">
+        <Button
+          className={`!bg-dark !text-white !rounded-md !shadow-md ${
+            isHighlightsOpen ? 'opacity-100' : 'opacity-80'
+          }`}
+          onClick={() => handleHighlightsOnClick(isHighlightsOpen)}
+        >
           Highlights
         </Button>
-        <Button onClick={() => handleDiagramOnClick(isDiagramOpen)}>
+        <Button
+          className={`!bg-dark !text-white !rounded-md !shadow-md ${
+            isDiagramOpen ? 'opacity-100' : 'opacity-80'
+          }`}
+          onClick={() => handleDiagramOnClick(isDiagramOpen)}
+        >
           Diagram
         </Button>
-        <Button onClick={() => handleDefinitionsOnClick(isDefinitionsOpen)}>
+        <Button
+          className={`!bg-dark !text-white !rounded-md !shadow-md ${
+            isDefinitionsOpen ? 'opacity-100' : 'opacity-80'
+          }`}
+          onClick={() => handleDefinitionsOnClick(isDefinitionsOpen)}
+        >
           Definitions
         </Button>
       </ButtonGroup>
       <Collapse isOpen={isHighlightsOpen}>
-        {/* <Pre> is basically and pre-styled div */}
-        <Pre>{highlightContent}</Pre>
+        <div className="my-5 p-5 border border-grey-light rounded-sm">
+          {highlightContent}
+        </div>
       </Collapse>
       <Collapse isOpen={isDiagramOpen}>
-        <Pre>{diagramContent}</Pre>
-      </Collapse>{' '}
+        <div className="my-5 p-5 border border-grey-light rounded-sm">
+          {diagramContent}
+        </div>
+      </Collapse>
       <Collapse isOpen={isDefinitionsOpen}>
-        <Pre>{definitionsContent}</Pre>
+        <div className="my-5 p-5 border border-grey-light rounded-sm">
+          {definitionsContent}
+        </div>
       </Collapse>
     </div>
   );
