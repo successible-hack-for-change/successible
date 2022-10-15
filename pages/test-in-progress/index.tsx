@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import { Button } from '@blueprintjs/core';
 import type { Question, SetOfQuestions } from '../../interfaces/questionTypes';
 import mockData from '../../data/questions.json';
 import PageLayout from '../PageLayout';
@@ -47,10 +46,9 @@ const TestInProgress: NextPage = () => {
             image={mockQuestions[questionNumber].image}
             definition={mockQuestions[questionNumber].definition}
             timeLimit={mockQuestions[questionNumber].timeLimit}
+            handleSubmitOnClick={handleSubmitOnClick}
+            totalQuestions={mockQuestions.length}
           />
-          <Button type="submit" onClick={handleSubmitOnClick}>
-            Submit
-          </Button>
         </>
       )}
     </PageLayout>

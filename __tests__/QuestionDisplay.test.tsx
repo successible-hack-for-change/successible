@@ -3,6 +3,8 @@ import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import QuestionDisplay from '../components/questionDisplay';
 
+const noop = jest.fn();
+
 test('The question displays the expected question and answer props', () => {
   render(
     <QuestionDisplay
@@ -17,6 +19,7 @@ test('The question displays the expected question and answer props', () => {
       image="imageLink"
       definition="definition"
       timeLimit={60}
+      handleSubmitOnClick={noop}
     />,
   );
   expect(
@@ -43,6 +46,7 @@ test('The radio element that is clicked becomes checked', async () => {
       image="imageLink"
       definition="definition"
       timeLimit={60}
+      handleSubmitOnClick={noop}
     />,
   );
 
