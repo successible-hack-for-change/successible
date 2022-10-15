@@ -1,3 +1,6 @@
+import { FormEvent, useState } from 'react';
+import { Radio, RadioGroup } from '@blueprintjs/core';
+import OptionalExtras from '../optionalExtras';
 import type { Question } from '../../interfaces/questionTypes';
 
 const QuestionDisplay = ({
@@ -12,10 +15,31 @@ const QuestionDisplay = ({
   image,
   definition,
 }: Question): JSX.Element => {
+  const [selectedAnswer, setSelectedAnswer] = useState('');
+  const handleOnRadioClick = (event: FormEvent<HTMLInputElement>) => {
+    setSelectedAnswer(event.currentTarget.value);
+  };
   return (
     <>
       <h1>Question {id}</h1>
       <p>{question}</p>
+      <RadioGroup
+        name="Answers"
+        onChange={(event) => {
+          handleOnRadioClick(event);
+        }}
+        selectedValue={selectedAnswer}
+      >
+        <Radio value={'A'} label={resA} />
+        <Radio value={'B'} label={resB} />
+        <Radio value={'C'} label={resC} />
+        <Radio value={'D'} label={resD} />
+      </RadioGroup>
+      <OptionalExtras
+        highlightContent={highlight}
+        diagramContent={image}
+        definitionsContent={definition}
+      />
     </>
   );
 };

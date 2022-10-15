@@ -2,7 +2,17 @@ import { Button, ButtonGroup, Collapse, Pre } from '@blueprintjs/core';
 import { Popover2 } from '@blueprintjs/popover2';
 import React, { useState } from 'react';
 
-const OptionalExtras = (): JSX.Element => {
+interface OptionalExtraProps {
+  highlightContent: string;
+  diagramContent: string;
+  definitionsContent: string;
+}
+
+const OptionalExtras = ({
+  highlightContent,
+  diagramContent,
+  definitionsContent,
+}: OptionalExtraProps): JSX.Element => {
   const [isHighlightsOpen, setIsHighlightsOpen] = useState(false);
   const [isDiagramOpen, setIsDiagramOpen] = useState(false);
   const [isDefinitionsOpen, setIsDefinitionsOpen] = useState(false);
@@ -41,16 +51,13 @@ const OptionalExtras = (): JSX.Element => {
       </ButtonGroup>
       <Collapse isOpen={isHighlightsOpen}>
         {/* <Pre> is basically and pre-styled div */}
-        <Pre>Sometimes I hide because Im shy.</Pre>
+        <Pre>{highlightContent}</Pre>
       </Collapse>
       <Collapse isOpen={isDiagramOpen}>
-        <Pre>
-          I like to be center of attention so everything else should be closed
-          when Im open.
-        </Pre>
+        <Pre>{diagramContent}</Pre>
       </Collapse>{' '}
       <Collapse isOpen={isDefinitionsOpen}>
-        <Pre>Im just here to watch the fight.</Pre>
+        <Pre>{definitionsContent}</Pre>
       </Collapse>
     </div>
   );
