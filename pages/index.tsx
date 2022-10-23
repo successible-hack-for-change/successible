@@ -1,23 +1,35 @@
-import { Callout, Card } from '@blueprintjs/core';
+import { Callout, Card, UL } from '@blueprintjs/core';
 import type { NextPage } from 'next';
+import LineHeading from '../components/lineHeading';
 import PageLayout from './PageLayout';
+import Image from 'next/image';
+import { Icon } from '@blueprintjs/core';
 
 const Home: NextPage = () => {
   return (
-    <div>
-      <PageLayout>
-        <h1 className="text-center">Successible</h1>
-        <Callout title="Our Vision" className="!bg-light">
-          We aim to level the playing field for everyone by providing an equal
-          opportunity of employment regardless of background, neurodiversity, or
-          additional requirements.
+    <PageLayout>
+      <section className="p-28 bg-gradient-to-r from-light to-lightest justify-center">
+        <div className="flex items-center justify-center pb-10">
+          <Image
+            src="/successible-logo.svg"
+            alt="Successible logo"
+            height={100}
+            width={100}
+          />
+          <div className="pl-3">
+            <h1 className="p-0">Successible</h1>
+            <h3 className="p-0">One test for everyone</h3>
+          </div>
+        </div>
+        <Callout className="!bg-white/0 text-center max-w-lg mx-auto">
+          We provide automated pre-employment tests, with an emphasis on
+          accessibility for all. We aim to level the playing field for everyone
+          by providing an equal opportunity of employment regardless of
+          background, neurodiversity, or additional requirements.
         </Callout>
-        <h2>What we do</h2>
-        <p>
-          Successible provides automated pre-employment tests, with an emphasis
-          on accessibility, creating one test for everyone.
-        </p>
-        <h2>Why this is important</h2>
+      </section>
+      <section className="p-4 max-w-4xl flex-col justify-center mx-auto">
+        <LineHeading title="The future of the work place" />
         <p>
           Having a more diverse workforce brings talents, perspectives and
           skills that can be beneficial in many work environments. Hiring
@@ -25,10 +37,15 @@ const Home: NextPage = () => {
           competitive edge that brings measurable benefits, both financially and
           in terms of workplace culture.
         </p>
-        <h2>How we achieve this</h2>
-        <div className="flex flex-row gap-4 mb-5">
-          <Card className="flex-1">
-            <h4>Unlimited break time between questions</h4>
+        <LineHeading title="What makes Successible different" />
+        <div className="flex flex-row gap-10 mb-5">
+          <Card className="flex-1 !p-10 !rounded-xl !bg-mid !shadow text-white">
+            <div className="text-center py-4">
+              <Icon icon="time" size={80} />
+            </div>
+            <h3 className="text-center">
+              Unlimited break time between questions
+            </h3>
             <p>
               Tests can be a very stressful ordeal for many, leading them to not
               perform as well as they can do in their future workplaces. By
@@ -36,19 +53,29 @@ const Home: NextPage = () => {
               them to perform to their full potential.
             </p>
           </Card>
-          <Card className="flex-1">
-            <h4>Optional extras</h4>
+          <Card className="flex-1 !p-10 !rounded-xl !bg-accent !shadow text-white">
+            <div className="text-center py-4">
+              <Icon icon="add" size={80} />
+            </div>
+            <h3 className="text-center">Optional extras</h3>
             <p>
               Many traditional tests cater best for candidates who interpret
               information in a specific way. Our tests allow candidates to
-              choose to view each question in multiple ways, such as diagrams
-              and audio. This means they choose the way that works best for
-              them.
+              choose to view each question in multiple ways. This means they
+              choose the way that works best for them.
             </p>
+            <p>Options will vary depending on the question, but may include:</p>
+            <UL className="list-disc">
+              <li>Diagrams</li>
+              <li>Audio</li>
+              <li>Definitions</li>
+              <li>Highlights</li>
+              <li>Visual aids</li>
+            </UL>
           </Card>
         </div>
-      </PageLayout>
-    </div>
+      </section>
+    </PageLayout>
   );
 };
 
