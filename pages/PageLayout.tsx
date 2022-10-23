@@ -17,7 +17,7 @@ const PageLayout = ({ children }: PageLayoutProps): JSX.Element => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main>{children}</main>
+      <main className="bg-white">{children}</main>
       <Footer />
     </div>
   );

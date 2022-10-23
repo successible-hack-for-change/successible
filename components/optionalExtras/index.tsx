@@ -1,5 +1,4 @@
 import { Button, ButtonGroup, Collapse, Pre } from '@blueprintjs/core';
-import { Popover2 } from '@blueprintjs/popover2';
 import React, { useState } from 'react';
 
 interface OptionalExtraProps {
@@ -36,10 +35,11 @@ const OptionalExtras = ({
   };
 
   return (
-    <div>
+    <div id="optional-extras">
       <h3 className="mt-5">Optional extras</h3>
       <ButtonGroup fill={true} className="flex flex-row gap-2 h-10">
         <Button
+          id="highlights"
           className={`!bg-dark !text-white !rounded-md !shadow-md ${
             isHighlightsOpen ? 'opacity-100' : 'opacity-80'
           }`}
@@ -48,6 +48,7 @@ const OptionalExtras = ({
           Highlights
         </Button>
         <Button
+          id="diagram"
           className={`!bg-dark !text-white !rounded-md !shadow-md ${
             isDiagramOpen ? 'opacity-100' : 'opacity-80'
           }`}
@@ -56,6 +57,7 @@ const OptionalExtras = ({
           Diagram
         </Button>
         <Button
+          id="definitions"
           className={`!bg-dark !text-white !rounded-md !shadow-md ${
             isDefinitionsOpen ? 'opacity-100' : 'opacity-80'
           }`}
