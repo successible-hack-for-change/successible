@@ -8,7 +8,7 @@ import { Icon } from '@blueprintjs/core';
 const Home: NextPage = () => {
   return (
     <PageLayout>
-      <section className="p-28 bg-gradient-to-r from-light to-lightest justify-center">
+      <section className="p-28 bg-gradient-to-r from-mid to-accent justify-center">
         <div className="flex items-center justify-center pb-10">
           <Image
             src="/successible-logo.svg"
@@ -39,13 +39,13 @@ const Home: NextPage = () => {
         </p>
         <LineHeading title="What makes Successible different" />
         <div className="flex flex-row gap-10 mb-5">
-          <Card className="flex-1 !p-10 !rounded-xl !bg-mid !shadow text-white">
+          <Card className="flex-1 !p-10 !rounded-xl !bg-light !shadow">
             <div className="text-center py-4">
               <Icon icon="time" size={80} />
             </div>
-            <h3 className="text-center">
+            <h2 className="text-center py-5">
               Unlimited break time between questions
-            </h3>
+            </h2>
             <p>
               Tests can be a very stressful ordeal for many, leading them to not
               perform as well as they can do in their future workplaces. By
@@ -53,11 +53,11 @@ const Home: NextPage = () => {
               them to perform to their full potential.
             </p>
           </Card>
-          <Card className="flex-1 !p-10 !rounded-xl !bg-accent !shadow text-white">
+          <Card className="flex-1 !p-10 !rounded-xl !bg-accent-light !shadow">
             <div className="text-center py-4">
               <Icon icon="add" size={80} />
             </div>
-            <h3 className="text-center">Optional extras</h3>
+            <h2 className="text-center py-5">Optional extras</h2>
             <p>
               Many traditional tests cater best for candidates who interpret
               information in a specific way. Our tests allow candidates to

@@ -8,7 +8,7 @@ const Instructions: NextPage = () => {
     <PageLayout>
       <div className="p-4 max-w-4xl flex-col justify-center mx-auto">
         <h1 className="text-center">Instructions</h1>
-        <Callout title="Important!" className="mb-4 !bg-light">
+        <Callout title="Important!" className="mb-4 !bg-accent-light">
           Successible tests may be a little different to those you have taken
           before, so please read these instructions carefully and complete the
           example question before begining your test.

@@ -40,8 +40,8 @@ const OptionalExtras = ({
       <ButtonGroup fill={true} className="flex flex-row gap-2 h-10">
         <Button
           id="highlights"
-          className={`!bg-dark !text-white !rounded-md !shadow-md ${
-            isHighlightsOpen ? 'opacity-100' : 'opacity-80'
+          className={`!bg-accent !rounded-md !shadow-md ${
+            isHighlightsOpen ? 'opacity-100' : 'opacity-75'
           }`}
           onClick={() => handleHighlightsOnClick(isHighlightsOpen)}
         >
@@ -49,8 +49,8 @@ const OptionalExtras = ({
         </Button>
         <Button
           id="diagram"
-          className={`!bg-dark !text-white !rounded-md !shadow-md ${
-            isDiagramOpen ? 'opacity-100' : 'opacity-80'
+          className={`!bg-accent !rounded-md !shadow-md ${
+            isDiagramOpen ? 'opacity-100' : 'opacity-75'
           }`}
           onClick={() => handleDiagramOnClick(isDiagramOpen)}
         >
@@ -58,8 +58,8 @@ const OptionalExtras = ({
         </Button>
         <Button
           id="definitions"
-          className={`!bg-dark !text-white !rounded-md !shadow-md ${
-            isDefinitionsOpen ? 'opacity-100' : 'opacity-80'
+          className={`!bg-accent !rounded-md !shadow-md ${
+            isDefinitionsOpen ? 'opacity-100' : 'opacity-75'
           }`}
           onClick={() => handleDefinitionsOnClick(isDefinitionsOpen)}
         >

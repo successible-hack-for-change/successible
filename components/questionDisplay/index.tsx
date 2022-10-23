@@ -2,6 +2,7 @@ import { FormEvent, useState } from 'react';
 import { Radio, RadioGroup, Button, Icon } from '@blueprintjs/core';
 import OptionalExtras from '../optionalExtras';
 import type { Question } from '../../interfaces/questionTypes';
+import CustomButton from '../customButton';
 
 interface QuestionDisplayProps extends Question {
   handleSubmitOnClick: () => void;
@@ -58,14 +59,12 @@ const QuestionDisplay = ({
             <Radio value={'C'} label={resC} />
             <Radio value={'D'} label={resD} />
           </RadioGroup>
-          <Button
-            className="mb-3 !bg-accent-dark !text-white !rounded-md !shadow-md"
+          <CustomButton
             type="submit"
             onClick={handleSubmitOnClick}
             id="submit-btn"
-          >
-            Submit
-          </Button>
+            title="Submit"
+          />
         </div>
       </div>
       <OptionalExtras
