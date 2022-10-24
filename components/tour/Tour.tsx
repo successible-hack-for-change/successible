@@ -1,4 +1,8 @@
-import ReactJoyride from 'react-joyride';
+import dynamic from 'next/dynamic';
+
+// Had to avoid server-side rendering because of hydration issues
+// Known error between Joyride and NextJS
+const JoyRide = dynamic(() => import('react-joyride'), { ssr: false });
 
 const Tour = (): JSX.Element | null => {
   const steps = [
@@ -7,8 +11,8 @@ const Tour = (): JSX.Element | null => {
         <>
           <h3>Question number</h3>
           <p>
-            This will tell you which question you are on, and how many
-            questions there are in total.
+            This will tell you which question you are on, and how many questions
+            there are in total.
           </p>
         </>
       ),
@@ -46,9 +50,9 @@ const Tour = (): JSX.Element | null => {
           </p>
           <p>
             You do not need to use these if you do not want to, as all
-            information needed to choose an answer is in question.
-            However, some candidates may find these useful.
-            The options you choose to use are not recorded.
+            information needed to choose an answer is in question. However, some
+            candidates may find these useful. The options you choose to use are
+            not recorded.
           </p>
           <p>We recommend you try these out now.</p>
         </>
@@ -77,7 +81,9 @@ const Tour = (): JSX.Element | null => {
       content: (
         <>
           <h3>Definitions</h3>
-          <p>Click on this to see definitions of some words used in the question.</p>
+          <p>
+            Click on this to see definitions of some words used in the question.
+          </p>
         </>
       ),
       target: '#definitions',
@@ -109,13 +115,7 @@ const Tour = (): JSX.Element | null => {
   ];
 
   return (
-    <ReactJoyride
-      steps={steps}
-      showProgress
-      continuous
-      disableOverlayClose
-      run
-    />
+    <JoyRide steps={steps} showProgress continuous disableOverlayClose run />
   );
 };
 
