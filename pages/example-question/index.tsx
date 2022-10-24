@@ -2,8 +2,11 @@ import type { NextPage } from 'next';
 import PageLayout from '../PageLayout';
 import QuestionDisplay from '../../components/questionDisplay';
 import Tour from '../../components/tour/Tour';
+import { useState } from 'react';
 
 const ExampleQuestion: NextPage = () => {
+  const [clockIsAnimated, setClockIsAnimated] = useState(true);
+
   return (
     <PageLayout>
       <QuestionDisplay
@@ -23,6 +26,8 @@ const ExampleQuestion: NextPage = () => {
         definition={"I'm just here to watch the fight."}
         timeLimit={60}
         handleSubmitOnClick={() => {}}
+        clockIsAnimated={clockIsAnimated}
+        setClockIsAnimated={setClockIsAnimated}
       />
       <Tour />
     </PageLayout>

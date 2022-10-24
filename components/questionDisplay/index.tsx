@@ -1,5 +1,5 @@
-import { FormEvent, useState } from 'react';
-import { Radio, RadioGroup, Icon } from '@blueprintjs/core';
+import { Dispatch, FormEvent, SetStateAction, useState } from 'react';
+import { Radio, RadioGroup, Button } from '@blueprintjs/core';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import OptionalExtras from '../optionalExtras';
 import type { Question } from '../../interfaces/questionTypes';
@@ -8,6 +8,8 @@ import CustomButton from '../customButton';
 interface QuestionDisplayProps extends Question {
   handleSubmitOnClick: () => void;
   totalQuestions?: number;
+  clockIsAnimated: boolean;
+  setClockIsAnimated: Dispatch<SetStateAction<boolean>>;
 }
 
 const QuestionDisplay = ({
@@ -24,6 +26,8 @@ const QuestionDisplay = ({
   timeLimit,
   handleSubmitOnClick,
   totalQuestions,
+  clockIsAnimated,
+  setClockIsAnimated,
 }: QuestionDisplayProps): JSX.Element => {
   const [selectedAnswer, setSelectedAnswer] = useState('');
   const handleOnRadioClick = (event: FormEvent<HTMLInputElement>) => {
@@ -38,10 +42,18 @@ const QuestionDisplay = ({
           {id === 0 ? 'Question 1 of 1' : `Question ${id} of ${totalQuestions}`}
         </h1>
         <div className="flex-1 flex justify-end items-center" id="timer">
+          <Button
+            onClick={() => {
+              setClockIsAnimated((prevClockIsAnimated) => !prevClockIsAnimated);
+            }}
+            className="mr-5"
+          >
+            Stop animation
+          </Button>
           <CountdownCircleTimer
             isPlaying
-            duration={75}
-            colors={'#ff9100'}
+            duration={timeLimit}
+            colors={clockIsAnimated ? '#ff9100' : '#d9d9d9'}
             size={80}
             onComplete={() => {
               handleSubmitOnClick();
