@@ -11,7 +11,7 @@ const Instructions: NextPage = () => {
         <Callout title="Important!" className="mb-4 !bg-accent-light">
           Successible tests may be a little different to those you have taken
           before, so please read these instructions carefully and complete the
-          example question before begining your test.
+          example question before beginning your test.
         </Callout>
         <LineHeading title="Starting your test" />
         <p>
@@ -30,14 +30,14 @@ const Instructions: NextPage = () => {
         <LineHeading title="During your test" />
         <p>
           When your first question loads, your timer will begin. You will see
-          the question, answers, submit button timer, and optional extras laid
+          the question, answers, submit button, timer, and optional extras laid
           out exacty how they are in the example question, so please make sure
           you have taken the time to familiarise yourself with the layout of the
           example question. Bear in mind, not all optional extras will show for
           every question.
         </p>
         <p>
-          After you have submitted your question your answer will be logged and
+          After you have submitted your response your answer will be logged and
           you will be taken to a “break” page before your next question. This
           page is not timed and you may take as long as you like before
           beginning your next question.

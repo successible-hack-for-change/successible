@@ -22,7 +22,7 @@ const Break = ({ handleContinueOnClick }: BreakProps): JSX.Element => {
       </p>
       <p>
         If you had selected an answer but not submitted it when the timer ran
-        out, your answer will have been submitted
+        out, your answer will have been submitted.
       </p>
       <CustomButton onClick={handleContinueOnClick} title="Continue" />
     </div>

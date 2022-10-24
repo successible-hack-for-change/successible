@@ -7,7 +7,7 @@ const Tour = (): JSX.Element | null => {
         <>
           <h3>Question number</h3>
           <p>
-            This will tell you what number question you are on, and how many
+            This will tell you which question you are on, and how many
             questions there are in total.
           </p>
         </>
@@ -41,16 +41,16 @@ const Tour = (): JSX.Element | null => {
         <>
           <h3>Optional extras can be found here</h3>
           <p>
-            Click on these buttons to display the extras avaliable for this
+            Click on these buttons to display the extras available for this
             question.
           </p>
           <p>
             You do not need to use these if you do not want to, as all
-            information needed to answer the question is in the question.
-            However, some candidates may find these useful. Which (if any) of
-            the options you choose to use is not recorded.
+            information needed to choose an answer is in question.
+            However, some candidates may find these useful.
+            The options you choose to use are not recorded.
           </p>
-          <p>We reccomend you try these out now.</p>
+          <p>We recommend you try these out now.</p>
         </>
       ),
       target: '#optional-extras',
@@ -77,7 +77,7 @@ const Tour = (): JSX.Element | null => {
       content: (
         <>
           <h3>Definitions</h3>
-          <p>Click on this to see definitions of some words.</p>
+          <p>Click on this to see definitions of some words used in the question.</p>
         </>
       ),
       target: '#definitions',

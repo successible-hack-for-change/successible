@@ -15,7 +15,7 @@ const Completed: NextPage = () => {
         <h1 className="p-5">Congratulations</h1>
         <p>
           You have reached the end of your test and your answers have been
-          sumbitted. Your employers will contact you directly with the next
+          submitted. Your employers will contact you directly with the next
           steps of your application.
         </p>
         <p>You may now close the page.</p>
