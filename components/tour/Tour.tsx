@@ -17,6 +17,7 @@ const Tour = (): JSX.Element | null => {
         </>
       ),
       target: '#question-title',
+      disableBeacon: true,
     },
     {
       content: (
@@ -113,7 +114,9 @@ const Tour = (): JSX.Element | null => {
     },
   ];
 
-  return <JoyRide steps={steps} showProgress continuous disableOverlayClose />;
+  return (
+    <JoyRide steps={steps} showProgress continuous disableOverlayClose run />
+  );
 };
 
 export default Tour;
