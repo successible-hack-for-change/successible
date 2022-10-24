@@ -24,8 +24,8 @@ const Instructions: NextPage = () => {
         </p>
         <p>
           When you click the “Start test” button, you may see a loading screen
-          while we retrieve your questions. Don&#39;t worry, your question timer
-          will not start until your first question has loaded.
+          while we retrieve your questions. Don&apos;t worry, your question
+          timer will not start until your first question has loaded.
         </p>
         <LineHeading title="During your test" />
         <p>

@@ -18,9 +18,9 @@ const ExampleQuestion: NextPage = () => {
         resD={'20% increase'}
         highlight={"Sometimes I hide because I'm shy."}
         image={
-          'I like to be center of attention so everything else should be closed when I&#39;m open.'
+          "I like to be center of attention so everything else should be closed when I'm open."
         }
-        definition={'I&#39;m just here to watch the fight.'}
+        definition={"I'm just here to watch the fight."}
         timeLimit={60}
         handleSubmitOnClick={() => {}}
       />
