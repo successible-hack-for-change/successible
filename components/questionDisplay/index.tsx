@@ -37,10 +37,10 @@ const QuestionDisplay = ({
         <h1 className=" flex-2 text-center" id="question-title">
           {id === 0 ? 'Question 1 of 1' : `Question ${id} of ${totalQuestions}`}
         </h1>
-        <h3 className="flex-1 flex justify-end items-center" id="timer">
+        <div className="flex-1 flex justify-end items-center" id="timer">
           <CountdownCircleTimer
             isPlaying
-            duration={timeLimit}
+            duration={75}
             colors={'#ff9100'}
             size={80}
             onComplete={() => {
@@ -49,12 +49,15 @@ const QuestionDisplay = ({
           >
             {({ remainingTime }) => {
               const minutes = Math.floor(remainingTime / 60);
-              const seconds = remainingTime % 60;
+              const seconds =
+                remainingTime % 60 < 10
+                  ? `0${remainingTime % 60}`
+                  : remainingTime % 60;
 
               return `${minutes}:${seconds}`;
             }}
           </CountdownCircleTimer>
-        </h3>
+        </div>
       </div>
       <div className="flex gap-5 bg-light rounded-lg p-5">
         <div className="flex-1" id="question">
