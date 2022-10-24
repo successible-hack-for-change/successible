@@ -13,7 +13,7 @@ const Footer = (): JSX.Element => {
         />
         <div className="pl-3">
           <p className="p-0 m-0 text-base">Successible</p>
-          <p className="p-0 m-0 text-xs">One test for everyone</p>
+          <p className="p-0 m-0 text-xs">Opportunity for everyone</p>
         </div>
       </div>
     </footer>

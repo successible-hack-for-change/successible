@@ -26,7 +26,7 @@ const StartTest: NextPage = () => {
           Please make sure you have read the instructions and completed the
           example question first.
         </Callout>
-        <FormGroup className="bg-dark text-white p-4 rounded-lg max-w-md !mx-auto !my-10">
+        <FormGroup className="bg-light text-grey-darkest p-4 rounded-lg max-w-md !mx-auto !my-10 shadow">
           <Label className="pb-3">
             Full Name
             <InputGroup leftIcon="person" placeholder="Full name" large />

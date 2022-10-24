@@ -18,7 +18,7 @@ const Home: NextPage = () => {
           />
           <div className="pl-3">
             <h1 className="p-0">Successible</h1>
-            <h3 className="p-0">One test for everyone</h3>
+            <h3 className="p-0">Opportunity for everyone</h3>
           </div>
         </div>
         <Callout className="!bg-white/0 text-center max-w-lg mx-auto">

@@ -17,7 +17,7 @@ const Break = ({ handleContinueOnClick }: BreakProps): JSX.Element => {
       />
       <h1 className="p-4">Break Page</h1>
       <p>
-        This is an oppertinity for you to take a break if you need one. This
+        This is an opportunity for you to take a break if you need one. This
         page is not being timed.
       </p>
       <p>

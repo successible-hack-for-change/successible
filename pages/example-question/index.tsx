@@ -16,7 +16,7 @@ const ExampleQuestion: NextPage = () => {
         resB={'14.7% increase'}
         resC={'31.25% increase'}
         resD={'20% increase'}
-        highlight={'Sometimes I hide because I&#39;m shy.'}
+        highlight={"Sometimes I hide because I'm shy."}
         image={
           'I like to be center of attention so everything else should be closed when I&#39;m open.'
         }
