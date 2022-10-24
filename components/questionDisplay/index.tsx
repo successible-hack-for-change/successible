@@ -1,5 +1,6 @@
 import { FormEvent, useState } from 'react';
-import { Radio, RadioGroup, Button, Icon } from '@blueprintjs/core';
+import { Radio, RadioGroup, Icon } from '@blueprintjs/core';
+import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import OptionalExtras from '../optionalExtras';
 import type { Question } from '../../interfaces/questionTypes';
 import CustomButton from '../customButton';
@@ -20,6 +21,7 @@ const QuestionDisplay = ({
   highlight,
   image,
   definition,
+  timeLimit,
   handleSubmitOnClick,
   totalQuestions,
 }: QuestionDisplayProps): JSX.Element => {
@@ -27,6 +29,7 @@ const QuestionDisplay = ({
   const handleOnRadioClick = (event: FormEvent<HTMLInputElement>) => {
     setSelectedAnswer(event.currentTarget.value);
   };
+
   return (
     <div className="p-4 max-w-4xl flex-col justify-center mx-auto">
       <div className="flex flex-row items-center">
@@ -35,8 +38,22 @@ const QuestionDisplay = ({
           {id === 0 ? 'Question 1 of 1' : `Question ${id} of ${totalQuestions}`}
         </h1>
         <h3 className="flex-1 flex justify-end items-center" id="timer">
-          <Icon icon="time" size={30} />
-          <span className="pl-3">4:00</span>
+          <CountdownCircleTimer
+            isPlaying
+            duration={timeLimit}
+            colors={'#ff9100'}
+            size={80}
+            onComplete={() => {
+              handleSubmitOnClick();
+            }}
+          >
+            {({ remainingTime }) => {
+              const minutes = Math.floor(remainingTime / 60);
+              const seconds = remainingTime % 60;
+
+              return `${minutes}:${seconds}`;
+            }}
+          </CountdownCircleTimer>
         </h3>
       </div>
       <div className="flex gap-5 bg-light rounded-lg p-5">

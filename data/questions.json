@@ -12,7 +12,7 @@
       "highlight": "highlights",
       "image": "imageLink",
       "definition": "definition",
-      "timeLimit": 60
+      "timeLimit": 120
     },
     {
       "id": 2,
@@ -25,7 +25,7 @@
       "highlight": "highlights",
       "image": "imageLink",
       "definition": "definition",
-      "timeLimit": 60
+      "timeLimit": 90
     }
   ],
   "maxScore": 2,
