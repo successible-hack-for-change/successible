@@ -1,12 +1,10 @@
 import dynamic from 'next/dynamic';
-import { useState } from 'react';
 
 // Had to avoid server-side rendering because of hydration issues
 // Known error between Joyride and NextJS
 const JoyRide = dynamic(() => import('react-joyride'), { ssr: false });
 
 const Tour = (): JSX.Element | null => {
-  const [showTour, setShowTour] = useState(false);
   const steps = [
     {
       content: (
@@ -116,16 +114,8 @@ const Tour = (): JSX.Element | null => {
     },
   ];
 
-  return showTour ? (
+  return (
     <JoyRide steps={steps} showProgress continuous disableOverlayClose run />
-  ) : (
-    <button
-      onClick={() => {
-        setShowTour(true);
-      }}
-    >
-      Start Tour
-    </button>
   );
 };
 
