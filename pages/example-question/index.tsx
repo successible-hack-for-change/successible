@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import PageLayout from '../PageLayout';
 import QuestionDisplay from '../../components/questionDisplay';
-import Tour from '../../components/tour/Tour';
+// import Tour from '../../components/tour/Tour';
 
 const ExampleQuestion: NextPage = () => {
   return (
@@ -24,7 +24,7 @@ const ExampleQuestion: NextPage = () => {
         timeLimit={60}
         handleSubmitOnClick={() => {}}
       />
-      <Tour />
+      {/* <Tour /> */}
     </PageLayout>
   );
 };
