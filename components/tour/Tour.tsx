@@ -115,7 +115,9 @@ const Tour = (): JSX.Element | null => {
   ];
 
   return (
-    <JoyRide steps={steps} showProgress continuous disableOverlayClose run />
+    !!JoyRide && (
+      <JoyRide steps={steps} showProgress continuous disableOverlayClose run />
+    )
   );
 };
 
