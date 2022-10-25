@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 // Had to avoid server-side rendering because of hydration issues
 // Known error between Joyride and NextJS
@@ -117,13 +117,7 @@ const Tour = (): JSX.Element | null => {
   ];
 
   return showTour ? (
-    <JoyRide
-      steps={steps || []}
-      showProgress
-      continuous
-      disableOverlayClose
-      run
-    />
+    <JoyRide steps={steps} showProgress continuous disableOverlayClose run />
   ) : (
     <button
       onClick={() => {
