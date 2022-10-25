@@ -46,15 +46,15 @@ const QuestionDisplay = ({
             onClick={() => {
               setClockIsAnimated((prevClockIsAnimated) => !prevClockIsAnimated);
             }}
-            className="mr-5"
+            className="!p-2 !m-3 !rounded-md !shadow !bg-light !text-black !w-32"
           >
-            Stop animation
+            {clockIsAnimated ? 'Hide Animation' : 'Show Animation'}
           </Button>
           <CountdownCircleTimer
             isPlaying
             duration={timeLimit}
             colors={clockIsAnimated ? '#ff9100' : '#d9d9d9'}
-            size={80}
+            size={75}
             onComplete={() => {
               handleSubmitOnClick();
             }}
