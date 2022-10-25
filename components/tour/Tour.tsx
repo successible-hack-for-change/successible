@@ -115,12 +115,18 @@ const Tour = (): JSX.Element | null => {
       target: '#submit-btn',
     },
   ];
-  useEffect(() => {
-    setShowTour(true);
-  }, []);
+
   return showTour ? (
     <JoyRide steps={steps} showProgress continuous disableOverlayClose run />
-  ) : null;
+  ) : (
+    <button
+      onClick={() => {
+        setShowTour(true);
+      }}
+    >
+      Start Tour
+    </button>
+  );
 };
 
 export default Tour;
