@@ -25,7 +25,7 @@ test('The question displays the expected question and answer props', () => {
     />,
   );
   expect(
-    screen.getByRole('heading', { name: 'Question 1' }),
+    screen.getByRole('heading', { name: /Question 1/i }),
   ).toBeInTheDocument();
   expect(screen.getByText('Question?')).toBeInTheDocument();
   expect(screen.getByText('Answer A')).toBeInTheDocument();

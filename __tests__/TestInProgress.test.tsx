@@ -8,7 +8,7 @@ import TestInProgress from '../pages/test-in-progress';
 test('It should contain question 1 on initial page load', () => {
   render(<TestInProgress />);
   expect(
-    screen.getByRole('heading', { name: 'Question 1' }),
+    screen.getByRole('heading', { name: /Question 1/i }),
   ).toBeInTheDocument();
 });
 
@@ -27,7 +27,7 @@ test('Navigation between QuestionDisplay, Break and Completed components behaves
   const continueButton = screen.getByRole('button', { name: 'Continue' });
   userEvent.click(continueButton);
   await waitFor(() =>
-    expect(screen.getByRole('heading', { name: 'Question 2' })),
+    expect(screen.getByRole('heading', { name: /Question 2/i })),
   );
   const q2SubmitButton = screen.getByRole('button', { name: 'Submit' });
   userEvent.click(q2SubmitButton);
