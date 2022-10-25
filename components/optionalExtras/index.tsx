@@ -127,20 +127,6 @@ const OptionalExtras = ({
             label="Reading guide"
             onChange={switchOnChange}
           />
-          {isReadingGuideDisplaying && (
-            <Draggable defaultClassName="w-9/12 h-32 bg-black text-white flex items-center justify-center text-lg rounded-lg absolute">
-              <div>
-                <button
-                  className="rounded-lg h-10 w-10 absolute top-0 right-0 flex items-center justify-center"
-                  onClick={handleOnClick}
-                >
-                  <Icon icon="cross" />
-                </button>
-                Drag me around
-                <Icon icon="hand-up" className="pl-3" />
-              </div>
-            </Draggable>
-          )}
           <RadioGroup label={<h4>Colour filters</h4>} onChange={() => {}}>
             <Radio label="None" value="none" />
             <Radio label="White" value="white" />
@@ -149,6 +135,23 @@ const OptionalExtras = ({
           </RadioGroup>
         </div>
       </Collapse>
+      {isReadingGuideDisplaying && (
+        <Draggable
+          defaultClassName="z-50 w-9/12 h-32 bg-black text-white flex items-center justify-center text-lg rounded-lg absolute"
+          defaultPosition={{ x: 0, y: -190 }}
+        >
+          <div>
+            <button
+              className="rounded-lg h-10 w-10 absolute top-0 right-0 flex items-center justify-center"
+              onClick={handleOnClick}
+            >
+              <Icon icon="cross" />
+            </button>
+            Drag me around
+            <Icon icon="hand-up" className="pl-3" />
+          </div>
+        </Draggable>
+      )}
     </div>
   );
 };
