@@ -7,12 +7,15 @@ import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import OptionalExtras from '../components/optionalExtras';
 
+const noop = () => {};
+
 test('It should initially display three buttons with all optional extra content hidden', () => {
   render(
     <OptionalExtras
       highlightContent="Highlight!"
       diagramContent="Diagram!"
       definitionsContent="Definition!"
+      retrieveColorFilterSelected={noop}
     />,
   );
 
@@ -35,6 +38,7 @@ test('It should toggle whether the highlights content is shown when the highligh
       highlightContent="Highlight!"
       diagramContent="Diagram!"
       definitionsContent="Definition!"
+      retrieveColorFilterSelected={noop}
     />,
   );
 
@@ -51,6 +55,7 @@ test('It should toggle whether the diagram content is shown when the diagram but
       highlightContent="Highlight!"
       diagramContent="Diagram!"
       definitionsContent="Definition!"
+      retrieveColorFilterSelected={noop}
     />,
   );
 
@@ -67,6 +72,7 @@ test('It should toggle whether the definitions content is shown when the definit
       highlightContent="Highlight!"
       diagramContent="Diagram!"
       definitionsContent="Definition!"
+      retrieveColorFilterSelected={noop}
     />,
   );
 
@@ -83,6 +89,7 @@ test('It should hide highlights and show diagram when highlights are visible but
       highlightContent="Highlight!"
       diagramContent="Diagram!"
       definitionsContent="Definition!"
+      retrieveColorFilterSelected={noop}
     />,
   );
   const highlightButton = screen.getByRole('button', { name: 'Highlights' });
@@ -101,6 +108,7 @@ test('It should hide highlights and show definitions when highlights are visible
       highlightContent="Highlight!"
       diagramContent="Diagram!"
       definitionsContent="Definition!"
+      retrieveColorFilterSelected={noop}
     />,
   );
   const highlightButton = screen.getByRole('button', { name: 'Highlights' });
@@ -119,6 +127,7 @@ test('It should hide diagram and show definitions when diagram is visible but th
       highlightContent="Highlight!"
       diagramContent="Diagram!"
       definitionsContent="Definition!"
+      retrieveColorFilterSelected={noop}
     />,
   );
   const diagramButton = screen.getByRole('button', { name: 'Diagram' });
@@ -137,6 +146,7 @@ test('It should hide diagram and show highlights when diagram is visible but the
       highlightContent="Highlight!"
       diagramContent="Diagram!"
       definitionsContent="Definition!"
+      retrieveColorFilterSelected={noop}
     />,
   );
   const diagramButton = screen.getByRole('button', { name: 'Diagram' });
@@ -155,6 +165,7 @@ test('It should hide definitions and show highlights when definitions are visibl
       highlightContent="Highlight!"
       diagramContent="Diagram!"
       definitionsContent="Definition!"
+      retrieveColorFilterSelected={noop}
     />,
   );
   const definitionButton = screen.getByRole('button', { name: 'Definitions' });
@@ -173,6 +184,7 @@ test('It should hide definitions and show diagram when definitions are visible b
       highlightContent="Highlight!"
       diagramContent="Diagram!"
       definitionsContent="Definition!"
+      retrieveColorFilterSelected={noop}
     />,
   );
   const definitionButton = screen.getByRole('button', { name: 'Definitions' });

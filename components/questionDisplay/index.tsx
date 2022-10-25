@@ -24,13 +24,23 @@ const QuestionDisplay = ({
   totalQuestions,
 }: QuestionDisplayProps): JSX.Element => {
   const [selectedAnswer, setSelectedAnswer] = useState('');
+  const [colorFilterSelected, setColorFilterSelected] = useState('none');
 
   const handleOnRadioClick = (event: FormEvent<HTMLInputElement>) => {
     setSelectedAnswer(event.currentTarget.value);
   };
 
+  const retrieveColorFilterSelected = (color: string) => {
+    setColorFilterSelected(color);
+    console.log(color);
+  };
+
   return (
-    <div className="p-4 max-w-4xl flex-col justify-center mx-auto">
+    <div
+      className={`p-4 max-w-4xl flex-col justify-center mx-auto ${
+        colorFilterSelected !== 'none' && `bg-${colorFilterSelected}`
+      }`}
+    >
       <div className="flex flex-row items-center">
         <div className="flex-1" />
         <h1 className=" flex-2 text-center" id="question-title">
@@ -41,12 +51,21 @@ const QuestionDisplay = ({
           <span className="pl-3">4:00</span>
         </h3>
       </div>
-      <div className="flex gap-5 bg-light rounded-lg p-5">
+      <div
+        className={`flex gap-5 rounded-lg p-5 ${
+          colorFilterSelected === 'none' ? 'bg-light' : 'border'
+        }`}
+      >
         <div className="flex-1" id="question">
           <h3 id="heading-id">Question:</h3>
           <p>{question}</p>
         </div>
-        <div className="flex-1 bg-lightest rounded-lg px-3" id="answers">
+        <div
+          className={`flex-1 rounded-lg px-3 ${
+            colorFilterSelected === 'none' ? 'bg-lightest' : 'border'
+          }`}
+          id="answers"
+        >
           <h3 className="pb-0">Answers:</h3>
           <RadioGroup
             name="Answers"
@@ -66,6 +85,7 @@ const QuestionDisplay = ({
             onClick={handleSubmitOnClick}
             id="submit-btn"
             title="Submit"
+            noColor={colorFilterSelected !== 'none' ? true : false}
           />
         </div>
       </div>
@@ -73,6 +93,7 @@ const QuestionDisplay = ({
         highlightContent={highlight}
         diagramContent={image}
         definitionsContent={definition}
+        retrieveColorFilterSelected={retrieveColorFilterSelected}
       />
     </div>
   );
