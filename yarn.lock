@@ -2614,6 +2614,16 @@
     "has" "^1.0.3"
     "side-channel" "^1.0.4"
 
+"intro.js-react@^0.7.0":
+  "integrity" "sha512-RvtmGqLijagV0ca6BZXtubfnfwfPHarfv39NEun2t9pGlL9WXBwA54CARj0if24OZ7eMmQqxpF0lBMbDNASLpA=="
+  "resolved" "https://registry.npmjs.org/intro.js-react/-/intro.js-react-0.7.0.tgz"
+  "version" "0.7.0"
+
+"intro.js@>=2.5.0":
+  "integrity" "sha512-ZUiR6BoLSvPSlLG0boewnWVgji1fE1gBvP/pyw5pgCKXEDQz1mMeUxarggClPNs71UTq364LwSk9zxz17A9gaQ=="
+  "resolved" "https://registry.npmjs.org/intro.js/-/intro.js-6.0.0.tgz"
+  "version" "6.0.0"
+
 "is-arguments@^1.0.4":
   "integrity" "sha512-8Q7EARjzEnKpt/PCD7e1cgUS0a6X8u5tdSiMqXhojOdoV9TsMsiO+9VLC5vAmO8N7/GmXn7yjR8qnA6bVAEzfA=="
   "resolved" "https://registry.npmjs.org/is-arguments/-/is-arguments-1.1.1.tgz"
