@@ -34,8 +34,8 @@ const QuestionDisplay = ({
         <h1 className=" flex-2 text-center" id="question-title">
           {id === 0 ? 'Question 1 of 1' : `Question ${id} of ${totalQuestions}`}
         </h1>
-        <h3 className="flex-1 flex justify-end items-center" id="timer">
-          <Icon icon="time" size={30} />
+        <h3 className="flex-1 flex justify-end items-center">
+          <Icon icon="time" size={30} id="timer" />
           <span className="pl-3">4:00</span>
         </h3>
       </div>
