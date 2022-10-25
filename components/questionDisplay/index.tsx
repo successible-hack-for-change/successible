@@ -24,9 +24,11 @@ const QuestionDisplay = ({
   totalQuestions,
 }: QuestionDisplayProps): JSX.Element => {
   const [selectedAnswer, setSelectedAnswer] = useState('');
+
   const handleOnRadioClick = (event: FormEvent<HTMLInputElement>) => {
     setSelectedAnswer(event.currentTarget.value);
   };
+
   return (
     <div className="p-4 max-w-4xl flex-col justify-center mx-auto">
       <div className="flex flex-row items-center">
