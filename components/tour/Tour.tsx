@@ -117,7 +117,13 @@ const Tour = (): JSX.Element | null => {
   ];
 
   return showTour ? (
-    <JoyRide steps={steps} showProgress continuous disableOverlayClose run />
+    <JoyRide
+      steps={steps || []}
+      showProgress
+      continuous
+      disableOverlayClose
+      run
+    />
   ) : (
     <button
       onClick={() => {
