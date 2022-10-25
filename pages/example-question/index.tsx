@@ -1,8 +1,8 @@
 import type { NextPage } from 'next';
+import { useState } from 'react';
 import PageLayout from '../PageLayout';
 import QuestionDisplay from '../../components/questionDisplay';
-import Tour from '../../components/tour/Tour';
-import { useState } from 'react';
+// import Tour from '../../components/tour/Tour';
 
 const ExampleQuestion: NextPage = () => {
   const [clockIsAnimated, setClockIsAnimated] = useState(true);
@@ -29,7 +29,7 @@ const ExampleQuestion: NextPage = () => {
         clockIsAnimated={clockIsAnimated}
         setClockIsAnimated={setClockIsAnimated}
       />
-      <Tour />
+      {/* <Tour /> */}
     </PageLayout>
   );
 };
