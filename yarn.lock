@@ -2619,7 +2619,7 @@
   "resolved" "https://registry.npmjs.org/intro.js-react/-/intro.js-react-0.7.0.tgz"
   "version" "0.7.0"
 
-"intro.js@>=2.5.0":
+"intro.js@^6.0.0", "intro.js@>=2.5.0":
   "integrity" "sha512-ZUiR6BoLSvPSlLG0boewnWVgji1fE1gBvP/pyw5pgCKXEDQz1mMeUxarggClPNs71UTq364LwSk9zxz17A9gaQ=="
   "resolved" "https://registry.npmjs.org/intro.js/-/intro.js-6.0.0.tgz"
   "version" "6.0.0"
