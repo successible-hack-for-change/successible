@@ -3,7 +3,7 @@ import PageLayout from '../PageLayout';
 import QuestionDisplay from '../../components/questionDisplay';
 import { Steps } from 'intro.js-react';
 import { useState } from 'react';
-// import 'intro.js/introjs.css';
+import 'intro.js/introjs.css';
 
 const ExampleQuestion: NextPage = () => {
   const [stepsEnabled, setStepsEnabled] = useState(true);
