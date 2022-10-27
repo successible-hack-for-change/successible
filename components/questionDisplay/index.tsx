@@ -1,4 +1,10 @@
-import { Dispatch, FormEvent, SetStateAction, useState } from 'react';
+import {
+  Dispatch,
+  FormEvent,
+  SetStateAction,
+  useEffect,
+  useState,
+} from 'react';
 import { Radio, RadioGroup, Button } from '@blueprintjs/core';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import OptionalExtras from '../optionalExtras';
@@ -32,6 +38,34 @@ const QuestionDisplay = ({
   const [selectedAnswer, setSelectedAnswer] = useState('');
   const handleOnRadioClick = (event: FormEvent<HTMLInputElement>) => {
     setSelectedAnswer(event.currentTarget.value);
+  };
+  let msg: SpeechSynthesisUtterance | null = null;
+  useEffect((): any => {
+    const synth = window.speechSynthesis;
+    if (!synth) {
+      return <span>Aw... your browser does not support Speech Synthesis</span>;
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    msg = new window.SpeechSynthesisUtterance();
+    var voices = synth.getVoices();
+    msg.voice = voices.filter(function (voice) {
+      return voice.name == 'Daniel';
+    })[0];
+    msg.lang = 'en-US';
+    msg.volume = 1;
+    msg.rate = 1;
+    msg.pitch = 1;
+    return;
+  });
+
+  const speechHandler = (
+    msg: SpeechSynthesisUtterance | null,
+    text: string,
+  ) => {
+    if (msg) {
+      msg.text = text;
+      window.speechSynthesis.speak(msg);
+    }
   };
 
   return (
@@ -75,6 +109,7 @@ const QuestionDisplay = ({
         <div className="flex-1" id="question">
           <h3 id="heading-id">Question:</h3>
           <p>{question}</p>
+          <button onClick={() => speechHandler(msg, question)}>SPEAK</button>
         </div>
         <div className="flex-1 bg-lightest rounded-lg px-3" id="answers">
           <h3 className="pb-0">Answers:</h3>
