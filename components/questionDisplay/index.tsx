@@ -36,7 +36,7 @@ const QuestionDisplay = ({
 
   return (
     <div className="p-4 max-w-4xl flex-col justify-center mx-auto">
-      <div className="flex flex-row items-center">
+      <div className="p-4 flex flex-row items-center">
         <div className="flex-1" />
         <h1 className=" flex-2 text-center" id="question-title">
           {id === 0 ? 'Question 1 of 1' : `Question ${id} of ${totalQuestions}`}
@@ -46,14 +46,14 @@ const QuestionDisplay = ({
             onClick={() => {
               setClockIsAnimated((prevClockIsAnimated) => !prevClockIsAnimated);
             }}
-            className="!p-2 !m-3 !rounded-md !shadow !bg-light !text-black !w-32"
+            className="!p-2 !m-3 !rounded-md !shadow !bg-grey !text-black !w-32"
           >
             {clockIsAnimated ? 'Hide Animation' : 'Show Animation'}
           </Button>
           <CountdownCircleTimer
             isPlaying
             duration={timeLimit}
-            colors={clockIsAnimated ? '#ff9100' : '#d9d9d9'}
+            colors={clockIsAnimated ? '#3c096c' : '#d9d9d9'}
             size={75}
             onComplete={() => {
               handleSubmitOnClick();
