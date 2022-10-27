@@ -1,13 +1,20 @@
 import React from 'react';
 import { Navbar, Button } from '@blueprintjs/core';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Header = (): JSX.Element => {
   return (
     <header>
       <Navbar>
         <Navbar.Group>
-          <Navbar.Heading>Successible</Navbar.Heading>
+          <Image
+            src="/successible-logo.svg"
+            alt="Successible logo"
+            height={30}
+            width={30}
+          />
+          <Navbar.Heading className="pl-2">Successible</Navbar.Heading>
           <Navbar.Divider />
           <Link href="/">
             <Button className="bp4-minimal" icon="home" text="Home" />

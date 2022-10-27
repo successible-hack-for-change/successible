@@ -1,7 +1,8 @@
 import { FormEvent, useState } from 'react';
-import { Radio, RadioGroup, Button } from '@blueprintjs/core';
+import { Radio, RadioGroup, Button, Icon } from '@blueprintjs/core';
 import OptionalExtras from '../optionalExtras';
 import type { Question } from '../../interfaces/questionTypes';
+import CustomButton from '../customButton';
 
 interface QuestionDisplayProps extends Question {
   handleSubmitOnClick: () => void;
@@ -27,16 +28,23 @@ const QuestionDisplay = ({
     setSelectedAnswer(event.currentTarget.value);
   };
   return (
-    <>
-      <h1 className="text-center">
-        {id === 0 ? 'Example question' : `Question ${id} of ${totalQuestions}`}
-      </h1>
+    <div className="p-4 max-w-4xl flex-col justify-center mx-auto">
+      <div className="flex flex-row items-center">
+        <div className="flex-1" />
+        <h1 className=" flex-2 text-center" id="question-title">
+          {id === 0 ? 'Question 1 of 1' : `Question ${id} of ${totalQuestions}`}
+        </h1>
+        <h3 className="flex-1 flex justify-end items-center" id="timer">
+          <Icon icon="time" size={30} />
+          <span className="pl-3">4:00</span>
+        </h3>
+      </div>
       <div className="flex gap-5 bg-light rounded-lg p-5">
-        <div className="flex-1">
-          <h3>Question:</h3>
+        <div className="flex-1" id="question">
+          <h3 id="heading-id">Question:</h3>
           <p>{question}</p>
         </div>
-        <div className="flex-1 bg-lightest rounded-lg px-3">
+        <div className="flex-1 bg-lightest rounded-lg px-3" id="answers">
           <h3 className="pb-0">Answers:</h3>
           <RadioGroup
             name="Answers"
@@ -51,13 +59,12 @@ const QuestionDisplay = ({
             <Radio value={'C'} label={resC} />
             <Radio value={'D'} label={resD} />
           </RadioGroup>
-          <Button
-            className="mb-3 !bg-accent-dark !text-white !rounded-md !shadow-md"
+          <CustomButton
             type="submit"
             onClick={handleSubmitOnClick}
-          >
-            Submit
-          </Button>
+            id="submit-btn"
+            title="Submit"
+          />
         </div>
       </div>
       <OptionalExtras
@@ -65,7 +72,7 @@ const QuestionDisplay = ({
         diagramContent={image}
         definitionsContent={definition}
       />
-    </>
+    </div>
   );
 };
 
