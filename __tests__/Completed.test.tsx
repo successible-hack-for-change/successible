@@ -5,6 +5,6 @@ import Completed from '../pages/completed';
 test('The completed page should have a title saying completed', () => {
   render(<Completed />);
   expect(
-    screen.getByRole('heading', { name: 'Completed' }),
+    screen.getByRole('heading', { name: 'Congratulations' }),
   ).toBeInTheDocument();
 });

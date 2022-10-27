@@ -11,6 +11,7 @@ const TestInProgress: NextPage = () => {
   const router = useRouter();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [questionNumber, setQuestionNumber] = useState(0);
+  const [clockIsAnimated, setClockIsAnimated] = useState(true);
 
   const mockSetOfQuestions: SetOfQuestions = mockData;
   const mockQuestions: Question[] = mockSetOfQuestions.setOfQuestions;
@@ -48,6 +49,8 @@ const TestInProgress: NextPage = () => {
             timeLimit={mockQuestions[questionNumber].timeLimit}
             handleSubmitOnClick={handleSubmitOnClick}
             totalQuestions={mockQuestions.length}
+            clockIsAnimated={clockIsAnimated}
+            setClockIsAnimated={setClockIsAnimated}
           />
         </>
       )}
