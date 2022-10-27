@@ -44,10 +44,10 @@ const QuestionDisplay = ({
   return (
     <div
       className={`p-4 max-w-4xl flex-col justify-center mx-auto ${
-        colorFilterSelected !== 'none' && `bg-${colorFilterSelected}`
-      }`}
+        colorFilterSelected === 'yellow' && 'bg-yellow'
+      } ${colorFilterSelected === 'blue' && 'bg-blue'}`}
     >
-      <div className="flex flex-row items-center">
+      <div className="flex flex-row py-3 items-center">
         <div className="flex-1" />
         <h1 className=" flex-2 text-center" id="question-title">
           {id === 0 ? 'Question 1 of 1' : `Question ${id} of ${totalQuestions}`}
@@ -57,9 +57,9 @@ const QuestionDisplay = ({
             onClick={() => {
               setClockIsAnimated((prevClockIsAnimated) => !prevClockIsAnimated);
             }}
-            className="!p-2 !m-3 !rounded-md !shadow !bg-grey !text-black !w-32"
+            className="!w-20 !p-1 !m-3 !rounded-md !shadow !bg-grey-lightest !border !border-solid !border-grey-dark !text-black !text-xs !text-center"
           >
-            {clockIsAnimated ? 'Hide Animation' : 'Show Animation'}
+            {clockIsAnimated ? 'Hide animation' : 'Show animation'}
           </Button>
           <CountdownCircleTimer
             isPlaying
