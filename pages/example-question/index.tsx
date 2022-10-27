@@ -1,12 +1,13 @@
 import type { NextPage } from 'next';
+import { useState } from 'react';
 import PageLayout from '../PageLayout';
 import QuestionDisplay from '../../components/questionDisplay';
 import { Steps } from 'intro.js-react';
-import { useState } from 'react';
 import 'intro.js/introjs.css';
 
 const ExampleQuestion: NextPage = () => {
   const [stepsEnabled, setStepsEnabled] = useState(true);
+  const [clockIsAnimated, setClockIsAnimated] = useState(true);
 
   const initialStep = 0;
 
@@ -121,6 +122,7 @@ const ExampleQuestion: NextPage = () => {
       ),
     },
   ];
+
   return (
     <div>
       <Steps
@@ -147,6 +149,8 @@ const ExampleQuestion: NextPage = () => {
           definition={"I'm just here to watch the fight."}
           timeLimit={60}
           handleSubmitOnClick={() => {}}
+          clockIsAnimated={clockIsAnimated}
+          setClockIsAnimated={setClockIsAnimated}
         />
       </PageLayout>
     </div>

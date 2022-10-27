@@ -20,10 +20,12 @@ test('The question displays the expected question and answer props', () => {
       definition="definition"
       timeLimit={60}
       handleSubmitOnClick={noop}
+      clockIsAnimated={true}
+      setClockIsAnimated={noop}
     />,
   );
   expect(
-    screen.getByRole('heading', { name: 'Question 1' }),
+    screen.getByRole('heading', { name: /Question 1/i }),
   ).toBeInTheDocument();
   expect(screen.getByText('Question?')).toBeInTheDocument();
   expect(screen.getByText('Answer A')).toBeInTheDocument();
@@ -47,6 +49,8 @@ test('The radio element that is clicked becomes checked', async () => {
       definition="definition"
       timeLimit={60}
       handleSubmitOnClick={noop}
+      clockIsAnimated={true}
+      setClockIsAnimated={noop}
     />,
   );
 
