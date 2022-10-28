@@ -1,20 +1,27 @@
 import type { NextPage } from 'next';
-import {
-  Button,
-  Callout,
-  FormGroup,
-  InputGroup,
-  Label,
-} from '@blueprintjs/core';
+import { useContext } from 'react';
+import { Callout, FormGroup, InputGroup, Label } from '@blueprintjs/core';
 import { Tooltip2 } from '@blueprintjs/popover2';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 import PageLayout from '../PageLayout';
-import { Icon } from '@blueprintjs/core';
 import CustomButton from '../../components/customButton';
+import QuestionContext from '../../context/QuestionContext';
+import mockData from '../../data/questions.json';
 
 const StartTest: NextPage = () => {
   const router = useRouter();
+  const questionContext = useContext(QuestionContext);
+
   const handleStartOnClick = () => {
+    axios
+      .get('http://127.0.0.1:8000/')
+      .then((res) => {
+        questionContext.setQuestions(res.data);
+      })
+      .catch((err) => {
+        questionContext.setQuestions(mockData.setOfQuestions);
+      });
     router.push('/test-in-progress');
   };
 

@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, Collapse, Pre } from '@blueprintjs/core';
+import { Button, ButtonGroup, Collapse } from '@blueprintjs/core';
 import React, { useState } from 'react';
 
 interface OptionalExtraProps {

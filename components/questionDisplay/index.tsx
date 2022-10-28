@@ -22,7 +22,7 @@ const QuestionDisplay = ({
   resD,
   highlight,
   image,
-  definition,
+  definitions,
   timeLimit,
   handleSubmitOnClick,
   totalQuestions,
@@ -102,7 +102,7 @@ const QuestionDisplay = ({
       <OptionalExtras
         highlightContent={highlight}
         diagramContent={image}
-        definitionsContent={definition}
+        definitionsContent={definitions}
       />
     </div>
   );

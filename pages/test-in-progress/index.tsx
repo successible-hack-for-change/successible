@@ -1,25 +1,25 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import type { Question, SetOfQuestions } from '../../interfaces/questionTypes';
-import mockData from '../../data/questions.json';
+import type { Question } from '../../interfaces/questionTypes';
 import PageLayout from '../PageLayout';
 import QuestionDisplay from '../../components/questionDisplay';
 import Break from '../../components/break';
+import QuestionContext from '../../context/QuestionContext';
 
 const TestInProgress: NextPage = () => {
   const router = useRouter();
+  const questionContext = useContext(QuestionContext);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [questionNumber, setQuestionNumber] = useState(0);
   const [clockIsAnimated, setClockIsAnimated] = useState(true);
 
-  const mockSetOfQuestions: SetOfQuestions = mockData;
-  const mockQuestions: Question[] = mockSetOfQuestions.setOfQuestions;
+  const questions: Question[] = questionContext.state.setOfQuestions;
 
   const handleSubmitOnClick = () => {
-    if (questionNumber === mockQuestions.length - 1) {
+    if (questionNumber === questions.length - 1) {
       router.push('/completed');
-    } else if (questionNumber < mockQuestions.length - 1) {
+    } else if (questionNumber < questions.length - 1) {
       setIsSubmitted(true);
     }
   };
@@ -36,19 +36,19 @@ const TestInProgress: NextPage = () => {
       ) : (
         <>
           <QuestionDisplay
-            id={mockQuestions[questionNumber].id}
-            question={mockQuestions[questionNumber].question}
-            answer={mockQuestions[questionNumber].answer}
-            resA={mockQuestions[questionNumber].resA}
-            resB={mockQuestions[questionNumber].resB}
-            resC={mockQuestions[questionNumber].resC}
-            resD={mockQuestions[questionNumber].resD}
-            highlight={mockQuestions[questionNumber].highlight}
-            image={mockQuestions[questionNumber].image}
-            definition={mockQuestions[questionNumber].definition}
-            timeLimit={mockQuestions[questionNumber].timeLimit}
+            id={questions[questionNumber].id}
+            question={questions[questionNumber].question}
+            answer={questions[questionNumber].answer}
+            resA={questions[questionNumber].resA}
+            resB={questions[questionNumber].resB}
+            resC={questions[questionNumber].resC}
+            resD={questions[questionNumber].resD}
+            highlight={questions[questionNumber].highlight}
+            image={questions[questionNumber].image}
+            definitions={questions[questionNumber].definitions}
+            timeLimit={questions[questionNumber].timeLimit}
             handleSubmitOnClick={handleSubmitOnClick}
-            totalQuestions={mockQuestions.length}
+            totalQuestions={questions.length}
             clockIsAnimated={clockIsAnimated}
             setClockIsAnimated={setClockIsAnimated}
           />

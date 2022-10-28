@@ -1,5 +1,4 @@
 {
-  "id": "abc123",
   "setOfQuestions": [
     {
       "id": 1,
@@ -11,7 +10,7 @@
       "resD": "20% increase",
       "highlight": "highlights",
       "image": "imageLink",
-      "definition": "definition",
+      "definitions": "definition",
       "timeLimit": 120
     },
     {
@@ -24,12 +23,8 @@
       "resD": "20% increase",
       "highlight": "highlights",
       "image": "imageLink",
-      "definition": "definition",
+      "definitions": "definition",
       "timeLimit": 90
     }
-  ],
-  "maxScore": 2,
-  "highlightSwitch": true,
-  "imageSwitch": true,
-  "definitionSwitch": true
+  ]
 }
