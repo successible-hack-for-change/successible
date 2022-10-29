@@ -5,16 +5,16 @@ import type { Question } from '../../interfaces/questionTypes';
 import PageLayout from '../PageLayout';
 import QuestionDisplay from '../../components/questionDisplay';
 import Break from '../../components/break';
-import QuestionContext from '../../context/QuestionContext';
+import AppContext from '../../context/AppContext';
 
 const TestInProgress: NextPage = () => {
   const router = useRouter();
-  const questionContext = useContext(QuestionContext);
+  const appContext = useContext(AppContext);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [questionNumber, setQuestionNumber] = useState(0);
   const [clockIsAnimated, setClockIsAnimated] = useState(true);
 
-  const questions: Question[] = questionContext.state.setOfQuestions;
+  const questions: Question[] = appContext.state.setOfQuestions;
 
   const handleSubmitOnClick = () => {
     if (questionNumber === questions.length - 1) {

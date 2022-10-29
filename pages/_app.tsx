@@ -4,20 +4,22 @@ import { useState } from 'react';
 import '@blueprintjs/popover2/lib/css/blueprint-popover2.css';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
-import QuestionContext from '../context/QuestionContext';
+import AppContext from '../context/AppContext';
 import { Question } from '../interfaces/questionTypes';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [questions, setQuestions] = useState<Question[]>([]);
+  const [userId, setUserId] = useState<number>(0);
   return (
-    <QuestionContext.Provider
+    <AppContext.Provider
       value={{
-        state: { setOfQuestions: questions },
+        state: { setOfQuestions: questions, userId },
         setQuestions: setQuestions,
+        setUserId: setUserId,
       }}
     >
       <Component {...pageProps} />
-    </QuestionContext.Provider>
+    </AppContext.Provider>
   );
 }
 

@@ -1,26 +1,40 @@
 import type { NextPage } from 'next';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Callout, FormGroup, InputGroup, Label } from '@blueprintjs/core';
 import { Tooltip2 } from '@blueprintjs/popover2';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import PageLayout from '../PageLayout';
 import CustomButton from '../../components/customButton';
-import QuestionContext from '../../context/QuestionContext';
+import AppContext from '../../context/AppContext';
 import mockData from '../../data/questions.json';
 
 const StartTest: NextPage = () => {
   const router = useRouter();
-  const questionContext = useContext(QuestionContext);
+  const appContext = useContext(AppContext);
+  const [userEmail, setUserEmail] = useState<string>('');
+  const [accessCode, setAccessCode] = useState<string>('');
 
   const handleStartOnClick = () => {
     axios
+      .post('http://127.0.0.1:8000/users', {
+        username: userEmail,
+        email: userEmail,
+        accessCode,
+      })
+      .then((res) => {
+        appContext.setUserId(res.data.id);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    axios
       .get('http://127.0.0.1:8000/')
       .then((res) => {
-        questionContext.setQuestions(res.data);
+        appContext.setQuestions(res.data);
       })
       .catch((err) => {
-        questionContext.setQuestions(mockData.setOfQuestions);
+        appContext.setQuestions(mockData.setOfQuestions);
       });
     router.push('/test-in-progress');
   };
@@ -40,12 +54,26 @@ const StartTest: NextPage = () => {
           </Label>
           <Label className="pb-3">
             Email address
-            <InputGroup leftIcon="envelope" placeholder="Email address" large />
+            <InputGroup
+              leftIcon="envelope"
+              placeholder="Email address"
+              large
+              value={userEmail}
+              onChange={(e) => {
+                setUserEmail(e.target.value);
+              }}
+            />
           </Label>
           <Label className="pb-3">
             Entry code
             <Tooltip2 content="This code was emailed to you with your invitation to take this test">
-              <InputGroup leftIcon="lock" placeholder="Entry code" large />
+              <InputGroup
+                leftIcon="lock"
+                placeholder="Entry code"
+                large
+                value={accessCode}
+                onChange={(e) => setAccessCode(e.target.value)}
+              />
             </Tooltip2>
           </Label>
           <CustomButton
