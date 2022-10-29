@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 import type { Question } from '../../interfaces/questionTypes';
 import PageLayout from '../PageLayout';
 import QuestionDisplay from '../../components/questionDisplay';
@@ -16,12 +17,29 @@ const TestInProgress: NextPage = () => {
 
   const questions: Question[] = appContext.state.setOfQuestions;
 
-  const handleSubmitOnClick = () => {
-    if (questionNumber === questions.length - 1) {
-      router.push('/completed');
-    } else if (questionNumber < questions.length - 1) {
-      setIsSubmitted(true);
-    }
+  const handleSubmitOnClick = (candidateAnswer: string) => {
+    axios
+      .post(
+        `http://127.0.0.1:8000/user/${appContext.state.userId}/postresponse`,
+        {
+          user: appContext.state.userId,
+          questionId: appContext.state.setOfQuestions[questionNumber].id,
+          candidateAnswer,
+        },
+      )
+      .then(() => {
+        if (questionNumber === questions.length - 1) {
+          axios
+            .get(
+              `http://127.0.0.1:8000/user/${appContext.state.userId}/postresponse`,
+            )
+            .then(() => router.push('/completed'))
+            .catch((error) => console.log(error));
+        } else if (questionNumber < questions.length - 1) {
+          setIsSubmitted(true);
+        }
+      })
+      .catch((error) => console.log(error));
   };
 
   const handleContinueOnClick = () => {

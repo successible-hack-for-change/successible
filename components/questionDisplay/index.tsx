@@ -6,7 +6,7 @@ import type { Question } from '../../interfaces/questionTypes';
 import CustomButton from '../customButton';
 
 interface QuestionDisplayProps extends Question {
-  handleSubmitOnClick: () => void;
+  handleSubmitOnClick: (candidateAnswer: string) => void;
   totalQuestions?: number;
   clockIsAnimated: boolean;
   setClockIsAnimated: Dispatch<SetStateAction<boolean>>;
@@ -56,7 +56,7 @@ const QuestionDisplay = ({
             colors={clockIsAnimated ? '#3c096c' : '#d9d9d9'}
             size={75}
             onComplete={() => {
-              handleSubmitOnClick();
+              handleSubmitOnClick(selectedAnswer);
             }}
           >
             {({ remainingTime }) => {
@@ -93,7 +93,9 @@ const QuestionDisplay = ({
           </RadioGroup>
           <CustomButton
             type="submit"
-            onClick={handleSubmitOnClick}
+            onClick={() => {
+              handleSubmitOnClick(selectedAnswer);
+            }}
             id="submit-btn"
             title="Submit"
           />
