@@ -30,12 +30,14 @@ const StartTest: NextPage = () => {
             appContext.setQuestions(res.data);
             router.push('/test-in-progress');
           })
-          .catch((err) => {
+          .catch((error) => {
+            console.log(error);
             appContext.setQuestions(mockData.setOfQuestions);
           });
       })
       .catch((error) => {
         console.log(error);
+        router.push('/error');
       });
   };
 

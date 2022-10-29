@@ -34,12 +34,18 @@ const TestInProgress: NextPage = () => {
               `http://127.0.0.1:8000/user/${appContext.state.userId}/postresponse`,
             )
             .then(() => router.push('/completed'))
-            .catch((error) => console.log(error));
+            .catch((error) => {
+              console.log(error);
+              router.push('/error');
+            });
         } else if (questionNumber < questions.length - 1) {
           setIsSubmitted(true);
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        router.push('/error');
+      });
   };
 
   const handleContinueOnClick = () => {
