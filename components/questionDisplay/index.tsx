@@ -38,7 +38,6 @@ const QuestionDisplay = ({
 
   const retrieveColorFilterSelected = (color: string) => {
     setColorFilterSelected(color);
-    console.log(color);
   };
 
   return (

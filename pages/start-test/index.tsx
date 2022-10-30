@@ -24,7 +24,7 @@ const StartTest: NextPage = () => {
         <h1 className="text-center">Are you ready to take your test?</h1>
         <Callout title="Important!" className="mb-4 !bg-accent-light">
           Please make sure you have read the instructions and completed the
-          example question first. We reccommend you take your test on a
+          example question first. We recommend you take your test on a
           computer.
         </Callout>
         <FormGroup className="bg-light text-grey-darkest p-4 rounded-lg max-w-md !mx-auto !my-10 shadow">
