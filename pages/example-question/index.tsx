@@ -31,8 +31,8 @@ const ExampleQuestion: NextPage = () => {
 
       intro: (
         <>
-          <h3>Question number</h3>
-          <p>
+          <h3 className="text-center">Question number</h3>
+          <p className="text-center">
             This will tell you which question you are on, and how many questions
             there are in total.
           </p>
@@ -43,8 +43,8 @@ const ExampleQuestion: NextPage = () => {
       element: '#timer',
       intro: (
         <>
-          <h3>Timer</h3>
-          <p>
+          <h3 className="text-center">Timer</h3>
+          <p className="text-center">
             This will tell you how much time you have remaining to answer this
             question.
           </p>
@@ -55,8 +55,8 @@ const ExampleQuestion: NextPage = () => {
       element: '#question',
       intro: (
         <>
-          <h3>Question</h3>
-          <p>Questions will display here.</p>
+          <h3 className="text-center">Question</h3>
+          <p className="text-center">Questions will display here.</p>
         </>
       ),
     },
@@ -77,18 +77,18 @@ const ExampleQuestion: NextPage = () => {
       element: '#optional-extras',
       intro: (
         <>
-          <h3>Optional extras can be found here</h3>
-          <p>
+          <h3 className="text-center">Optional extras can be found here</h3>
+          <p className="text-center">
             Click on these buttons to display the extras available for this
             question.
           </p>
-          <p>
+          <p className="text-center">
             You do not need to use these if you do not want to, as all
             information needed to choose an answer is in question. However, some
             candidates may find these useful. The options you choose to use are
             not recorded.
           </p>
-          <p>We recommend you try these out now.</p>
+          <p className="text-center">We recommend you try these out now.</p>
         </>
       ),
     },
@@ -96,8 +96,10 @@ const ExampleQuestion: NextPage = () => {
       element: '#highlights',
       intro: (
         <>
-          <h3>Highlights</h3>
-          <p>Click on this to see highlighted information in the question.</p>
+          <h3 className="text-center">Highlights</h3>
+          <p className="text-center">
+            Click on this to see highlighted information in the question.
+          </p>
         </>
       ),
     },
@@ -105,8 +107,10 @@ const ExampleQuestion: NextPage = () => {
       element: '#diagram',
       intro: (
         <>
-          <h3>Diagram</h3>
-          <p>Click on this to see a diagram for the question.</p>
+          <h3 className="text-center">Diagram</h3>
+          <p className="text-center">
+            Click on this to see a diagram for the question.
+          </p>
         </>
       ),
     },
@@ -114,8 +118,8 @@ const ExampleQuestion: NextPage = () => {
       element: '#definitions',
       intro: (
         <>
-          <h3>Definitions</h3>
-          <p>
+          <h3 className="text-center">Definitions</h3>
+          <p className="text-center">
             Click on this to see definitions of some words used in the question.
           </p>
         </>
@@ -125,8 +129,8 @@ const ExampleQuestion: NextPage = () => {
       element: '#answers',
       intro: (
         <>
-          <h3>Answers</h3>
-          <p>
+          <h3 className="text-center">Answers</h3>
+          <p className="text-center">
             A selection of answers will be displayed here, you may only select
             one.
           </p>
@@ -137,8 +141,8 @@ const ExampleQuestion: NextPage = () => {
       element: '#submit-btn',
       intro: (
         <>
-          <h3>Submit button</h3>
-          <p>
+          <h3 className="text-center">Submit button</h3>
+          <p className="text-center">
             Once you have selected an answer, you can submit it using this
             button.
           </p>
