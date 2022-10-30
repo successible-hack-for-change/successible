@@ -50,6 +50,19 @@ const ExampleQuestion: NextPage = () => {
       ),
     },
     {
+      element: '#audio-btn',
+      intro: (
+        <>
+          <h3>Read aloud buttons</h3>
+          <p>
+            These buttons can be used to read the questions and answers aloud.
+            If you can not hear the question when the button is clicked we
+            recommend trying another browser.
+          </p>
+        </>
+      ),
+    },
+    {
       element: '#optional-extras',
       intro: (
         <>
