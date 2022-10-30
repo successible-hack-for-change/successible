@@ -11,7 +11,7 @@ const InlineError = ({ errorStatus, field }: InlineErrorProps): JSX.Element => {
       {errorStatus ? (
         <div className="h-5 my-2.5"></div>
       ) : (
-        <div className="flex flex-row mt-2.5">
+        <div className="flex flex-row mt-2.5 align-middle">
           <Icon icon="issue" />
           <p className="h-5 ml-2"> Please enter a valid {field}</p>
         </div>

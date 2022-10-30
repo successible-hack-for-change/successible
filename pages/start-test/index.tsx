@@ -70,12 +70,11 @@ const StartTest: NextPage = () => {
         <h1 className="text-center">Are you ready to take your test?</h1>
         <Callout title="Important!" className="mb-4 !bg-accent-light">
           Please make sure you have read the instructions and completed the
-          example question first. We recommend you take your test on a
-          computer.
+          example question first. We recommend you take your test on a computer.
         </Callout>
         <FormGroup className="bg-light text-grey-darkest p-4 rounded-lg max-w-md !mx-auto !my-10 shadow">
           <Label className="pb-3">
-            Full Name
+            <p className="font-bold">Full Name</p>
             <InputGroup
               leftIcon="person"
               placeholder="Full name"
@@ -89,7 +88,7 @@ const StartTest: NextPage = () => {
             <InlineError errorStatus={isFullNameValid} field={' full name'} />
           </Label>
           <Label className="pb-3">
-            Email address
+            <p className="font-bold">Email address</p>
             <InputGroup
               type="email"
               leftIcon="envelope"
@@ -104,7 +103,7 @@ const StartTest: NextPage = () => {
             <InlineError errorStatus={isEmailValid} field={' email address'} />
           </Label>
           <Label className="pb-3">
-            Entry code
+            <p className="font-bold">Entry code</p>
             <Tooltip2 content="This code was emailed to you with your invitation to take this test">
               <InputGroup
                 leftIcon="lock"
