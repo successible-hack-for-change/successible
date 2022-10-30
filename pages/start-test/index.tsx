@@ -47,6 +47,7 @@ const StartTest: NextPage = () => {
       })
       .then((res) => {
         appContext.setUserId(res.data.id);
+        router.push('/test-in-progress');
       })
       .catch((error) => {
         console.log(error);

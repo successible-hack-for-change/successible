@@ -7,6 +7,7 @@ import PageLayout from '../PageLayout';
 import QuestionDisplay from '../../components/questionDisplay';
 import Break from '../../components/break';
 import AppContext from '../../context/AppContext';
+import DelayedSpinner from '../../components/delayedSpinner';
 import mockData from '../../data/questions.json';
 
 const TestInProgress: NextPage = () => {
@@ -65,7 +66,14 @@ const TestInProgress: NextPage = () => {
     setIsSubmitted(false);
   };
 
-  if (isLoading) return <div>Loading</div>;
+  if (isLoading)
+    return (
+      <PageLayout>
+        <div>
+          <DelayedSpinner />
+        </div>
+      </PageLayout>
+    );
   return (
     <PageLayout>
       {isSubmitted ? (
