@@ -27,7 +27,7 @@ const TestInProgress: NextPage = () => {
         setIsLoading(false);
       })
       .catch(() => {
-        setQuestions(mockData.setOfQuestions);
+        router.push('/error');
       });
   }, []);
 
