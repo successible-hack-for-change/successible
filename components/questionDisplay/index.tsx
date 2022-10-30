@@ -29,7 +29,7 @@ const QuestionDisplay = ({
   clockIsAnimated,
   setClockIsAnimated,
 }: QuestionDisplayProps): JSX.Element => {
-  const [selectedAnswer, setSelectedAnswer] = useState('');
+  const [selectedAnswer, setSelectedAnswer] = useState('None');
   const handleOnRadioClick = (event: FormEvent<HTMLInputElement>) => {
     setSelectedAnswer(event.currentTarget.value);
   };
