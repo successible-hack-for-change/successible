@@ -1,15 +1,10 @@
-import {
-  Dispatch,
-  FormEvent,
-  SetStateAction,
-  useEffect,
-  useState,
-} from 'react';
-import { Radio, RadioGroup, Button, Icon } from '@blueprintjs/core';
+import { Dispatch, FormEvent, SetStateAction, useState } from 'react';
+import { Radio, RadioGroup, Button } from '@blueprintjs/core';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import OptionalExtras from '../optionalExtras';
 import type { Question } from '../../interfaces/questionTypes';
 import CustomButton from '../customButton';
+import SpeechButton from '../speechButton';
 
 interface QuestionDisplayProps extends Question {
   handleSubmitOnClick: () => void;
@@ -38,40 +33,10 @@ const QuestionDisplay = ({
   isExample,
 }: QuestionDisplayProps): JSX.Element => {
   const [selectedAnswer, setSelectedAnswer] = useState('');
-  const [audioEnabled, setAudioEnabled] = useState(true);
   const [colorFilterSelected, setColorFilterSelected] = useState('none');
 
   const handleOnRadioClick = (event: FormEvent<HTMLInputElement>) => {
     setSelectedAnswer(event.currentTarget.value);
-  };
-
-  let msg: SpeechSynthesisUtterance | null = null;
-  useEffect((): any => {
-    const synth = window.speechSynthesis;
-    if (!synth) {
-      setAudioEnabled(false);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    msg = new window.SpeechSynthesisUtterance();
-    var voices = synth.getVoices();
-    msg.voice = voices.filter(function (voice) {
-      return voice.name == 'Daniel';
-    })[0];
-    msg.lang = 'en-US';
-    msg.volume = 1;
-    msg.rate = 1;
-    msg.pitch = 1;
-    return;
-  });
-
-  const speechHandler = (
-    msg: SpeechSynthesisUtterance | null,
-    text: string,
-  ) => {
-    if (msg) {
-      msg.text = text;
-      window.speechSynthesis.speak(msg);
-    }
   };
 
   const retrieveColorFilterSelected = (color: string) => {
@@ -127,16 +92,7 @@ const QuestionDisplay = ({
         <div className="flex-1" id="question">
           <h3 id="heading-id">Question:</h3>
           <p>{question}</p>
-          {(isExample || audioEnabled) && (
-            <Button
-              onClick={() => speechHandler(msg, question)}
-              className="!w-8 !h-8 !rounded-md !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
-              disabled={!audioEnabled}
-              id="audio-btn"
-            >
-              <Icon icon="volume-up" size={16} color="grey-dark" />
-            </Button>
-          )}
+          <SpeechButton alwaysDisplay={isExample} textToSpeak={question} />
         </div>
         <div
           className={`flex-1 rounded-lg px-3 ${
@@ -155,47 +111,19 @@ const QuestionDisplay = ({
           >
             <div className="flex flex-row items-center mb-2">
               <Radio value={'A'} label={resA} className="!mb-0 mr-3" />
-              {audioEnabled && (
-                <Button
-                  onClick={() => speechHandler(msg, resA)}
-                  className="!w-8 !h-8 !rounded-md !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
-                >
-                  <Icon icon="volume-up" size={16} color="grey-dark" />
-                </Button>
-              )}
+              <SpeechButton textToSpeak={resA} />
             </div>
             <div className="flex flex-row items-center mb-2">
               <Radio value={'B'} label={resB} className="!mb-0 mr-3" />
-              {audioEnabled && (
-                <Button
-                  onClick={() => speechHandler(msg, resB)}
-                  className="!w-8 !h-8 !rounded-md !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
-                >
-                  <Icon icon="volume-up" size={16} color="grey-dark" />
-                </Button>
-              )}
+              <SpeechButton textToSpeak={resB} />
             </div>
             <div className="flex flex-row items-center mb-2">
               <Radio value={'C'} label={resC} className="!mb-0 mr-3" />
-              {audioEnabled && (
-                <Button
-                  onClick={() => speechHandler(msg, resC)}
-                  className="!w-8 !h-8 !rounded-md !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
-                >
-                  <Icon icon="volume-up" size={16} color="grey-dark" />
-                </Button>
-              )}
+              <SpeechButton textToSpeak={resC} />
             </div>
             <div className="flex flex-row items-center mb-2">
               <Radio value={'B'} label={resD} className="!mb-0 mr-3" />
-              {audioEnabled && (
-                <Button
-                  onClick={() => speechHandler(msg, resD)}
-                  className="!w-8 !h-8 !rounded-md !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
-                >
-                  <Icon icon="volume-up" size={16} color="grey-dark" />
-                </Button>
-              )}
+              <SpeechButton textToSpeak={resD} />
             </div>
           </RadioGroup>
           <CustomButton
