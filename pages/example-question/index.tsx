@@ -151,6 +151,7 @@ const ExampleQuestion: NextPage = () => {
           handleSubmitOnClick={() => {}}
           clockIsAnimated={clockIsAnimated}
           setClockIsAnimated={setClockIsAnimated}
+          isExample={true}
         />
       </PageLayout>
     </div>

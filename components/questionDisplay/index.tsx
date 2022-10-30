@@ -10,12 +10,14 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import OptionalExtras from '../optionalExtras';
 import type { Question } from '../../interfaces/questionTypes';
 import CustomButton from '../customButton';
+import { Tooltip2 } from '@blueprintjs/popover2';
 
 interface QuestionDisplayProps extends Question {
   handleSubmitOnClick: () => void;
   totalQuestions?: number;
   clockIsAnimated: boolean;
   setClockIsAnimated: Dispatch<SetStateAction<boolean>>;
+  isExample?: boolean;
 }
 
 const QuestionDisplay = ({
@@ -34,16 +36,20 @@ const QuestionDisplay = ({
   totalQuestions,
   clockIsAnimated,
   setClockIsAnimated,
+  isExample,
 }: QuestionDisplayProps): JSX.Element => {
   const [selectedAnswer, setSelectedAnswer] = useState('');
+  const [audioEnabled, setAudioEnabled] = useState(true);
+
   const handleOnRadioClick = (event: FormEvent<HTMLInputElement>) => {
     setSelectedAnswer(event.currentTarget.value);
   };
+
   let msg: SpeechSynthesisUtterance | null = null;
   useEffect((): any => {
     const synth = window.speechSynthesis;
     if (!synth) {
-      return <span>Aw... your browser does not support Speech Synthesis</span>;
+      setAudioEnabled(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     msg = new window.SpeechSynthesisUtterance();
@@ -109,12 +115,16 @@ const QuestionDisplay = ({
         <div className="flex-1" id="question">
           <h3 id="heading-id">Question:</h3>
           <p>{question}</p>
-          <Button
-            onClick={() => speechHandler(msg, question)}
-            className="!w-8 !h-8 !rounded-md !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
-          >
-            <Icon icon="volume-up" size={16} color="grey-dark" />
-          </Button>
+          {(isExample || audioEnabled) && (
+            <Button
+              onClick={() => speechHandler(msg, question)}
+              className="!w-8 !h-8 !rounded-md !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
+              disabled={!audioEnabled}
+              id="audio-btn"
+            >
+              <Icon icon="volume-up" size={16} color="grey-dark" />
+            </Button>
+          )}
         </div>
         <div className="flex-1 bg-lightest rounded-lg px-3" id="answers">
           <h3 className="pb-0">Answers:</h3>
@@ -127,40 +137,48 @@ const QuestionDisplay = ({
             className="my-5 box-border"
           >
             <div className="flex flex-row items-center mb-2">
-              <Radio value={'A'} label={resA} className="mb-0 mr-3" />
-              <Button
-                onClick={() => speechHandler(msg, resA)}
-                className="!w-8 !h-8 !rounded-md !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
-              >
-                <Icon icon="volume-up" size={16} color="grey-dark" />
-              </Button>
+              <Radio value={'A'} label={resA} className="!mb-0 mr-3" />
+              {audioEnabled && (
+                <Button
+                  onClick={() => speechHandler(msg, resA)}
+                  className="!w-8 !h-8 !rounded-md !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
+                >
+                  <Icon icon="volume-up" size={16} color="grey-dark" />
+                </Button>
+              )}
             </div>
             <div className="flex flex-row items-center mb-2">
-              <Radio value={'B'} label={resB} className="mb-0 mr-3" />
-              <Button
-                onClick={() => speechHandler(msg, resB)}
-                className="!w-8 !h-8 !rounded-md !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
-              >
-                <Icon icon="volume-up" size={16} color="grey-dark" />
-              </Button>
+              <Radio value={'B'} label={resB} className="!mb-0 mr-3" />
+              {audioEnabled && (
+                <Button
+                  onClick={() => speechHandler(msg, resB)}
+                  className="!w-8 !h-8 !rounded-md !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
+                >
+                  <Icon icon="volume-up" size={16} color="grey-dark" />
+                </Button>
+              )}
             </div>
             <div className="flex flex-row items-center mb-2">
-              <Radio value={'C'} label={resC} className="mb-0 mr-3" />
-              <Button
-                onClick={() => speechHandler(msg, resC)}
-                className="!w-8 !h-8 !rounded-md !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
-              >
-                <Icon icon="volume-up" size={16} color="grey-dark" />
-              </Button>
+              <Radio value={'C'} label={resC} className="!mb-0 mr-3" />
+              {audioEnabled && (
+                <Button
+                  onClick={() => speechHandler(msg, resC)}
+                  className="!w-8 !h-8 !rounded-md !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
+                >
+                  <Icon icon="volume-up" size={16} color="grey-dark" />
+                </Button>
+              )}
             </div>
             <div className="flex flex-row items-center mb-2">
-              <Radio value={'B'} label={resD} className="mb-0 mr-3" />
-              <Button
-                onClick={() => speechHandler(msg, resD)}
-                className="!w-8 !h-8 !rounded-md !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
-              >
-                <Icon icon="volume-up" size={16} color="grey-dark" />
-              </Button>
+              <Radio value={'B'} label={resD} className="!mb-0 mr-3" />
+              {audioEnabled && (
+                <Button
+                  onClick={() => speechHandler(msg, resD)}
+                  className="!w-8 !h-8 !rounded-md !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
+                >
+                  <Icon icon="volume-up" size={16} color="grey-dark" />
+                </Button>
+              )}
             </div>
           </RadioGroup>
           <CustomButton
