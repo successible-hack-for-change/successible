@@ -5,7 +5,7 @@ import {
   useEffect,
   useState,
 } from 'react';
-import { Radio, RadioGroup, Button } from '@blueprintjs/core';
+import { Radio, RadioGroup, Button, Icon } from '@blueprintjs/core';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import OptionalExtras from '../optionalExtras';
 import type { Question } from '../../interfaces/questionTypes';
@@ -109,7 +109,12 @@ const QuestionDisplay = ({
         <div className="flex-1" id="question">
           <h3 id="heading-id">Question:</h3>
           <p>{question}</p>
-          <button onClick={() => speechHandler(msg, question)}>SPEAK</button>
+          <Button
+            onClick={() => speechHandler(msg, question)}
+            className="!w-8 !h-8 !rounded-md !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
+          >
+            <Icon icon="volume-up" size={16} color="grey-dark" />
+          </Button>
         </div>
         <div className="flex-1 bg-lightest rounded-lg px-3" id="answers">
           <h3 className="pb-0">Answers:</h3>
@@ -121,10 +126,42 @@ const QuestionDisplay = ({
             selectedValue={selectedAnswer}
             className="my-5 box-border"
           >
-            <Radio value={'A'} label={resA} />
-            <Radio value={'B'} label={resB} />
-            <Radio value={'C'} label={resC} />
-            <Radio value={'D'} label={resD} />
+            <div className="flex flex-row items-center mb-2">
+              <Radio value={'A'} label={resA} className="mb-0 mr-3" />
+              <Button
+                onClick={() => speechHandler(msg, resA)}
+                className="!w-8 !h-8 !rounded-md !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
+              >
+                <Icon icon="volume-up" size={16} color="grey-dark" />
+              </Button>
+            </div>
+            <div className="flex flex-row items-center mb-2">
+              <Radio value={'B'} label={resB} className="mb-0 mr-3" />
+              <Button
+                onClick={() => speechHandler(msg, resB)}
+                className="!w-8 !h-8 !rounded-md !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
+              >
+                <Icon icon="volume-up" size={16} color="grey-dark" />
+              </Button>
+            </div>
+            <div className="flex flex-row items-center mb-2">
+              <Radio value={'C'} label={resC} className="mb-0 mr-3" />
+              <Button
+                onClick={() => speechHandler(msg, resC)}
+                className="!w-8 !h-8 !rounded-md !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
+              >
+                <Icon icon="volume-up" size={16} color="grey-dark" />
+              </Button>
+            </div>
+            <div className="flex flex-row items-center mb-2">
+              <Radio value={'B'} label={resD} className="mb-0 mr-3" />
+              <Button
+                onClick={() => speechHandler(msg, resD)}
+                className="!w-8 !h-8 !rounded-md !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
+              >
+                <Icon icon="volume-up" size={16} color="grey-dark" />
+              </Button>
+            </div>
           </RadioGroup>
           <CustomButton
             type="submit"
