@@ -9,7 +9,7 @@ import { Alert } from '@blueprintjs/core';
 const ExampleQuestion: NextPage = () => {
   const [stepsEnabled, setStepsEnabled] = useState(true);
   const [clockIsAnimated, setClockIsAnimated] = useState(true);
-  const [isOverlayOpen, setIsOverlayOpen] = useState(true);
+  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
 
   const initialStep = 0;
 

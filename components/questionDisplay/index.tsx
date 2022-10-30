@@ -5,6 +5,7 @@ import OptionalExtras from '../optionalExtras';
 import type { Question } from '../../interfaces/questionTypes';
 import CustomButton from '../customButton';
 import SpeechButton from '../speechButton';
+import { isAnyArrayBuffer } from 'util/types';
 
 interface QuestionDisplayProps extends Question {
   handleSubmitOnClick: () => void;
@@ -69,7 +70,9 @@ const QuestionDisplay = ({
             colors={clockIsAnimated ? '#3c096c' : '#d9d9d9'}
             size={75}
             onComplete={() => {
-              handleSubmitOnClick();
+              if (!isExample) {
+                handleSubmitOnClick();
+              }
             }}
           >
             {({ remainingTime }) => {
