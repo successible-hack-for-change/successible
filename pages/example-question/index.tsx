@@ -4,16 +4,27 @@ import PageLayout from '../PageLayout';
 import QuestionDisplay from '../../components/questionDisplay';
 import { Steps } from 'intro.js-react';
 import 'intro.js/introjs.css';
+import { Alert } from '@blueprintjs/core';
 
 const ExampleQuestion: NextPage = () => {
   const [stepsEnabled, setStepsEnabled] = useState(true);
   const [clockIsAnimated, setClockIsAnimated] = useState(true);
+  const [isOverlayOpen, setIsOverlayOpen] = useState(true);
 
   const initialStep = 0;
 
   const onExit = () => {
     setStepsEnabled(false);
   };
+
+  const handleCloseOverlay = () => {
+    setIsOverlayOpen(false);
+  };
+
+  const handleSubmitBtnClick = () => {
+    setIsOverlayOpen(true);
+  };
+
   const steps = [
     {
       element: '#question-title',
@@ -161,11 +172,22 @@ const ExampleQuestion: NextPage = () => {
           }
           definition={"I'm just here to watch the fight."}
           timeLimit={60}
-          handleSubmitOnClick={() => {}}
+          handleSubmitOnClick={handleSubmitBtnClick}
           clockIsAnimated={clockIsAnimated}
           setClockIsAnimated={setClockIsAnimated}
           isExample={true}
         />
+        <Alert
+          isOpen={isOverlayOpen}
+          confirmButtonText="Okay"
+          onClose={handleCloseOverlay}
+        >
+          <p>In your real test this will take you to the break page.</p>
+          <p>
+            If you have read the instructions and you are ready to take your
+            test, go to the Start test page.
+          </p>
+        </Alert>
       </PageLayout>
     </div>
   );

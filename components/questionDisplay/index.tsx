@@ -10,7 +10,6 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import OptionalExtras from '../optionalExtras';
 import type { Question } from '../../interfaces/questionTypes';
 import CustomButton from '../customButton';
-import { Tooltip2 } from '@blueprintjs/popover2';
 
 interface QuestionDisplayProps extends Question {
   handleSubmitOnClick: () => void;
