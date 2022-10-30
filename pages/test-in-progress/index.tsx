@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import axios from 'axios';
@@ -7,15 +7,28 @@ import PageLayout from '../PageLayout';
 import QuestionDisplay from '../../components/questionDisplay';
 import Break from '../../components/break';
 import AppContext from '../../context/AppContext';
+import mockData from '../../data/questions.json';
 
 const TestInProgress: NextPage = () => {
   const router = useRouter();
   const appContext = useContext(AppContext);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [questionNumber, setQuestionNumber] = useState(0);
-  const [clockIsAnimated, setClockIsAnimated] = useState(true);
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [questionNumber, setQuestionNumber] = useState<number>(0);
+  const [clockIsAnimated, setClockIsAnimated] = useState<boolean>(true);
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const questions: Question[] = appContext.state.setOfQuestions;
+  useEffect(() => {
+    axios
+      .get('http://127.0.0.1:8000/')
+      .then((res) => {
+        setQuestions(res.data);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setQuestions(mockData.setOfQuestions);
+      });
+  }, []);
 
   const handleSubmitOnClick = (candidateAnswer: string) => {
     axios
@@ -23,7 +36,7 @@ const TestInProgress: NextPage = () => {
         `http://127.0.0.1:8000/user/${appContext.state.userId}/postresponse`,
         {
           user: appContext.state.userId,
-          questionId: appContext.state.setOfQuestions[questionNumber].id,
+          questionId: questions[questionNumber].id,
           candidateAnswer,
         },
       )
@@ -34,8 +47,7 @@ const TestInProgress: NextPage = () => {
               `http://127.0.0.1:8000/user/${appContext.state.userId}/postresponse`,
             )
             .then(() => router.push('/completed'))
-            .catch((error) => {
-              console.log(error);
+            .catch(() => {
               router.push('/error');
             });
         } else if (questionNumber < questions.length - 1) {
@@ -53,6 +65,7 @@ const TestInProgress: NextPage = () => {
     setIsSubmitted(false);
   };
 
+  if (isLoading) return <div>Loading</div>;
   return (
     <PageLayout>
       {isSubmitted ? (

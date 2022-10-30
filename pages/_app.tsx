@@ -13,8 +13,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AppContext.Provider
       value={{
-        state: { setOfQuestions: questions, userId },
-        setQuestions: setQuestions,
+        state: { userId },
         setUserId: setUserId,
       }}
     >

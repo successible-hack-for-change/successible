@@ -47,16 +47,6 @@ const StartTest: NextPage = () => {
       })
       .then((res) => {
         appContext.setUserId(res.data.id);
-        axios
-          .get('http://127.0.0.1:8000/')
-          .then((res) => {
-            appContext.setQuestions(res.data);
-            router.push('/test-in-progress');
-          })
-          .catch((error) => {
-            console.log(error);
-            appContext.setQuestions(mockData.setOfQuestions);
-          });
       })
       .catch((error) => {
         console.log(error);
