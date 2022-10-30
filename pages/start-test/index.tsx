@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import { ReactNode, useContext, useState } from 'react';
+import { FormEvent, useContext, useState } from 'react';
 import { Callout, FormGroup, InputGroup, Label } from '@blueprintjs/core';
 import { Tooltip2 } from '@blueprintjs/popover2';
 import { useRouter } from 'next/router';
@@ -13,12 +13,29 @@ import mockData from '../../data/questions.json';
 const StartTest: NextPage = () => {
   const router = useRouter();
   const appContext = useContext(AppContext);
+  const [userFullName, setUserFullName] = useState<string>('');
   const [userEmail, setUserEmail] = useState<string>('');
   const [accessCode, setAccessCode] = useState<string>('');
   const [isEmailValid, setIsEmailValid] = useState<boolean>(false);
+  const [isAccessCodeValid, setIsAccessCodeValid] = useState<boolean>(false);
+  const [isFullNameValid, setIsFullNameValid] = useState<boolean>(false);
 
-  const validateEmail = (email: string): void => {
-    setIsEmailValid(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i.test(email));
+  const validateField = (field: string, fieldValue: string): void => {
+    switch (field) {
+      case 'email':
+        setIsEmailValid(
+          /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i.test(fieldValue),
+        );
+        break;
+      case 'access code':
+        setIsAccessCodeValid(/[\w]{4,}/i.test(fieldValue));
+        break;
+      case 'full name':
+        setIsFullNameValid(/[a-zA-Z]{1,}/i.test(fieldValue));
+        break;
+      default:
+        break;
+    }
   };
 
   const handleStartOnClick = () => {
@@ -58,8 +75,17 @@ const StartTest: NextPage = () => {
         <FormGroup className="bg-light text-grey-darkest p-4 rounded-lg max-w-md !mx-auto !my-10 shadow">
           <Label className="pb-3">
             Full Name
-            <InputGroup leftIcon="person" placeholder="Full name" large />
-            <InlineError errorStatus={isEmailValid} />
+            <InputGroup
+              leftIcon="person"
+              placeholder="Full name"
+              large
+              value={userFullName}
+              onChange={(e) => {
+                setUserFullName(e.target.value);
+                validateField('full name', e.target.value);
+              }}
+            />
+            <InlineError errorStatus={isFullNameValid} field={' full name'} />
           </Label>
           <Label className="pb-3">
             Email address
@@ -71,14 +97,10 @@ const StartTest: NextPage = () => {
               value={userEmail}
               onChange={(e) => {
                 setUserEmail(e.target.value);
-                validateEmail(e.target.value);
+                validateField('email', e.target.value);
               }}
             />
-            {isEmailValid ? (
-              <div className="h-5 mb-2.5"></div>
-            ) : (
-              <p className="h-5"> Please enter a valid email address</p>
-            )}
+            <InlineError errorStatus={isEmailValid} field={' email address'} />
           </Label>
           <Label className="pb-3">
             Entry code
@@ -88,20 +110,22 @@ const StartTest: NextPage = () => {
                 placeholder="Entry code"
                 large
                 value={accessCode}
-                onChange={(e) => setAccessCode(e.target.value)}
+                onChange={(e) => {
+                  setAccessCode(e.target.value);
+                  validateField('access code', e.target.value);
+                }}
               />
             </Tooltip2>
-            {isEmailValid ? (
-              <div className="h-5 mb-2.5"></div>
-            ) : (
-              <p className="h-5"> Please enter a valid email address</p>
-            )}
+            <InlineError
+              errorStatus={isAccessCodeValid}
+              field={' access code'}
+            />
           </Label>
           <CustomButton
             title="Start your test"
             onClick={handleStartOnClick}
             type="submit"
-            disabled={!isEmailValid}
+            disabled={!(isFullNameValid && isEmailValid && isAccessCodeValid)}
           />
         </FormGroup>
       </div>
