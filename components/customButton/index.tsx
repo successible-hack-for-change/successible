@@ -9,6 +9,12 @@ interface CustomButtonProps {
   disabled?: boolean;
 }
 
+const conditionalButtonStyles = (noColor?: boolean, disabled?: boolean) => {
+  if (noColor) return '!border !border-solid  !bg-transparent !shadow-none';
+  if (disabled) return '!bg-lightgrey !shadow !text-black';
+  return '!bg-action !text-white !shadow';
+};
+
 const CustomButton = ({
   onClick,
   title,
@@ -20,11 +26,10 @@ const CustomButton = ({
   return (
     <Button
       onClick={onClick}
-      className={`!p-3 !my-3 !rounded-md ${
-        noColor
-          ? '!border !border-solid  !bg-transparent !shadow-none'
-          : '!bg-action !text-white !shadow'
-      }`}
+      className={`!p-3 !my-3 !rounded-md ${conditionalButtonStyles(
+        noColor,
+        disabled,
+      )}`}
       type={type}
       id={id}
       disabled={disabled}
@@ -34,7 +39,7 @@ const CustomButton = ({
         <Icon
           icon="circle-arrow-right"
           size={20}
-          color={`${!noColor && 'white'}`}
+          color={`${!(noColor || disabled) && 'white'}`}
         />
       </div>
     </Button>
