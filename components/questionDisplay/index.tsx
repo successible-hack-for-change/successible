@@ -30,13 +30,23 @@ const QuestionDisplay = ({
   setClockIsAnimated,
 }: QuestionDisplayProps): JSX.Element => {
   const [selectedAnswer, setSelectedAnswer] = useState('');
+  const [colorFilterSelected, setColorFilterSelected] = useState('none');
+
   const handleOnRadioClick = (event: FormEvent<HTMLInputElement>) => {
     setSelectedAnswer(event.currentTarget.value);
   };
 
+  const retrieveColorFilterSelected = (color: string) => {
+    setColorFilterSelected(color);
+  };
+
   return (
-    <div className="p-4 max-w-4xl flex-col justify-center mx-auto">
-      <div className="p-4 flex flex-row items-center">
+    <div
+      className={`p-4 max-w-4xl flex-col justify-center mx-auto ${
+        colorFilterSelected === 'yellow' && 'bg-yellow'
+      } ${colorFilterSelected === 'blue' && 'bg-blue'}`}
+    >
+      <div className="flex flex-row py-3 items-center">
         <div className="flex-1" />
         <h1 className=" flex-2 text-center" id="question-title">
           {id === 0 ? 'Question 1 of 1' : `Question ${id} of ${totalQuestions}`}
@@ -46,9 +56,9 @@ const QuestionDisplay = ({
             onClick={() => {
               setClockIsAnimated((prevClockIsAnimated) => !prevClockIsAnimated);
             }}
-            className="!p-2 !m-3 !rounded-md !shadow !bg-grey !text-black !w-32"
+            className="!w-20 !p-1 !m-3 !rounded-md !shadow !bg-grey-lightest !border !border-solid !border-grey-dark !text-black !text-xs !text-center"
           >
-            {clockIsAnimated ? 'Hide Animation' : 'Show Animation'}
+            {clockIsAnimated ? 'Hide animation' : 'Show animation'}
           </Button>
           <CountdownCircleTimer
             isPlaying
@@ -71,12 +81,21 @@ const QuestionDisplay = ({
           </CountdownCircleTimer>
         </div>
       </div>
-      <div className="flex gap-5 bg-light rounded-lg p-5">
+      <div
+        className={`flex gap-5 rounded-lg p-5 ${
+          colorFilterSelected === 'none' ? 'bg-light' : 'border'
+        }`}
+      >
         <div className="flex-1" id="question">
           <h3 id="heading-id">Question:</h3>
           <p>{question}</p>
         </div>
-        <div className="flex-1 bg-lightest rounded-lg px-3" id="answers">
+        <div
+          className={`flex-1 rounded-lg px-3 ${
+            colorFilterSelected === 'none' ? 'bg-lightest' : 'border'
+          }`}
+          id="answers"
+        >
           <h3 className="pb-0">Answers:</h3>
           <RadioGroup
             name="Answers"
@@ -96,6 +115,7 @@ const QuestionDisplay = ({
             onClick={handleSubmitOnClick}
             id="submit-btn"
             title="Submit"
+            noColor={colorFilterSelected !== 'none' ? true : false}
           />
         </div>
       </div>
@@ -103,6 +123,7 @@ const QuestionDisplay = ({
         highlightContent={highlight}
         diagramContent={image}
         definitionsContent={definition}
+        retrieveColorFilterSelected={retrieveColorFilterSelected}
       />
     </div>
   );
