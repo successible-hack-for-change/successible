@@ -48,6 +48,9 @@ const ExampleQuestion: NextPage = () => {
             This will tell you how much time you have remaining to answer this
             question.
           </p>
+          <p className="text-center">
+            You can turn off the animation if you find it distracting.
+          </p>
         </>
       ),
     },
@@ -64,8 +67,8 @@ const ExampleQuestion: NextPage = () => {
       element: '#audio-btn',
       intro: (
         <>
-          <h3>Read aloud buttons</h3>
-          <p>
+          <h3 className="text-center">Read aloud buttons</h3>
+          <p className="text-center">
             These buttons can be used to read the questions and answers aloud.
             If you can not hear the question when the button is clicked we
             recommend trying another browser.
@@ -121,6 +124,18 @@ const ExampleQuestion: NextPage = () => {
           <h3 className="text-center">Definitions</h3>
           <p className="text-center">
             Click on this to see definitions of some words used in the question.
+          </p>
+        </>
+      ),
+    },
+    {
+      element: '#visual-aids',
+      intro: (
+        <>
+          <h3 className="text-center">Visuals aids</h3>
+          <p className="text-center">
+            Click on this to see options that may make the screen easier for you
+            to read.
           </p>
         </>
       ),
