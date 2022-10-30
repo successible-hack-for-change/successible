@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import { useContext, useState } from 'react';
+import { ReactNode, useContext, useState } from 'react';
 import { Callout, FormGroup, InputGroup, Label } from '@blueprintjs/core';
 import { Tooltip2 } from '@blueprintjs/popover2';
 import { useRouter } from 'next/router';
@@ -7,6 +7,7 @@ import axios from 'axios';
 import PageLayout from '../PageLayout';
 import CustomButton from '../../components/customButton';
 import AppContext from '../../context/AppContext';
+import InlineError from '../../components/inlineError';
 import mockData from '../../data/questions.json';
 
 const StartTest: NextPage = () => {
@@ -14,6 +15,11 @@ const StartTest: NextPage = () => {
   const appContext = useContext(AppContext);
   const [userEmail, setUserEmail] = useState<string>('');
   const [accessCode, setAccessCode] = useState<string>('');
+  const [isEmailValid, setIsEmailValid] = useState<boolean>(false);
+
+  const validateEmail = (email: string): void => {
+    setIsEmailValid(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i.test(email));
+  };
 
   const handleStartOnClick = () => {
     axios
@@ -53,18 +59,26 @@ const StartTest: NextPage = () => {
           <Label className="pb-3">
             Full Name
             <InputGroup leftIcon="person" placeholder="Full name" large />
+            <InlineError errorStatus={isEmailValid} />
           </Label>
           <Label className="pb-3">
             Email address
             <InputGroup
+              type="email"
               leftIcon="envelope"
               placeholder="Email address"
               large
               value={userEmail}
               onChange={(e) => {
                 setUserEmail(e.target.value);
+                validateEmail(e.target.value);
               }}
             />
+            {isEmailValid ? (
+              <div className="h-5 mb-2.5"></div>
+            ) : (
+              <p className="h-5"> Please enter a valid email address</p>
+            )}
           </Label>
           <Label className="pb-3">
             Entry code
@@ -77,11 +91,17 @@ const StartTest: NextPage = () => {
                 onChange={(e) => setAccessCode(e.target.value)}
               />
             </Tooltip2>
+            {isEmailValid ? (
+              <div className="h-5 mb-2.5"></div>
+            ) : (
+              <p className="h-5"> Please enter a valid email address</p>
+            )}
           </Label>
           <CustomButton
             title="Start your test"
             onClick={handleStartOnClick}
             type="submit"
+            disabled={!isEmailValid}
           />
         </FormGroup>
       </div>

@@ -5,6 +5,7 @@ interface CustomButtonProps {
   title: string;
   type?: 'submit' | 'reset' | 'button' | undefined;
   id?: string;
+  disabled?: boolean;
 }
 
 const CustomButton = ({
@@ -12,6 +13,7 @@ const CustomButton = ({
   title,
   type,
   id,
+  disabled,
 }: CustomButtonProps): JSX.Element => {
   return (
     <Button
@@ -19,6 +21,7 @@ const CustomButton = ({
       className="!p-3 !my-3 !rounded-md !shadow !bg-action !text-white"
       type={type}
       id={id}
+      disabled={disabled}
     >
       <div className="flex flex-row items-center">
         <span className="pr-3 text-md">{title}</span>
