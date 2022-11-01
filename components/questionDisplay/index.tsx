@@ -4,12 +4,15 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import OptionalExtras from '../optionalExtras';
 import type { Question } from '../../interfaces/questionTypes';
 import CustomButton from '../customButton';
+import SpeechButton from '../speechButton';
+import { isAnyArrayBuffer } from 'util/types';
 
 interface QuestionDisplayProps extends Question {
   handleSubmitOnClick: () => void;
   totalQuestions?: number;
   clockIsAnimated: boolean;
   setClockIsAnimated: Dispatch<SetStateAction<boolean>>;
+  isExample?: boolean;
 }
 
 const QuestionDisplay = ({
@@ -28,6 +31,7 @@ const QuestionDisplay = ({
   totalQuestions,
   clockIsAnimated,
   setClockIsAnimated,
+  isExample,
 }: QuestionDisplayProps): JSX.Element => {
   const [selectedAnswer, setSelectedAnswer] = useState('');
   const [colorFilterSelected, setColorFilterSelected] = useState('none');
@@ -66,7 +70,9 @@ const QuestionDisplay = ({
             colors={clockIsAnimated ? '#3c096c' : '#d9d9d9'}
             size={75}
             onComplete={() => {
-              handleSubmitOnClick();
+              if (!isExample) {
+                handleSubmitOnClick();
+              }
             }}
           >
             {({ remainingTime }) => {
@@ -89,6 +95,7 @@ const QuestionDisplay = ({
         <div className="flex-1" id="question">
           <h3 id="heading-id">Question:</h3>
           <p>{question}</p>
+          <SpeechButton alwaysDisplay={isExample} textToSpeak={question} />
         </div>
         <div
           className={`flex-1 rounded-lg px-3 ${
@@ -105,10 +112,22 @@ const QuestionDisplay = ({
             selectedValue={selectedAnswer}
             className="my-5 box-border"
           >
-            <Radio value={'A'} label={resA} />
-            <Radio value={'B'} label={resB} />
-            <Radio value={'C'} label={resC} />
-            <Radio value={'D'} label={resD} />
+            <div className="flex flex-row items-center mb-2">
+              <Radio value={'A'} label={resA} className="!mb-0 mr-3" />
+              <SpeechButton textToSpeak={resA} />
+            </div>
+            <div className="flex flex-row items-center mb-2">
+              <Radio value={'B'} label={resB} className="!mb-0 mr-3" />
+              <SpeechButton textToSpeak={resB} />
+            </div>
+            <div className="flex flex-row items-center mb-2">
+              <Radio value={'C'} label={resC} className="!mb-0 mr-3" />
+              <SpeechButton textToSpeak={resC} />
+            </div>
+            <div className="flex flex-row items-center mb-2">
+              <Radio value={'B'} label={resD} className="!mb-0 mr-3" />
+              <SpeechButton textToSpeak={resD} />
+            </div>
           </RadioGroup>
           <CustomButton
             type="submit"
