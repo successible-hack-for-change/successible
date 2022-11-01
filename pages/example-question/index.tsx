@@ -70,7 +70,7 @@ const ExampleQuestion: NextPage = () => {
           <h3 className="text-center">Read aloud buttons</h3>
           <p className="text-center">
             These buttons can be used to read the questions and answers aloud.
-            If you can not hear the question when the button is clicked we
+            If you cannot hear the question when the button is clicked we
             recommend trying another browser.
           </p>
         </>
