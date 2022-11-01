@@ -4,16 +4,27 @@ import PageLayout from '../PageLayout';
 import QuestionDisplay from '../../components/questionDisplay';
 import { Steps } from 'intro.js-react';
 import 'intro.js/introjs.css';
+import { Alert } from '@blueprintjs/core';
 
 const ExampleQuestion: NextPage = () => {
   const [stepsEnabled, setStepsEnabled] = useState(true);
   const [clockIsAnimated, setClockIsAnimated] = useState(true);
+  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
 
   const initialStep = 0;
 
   const onExit = () => {
     setStepsEnabled(false);
   };
+
+  const handleCloseOverlay = () => {
+    setIsOverlayOpen(false);
+  };
+
+  const handleSubmitBtnClick = () => {
+    setIsOverlayOpen(true);
+  };
+
   const steps = [
     {
       element: '#question-title',
@@ -37,6 +48,9 @@ const ExampleQuestion: NextPage = () => {
             This will tell you how much time you have remaining to answer this
             question.
           </p>
+          <p className="text-center">
+            You can turn off the animation if you find it distracting.
+          </p>
         </>
       ),
     },
@@ -46,6 +60,19 @@ const ExampleQuestion: NextPage = () => {
         <>
           <h3 className="text-center">Question</h3>
           <p className="text-center">Questions will display here.</p>
+        </>
+      ),
+    },
+    {
+      element: '#audio-btn',
+      intro: (
+        <>
+          <h3 className="text-center">Read aloud buttons</h3>
+          <p className="text-center">
+            These buttons can be used to read the questions and answers aloud.
+            If you cannot hear the question when the button is clicked we
+            recommend trying another browser.
+          </p>
         </>
       ),
     },
@@ -102,6 +129,18 @@ const ExampleQuestion: NextPage = () => {
       ),
     },
     {
+      element: '#visual-aids',
+      intro: (
+        <>
+          <h3 className="text-center">Visuals aids</h3>
+          <p className="text-center">
+            Click on this to see options that may make the screen easier for you
+            to read.
+          </p>
+        </>
+      ),
+    },
+    {
       element: '#answers',
       intro: (
         <>
@@ -152,10 +191,22 @@ const ExampleQuestion: NextPage = () => {
           }
           definitions={"I'm just here to watch the fight."}
           timeLimit={60}
-          handleSubmitOnClick={() => {}}
+          handleSubmitOnClick={handleSubmitBtnClick}
           clockIsAnimated={clockIsAnimated}
           setClockIsAnimated={setClockIsAnimated}
+          isExample={true}
         />
+        <Alert
+          isOpen={isOverlayOpen}
+          confirmButtonText="Okay"
+          onClose={handleCloseOverlay}
+        >
+          <p>In your real test this will take you to the break page.</p>
+          <p>
+            If you have read the instructions and you are ready to take your
+            test, go to the Start test page.
+          </p>
+        </Alert>
       </PageLayout>
     </div>
   );
