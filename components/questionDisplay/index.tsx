@@ -5,7 +5,6 @@ import OptionalExtras from '../optionalExtras';
 import type { Question } from '../../interfaces/questionTypes';
 import CustomButton from '../customButton';
 import SpeechButton from '../speechButton';
-import { isAnyArrayBuffer } from 'util/types';
 
 interface QuestionDisplayProps extends Question {
   handleSubmitOnClick: (candidateAnswer: string) => void;
@@ -112,22 +111,34 @@ const QuestionDisplay = ({
             selectedValue={selectedAnswer}
             className="my-5 box-border"
           >
-            <div className="flex flex-row items-center mb-2">
-              <Radio value={'A'} label={resA} className="!mb-0 mr-3" />
-              <SpeechButton textToSpeak={resA} />
-            </div>
-            <div className="flex flex-row items-center mb-2">
-              <Radio value={'B'} label={resB} className="!mb-0 mr-3" />
-              <SpeechButton textToSpeak={resB} />
-            </div>
-            <div className="flex flex-row items-center mb-2">
-              <Radio value={'C'} label={resC} className="!mb-0 mr-3" />
-              <SpeechButton textToSpeak={resC} />
-            </div>
-            <div className="flex flex-row items-center mb-2">
-              <Radio value={'B'} label={resD} className="!mb-0 mr-3" />
-              <SpeechButton textToSpeak={resD} />
-            </div>
+            <Radio
+              value={'A'}
+              label={resA}
+              className="flex flex-row items-center mb-2"
+            >
+              <SpeechButton textToSpeak={resA} answerButton />
+            </Radio>
+            <Radio
+              value={'B'}
+              label={resB}
+              className="flex flex-row items-center mb-2"
+            >
+              <SpeechButton textToSpeak={resB} answerButton />
+            </Radio>
+            <Radio
+              value={'C'}
+              label={resC}
+              className="flex flex-row items-center mb-2"
+            >
+              <SpeechButton textToSpeak={resC} answerButton />
+            </Radio>
+            <Radio
+              value={'D'}
+              label={resD}
+              className="flex flex-row items-center mb-2"
+            >
+              <SpeechButton textToSpeak={resD} answerButton />
+            </Radio>
           </RadioGroup>
           <CustomButton
             type="submit"

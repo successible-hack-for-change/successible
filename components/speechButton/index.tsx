@@ -4,11 +4,13 @@ import { Button, Icon } from '@blueprintjs/core';
 interface SpeechButtonProps {
   textToSpeak: string;
   alwaysDisplay?: boolean;
+  answerButton?: boolean;
 }
 
 const SpeechButton = ({
   textToSpeak,
   alwaysDisplay,
+  answerButton,
 }: SpeechButtonProps): JSX.Element => {
   const [audioEnabled, setAudioEnabled] = useState(true);
   const [isActive, setIsActive] = useState(false);
@@ -74,7 +76,9 @@ const SpeechButton = ({
       {(audioEnabled || alwaysDisplay) && (
         <Button
           onClick={() => speechHandler(msg, textToSpeak)}
-          className="!w-8 !h-8 !rounded-md !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
+          className={`!w-8 !h-8 !rounded-md !shadow !bg-grey-lightest !border !border-solid !border-grey-dark ${
+            answerButton && 'ml-3'
+          }`}
           disabled={!audioEnabled}
           id="audio-btn"
         >
