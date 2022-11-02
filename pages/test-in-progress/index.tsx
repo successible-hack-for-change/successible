@@ -21,7 +21,7 @@ const TestInProgress: NextPage = () => {
 
   useEffect(() => {
     axios
-      .get('http://127.0.0.1:8000/')
+      .get('https://successible-api-nqnaexycua-nw.a.run.app/')
       .then((res) => {
         setQuestions(res.data);
         setIsLoading(false);
@@ -34,7 +34,7 @@ const TestInProgress: NextPage = () => {
   const handleSubmitOnClick = (candidateAnswer: string) => {
     axios
       .post(
-        `http://127.0.0.1:8000/user/${appContext.state.userId}/postresponse`,
+        `https://successible-api-nqnaexycua-nw.a.run.app/user/${appContext.state.userId}/postresponse`,
         {
           user: appContext.state.userId,
           questionId: questions[questionNumber].id,
@@ -45,7 +45,7 @@ const TestInProgress: NextPage = () => {
         if (questionNumber === questions.length - 1) {
           axios
             .get(
-              `http://127.0.0.1:8000/user/${appContext.state.userId}/postresponse`,
+              `https://successible-api-nqnaexycua-nw.a.run.app/user/${appContext.state.userId}/postresponse`,
             )
             .then(() => router.push('/completed'))
             .catch(() => {

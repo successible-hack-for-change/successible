@@ -40,7 +40,7 @@ const StartTest: NextPage = () => {
 
   const handleStartOnClick = () => {
     axios
-      .post('http://127.0.0.1:8000/users', {
+      .post('https://successible-api-nqnaexycua-nw.a.run.app/users', {
         username: userEmail,
         email: userEmail,
         accessCode,
