@@ -30,9 +30,6 @@ const TestInProgress: NextPage = () => {
         setIsLoading(false);
       })
       .catch((error) => {
-        // Update the logic here to tell them if the access code is wrong, go back and try entering the code again
-        // Can give them a call to action button
-        console.log(error.response.data);
         if (error.response.data === 'Please check users access code') {
           appContext.setAccessCodeRecognised(false);
           router.push('/start-test');
@@ -67,7 +64,6 @@ const TestInProgress: NextPage = () => {
         }
       })
       .catch((error) => {
-        console.log(error);
         router.push('/error');
       });
   };

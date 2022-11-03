@@ -50,8 +50,7 @@ const StartTest: NextPage = () => {
         appContext.setUserId(res.data.id);
         router.push('/test-in-progress');
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
         router.push('/error');
       });
   };
@@ -67,7 +66,7 @@ const StartTest: NextPage = () => {
         </Callout>
         <FormGroup className="bg-light text-grey-darkest p-4 rounded-lg max-w-md !mx-auto !my-10 shadow">
           <Label className="pb-3">
-            <p className="font-bold">Full Name</p>
+            <p className="font-bold mb-0">Full Name</p>
             <InputGroup
               leftIcon="person"
               placeholder="Full name"
@@ -81,7 +80,7 @@ const StartTest: NextPage = () => {
             <InlineError errorStatus={isFullNameValid} field={' full name'} />
           </Label>
           <Label className="pb-3">
-            <p className="font-bold">Email address</p>
+            <p className="font-bold mb-0">Email address</p>
             <InputGroup
               type="email"
               leftIcon="envelope"
@@ -96,7 +95,7 @@ const StartTest: NextPage = () => {
             <InlineError errorStatus={isEmailValid} field={' email address'} />
           </Label>
           <Label className="pb-3">
-            <p className="font-bold">Entry code</p>
+            <p className="font-bold mb-0">Entry code</p>
             <Tooltip2 content="This code was emailed to you with your invitation to take this test">
               <InputGroup
                 leftIcon="lock"
