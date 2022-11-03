@@ -112,6 +112,7 @@ const QuestionDisplay = ({
             <Button
               onClick={() => handleOnMinusClick(fontSize)}
               className="!w-8 !h-8 !rounded-l-md !rounded-r-none !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
+              disabled={fontSize < 12 && true}
             >
               <Icon icon="zoom-out" />
             </Button>
@@ -124,6 +125,7 @@ const QuestionDisplay = ({
             <Button
               onClick={() => handleOnPlusClick(fontSize)}
               className="!w-8 !h-8 !rounded-r-md !rounded-l-none !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
+              disabled={fontSize > 40 && true}
             >
               <Icon icon="zoom-in" />
             </Button>
