@@ -8,11 +8,16 @@ import AppContext from '../context/AppContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [userId, setUserId] = useState<number>(0);
+  const [accessCode, setAccessCode] = useState<string>('');
+  const [accessCodeRecognised, setAccessCodeRecognised] = useState(true);
+
   return (
     <AppContext.Provider
       value={{
-        state: { userId },
-        setUserId: setUserId,
+        state: { userId, accessCode, accessCodeRecognised },
+        setUserId,
+        setAccessCode,
+        setAccessCodeRecognised,
       }}
     >
       <Component {...pageProps} />

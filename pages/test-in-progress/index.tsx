@@ -21,13 +21,24 @@ const TestInProgress: NextPage = () => {
 
   useEffect(() => {
     axios
-      .get('https://successible-api-nqnaexycua-nw.a.run.app/')
+      .get('https://successible-api-nqnaexycua-nw.a.run.app/questions', {
+        headers: { 'Access-Code': appContext.state.accessCode },
+      })
       .then((res) => {
         setQuestions(res.data);
+        appContext.setAccessCodeRecognised(true);
         setIsLoading(false);
       })
-      .catch(() => {
-        router.push('/error');
+      .catch((error) => {
+        // Update the logic here to tell them if the access code is wrong, go back and try entering the code again
+        // Can give them a call to action button
+        console.log(error.response.data);
+        if (error.response.data === 'Please check users access code') {
+          appContext.setAccessCodeRecognised(false);
+          router.push('/start-test');
+        } else {
+          router.push('/error');
+        }
       });
   }, []);
 

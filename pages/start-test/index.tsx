@@ -39,6 +39,7 @@ const StartTest: NextPage = () => {
   };
 
   const handleStartOnClick = () => {
+    appContext.setAccessCode(accessCode);
     axios
       .post('https://successible-api-nqnaexycua-nw.a.run.app/users', {
         username: userEmail,
@@ -60,8 +61,9 @@ const StartTest: NextPage = () => {
       <div className="p-4 max-w-4xl flex-col justify-center mx-auto">
         <h1 className="text-center">Are you ready to take your test?</h1>
         <Callout title="Important!" className="mb-4 !bg-accent-light">
-          Please make sure you have read the instructions and completed the
-          example question first. We recommend you take your test on a computer.
+          {appContext.state.accessCodeRecognised
+            ? 'Please make sure you have read the instructions and completed the example question first. We recommend you take your test on a computer.'
+            : 'Your access code was not recognised. Please try again, or contact us at help@successible.com'}
         </Callout>
         <FormGroup className="bg-light text-grey-darkest p-4 rounded-lg max-w-md !mx-auto !my-10 shadow">
           <Label className="pb-3">
