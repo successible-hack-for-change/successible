@@ -38,12 +38,14 @@ const QuestionDisplay = ({
 
   const handleOnPlusClick = (oldSize: number) => {
     setFontSize(oldSize + 5);
-    console.log(fontSize);
   };
 
   const handleOnMinusClick = (oldSize: number) => {
     setFontSize(oldSize - 5);
-    console.log(fontSize);
+  };
+
+  const handleOnResetClick = () => {
+    setFontSize(16);
   };
 
   const handleOnRadioClick = (event: FormEvent<HTMLInputElement>) => {
@@ -104,7 +106,7 @@ const QuestionDisplay = ({
       >
         <div className="flex-1 relative pb-10" id="question">
           <h3 id="heading-id">Question:</h3>
-          <p className={`text-[${fontSize}px]`}>{question}</p>
+          <p style={{ fontSize: fontSize }}>{question}</p>
           <SpeechButton alwaysDisplay={isExample} textToSpeak={question} />
           <div className="absolute bottom-0" id="zoom-buttons">
             <Button
@@ -112,6 +114,12 @@ const QuestionDisplay = ({
               className="!w-8 !h-8 !rounded-l-md !rounded-r-none !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
             >
               <Icon icon="zoom-out" />
+            </Button>
+            <Button
+              onClick={handleOnResetClick}
+              className="!w-8 !h-8 !rounded-none !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
+            >
+              <Icon icon="reset" />
             </Button>
             <Button
               onClick={() => handleOnPlusClick(fontSize)}
@@ -140,6 +148,7 @@ const QuestionDisplay = ({
               value={'A'}
               label={resA}
               className="flex flex-row items-center mb-2"
+              style={{ fontSize: fontSize }}
             >
               <SpeechButton textToSpeak={resA} answerButton />
             </Radio>
@@ -147,6 +156,7 @@ const QuestionDisplay = ({
               value={'B'}
               label={resB}
               className="flex flex-row items-center mb-2"
+              style={{ fontSize: fontSize }}
             >
               <SpeechButton textToSpeak={resB} answerButton />
             </Radio>
@@ -154,6 +164,7 @@ const QuestionDisplay = ({
               value={'C'}
               label={resC}
               className="flex flex-row items-center mb-2"
+              style={{ fontSize: fontSize }}
             >
               <SpeechButton textToSpeak={resC} answerButton />
             </Radio>
@@ -161,6 +172,7 @@ const QuestionDisplay = ({
               value={'D'}
               label={resD}
               className="flex flex-row items-center mb-2"
+              style={{ fontSize: fontSize }}
             >
               <SpeechButton textToSpeak={resD} answerButton />
             </Radio>
