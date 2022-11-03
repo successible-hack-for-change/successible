@@ -42,6 +42,14 @@ h4 {
   font-weight: 700;
 }
 
+button:focus {
+  outline: none;
+}
+
+summary:focus {
+  outline: none;
+}
+
 .introjs-button {
   background-color: #f8f9fa !important;
   text-shadow: none !important;
