@@ -86,7 +86,7 @@ const TestInProgress: NextPage = () => {
       </PageLayout>
     );
   return (
-    <PageLayout>
+    <PageLayout testInProgress={true}>
       {isSubmitted ? (
         <Break handleContinueOnClick={handleContinueOnClick} />
       ) : (

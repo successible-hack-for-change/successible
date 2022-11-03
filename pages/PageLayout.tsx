@@ -3,22 +3,25 @@ import Head from 'next/head';
 import Header from '../components/header';
 import Footer from '../components/footer';
 
-type PageLayoutProps = { children: React.ReactNode };
+type PageLayoutProps = { testInProgress?: boolean; children: React.ReactNode };
 
-const PageLayout = ({ children }: PageLayoutProps): JSX.Element => {
+const PageLayout = ({
+  testInProgress,
+  children,
+}: PageLayoutProps): JSX.Element => {
   return (
     <div className="min-h-screen flex flex-col">
       <Head>
         <title>Successible</title>
         <meta
           name="description"
-          content="Customisable skills assessments that are accessible for all"
+          content="Skills assessments that are accessible for all"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/successible-logo.svg" />
       </Head>
-      <Header />
+      {!testInProgress && <Header />}
       <main className="bg-white">{children}</main>
-      <Footer />
+      {!testInProgress && <Footer />}
     </div>
   );
 };
