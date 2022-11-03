@@ -1,6 +1,12 @@
 import type { NextPage } from 'next';
-import { FormEvent, useContext, useState } from 'react';
-import { Callout, FormGroup, InputGroup, Label } from '@blueprintjs/core';
+import { useContext, useState } from 'react';
+import {
+  Alert,
+  Callout,
+  FormGroup,
+  InputGroup,
+  Label,
+} from '@blueprintjs/core';
 import { Tooltip2 } from '@blueprintjs/popover2';
 import { useRouter } from 'next/router';
 import axios from 'axios';
@@ -8,7 +14,6 @@ import PageLayout from '../PageLayout';
 import CustomButton from '../../components/customButton';
 import AppContext from '../../context/AppContext';
 import InlineError from '../../components/inlineError';
-import mockData from '../../data/questions.json';
 
 const StartTest: NextPage = () => {
   const router = useRouter();
@@ -55,14 +60,17 @@ const StartTest: NextPage = () => {
       });
   };
 
+  const handleCloseOverlay = () => {
+    appContext.setAccessCodeRecognised(true);
+  };
+
   return (
     <PageLayout>
       <div className="p-4 max-w-4xl flex-col justify-center mx-auto">
         <h1 className="text-center">Are you ready to take your test?</h1>
         <Callout title="Important!" className="mb-4 !bg-accent-light">
-          {appContext.state.accessCodeRecognised
-            ? 'Please make sure you have read the instructions and completed the example question first. We recommend you take your test on a computer.'
-            : 'Your access code was not recognised. Please try again, or contact us at help@successible.com'}
+          Please make sure you have read the instructions and completed the
+          example question first. We recommend you take your test on a computer.
         </Callout>
         <FormGroup className="bg-light text-grey-darkest p-4 rounded-lg max-w-md !mx-auto !my-10 shadow">
           <Label className="pb-3">
@@ -121,6 +129,17 @@ const StartTest: NextPage = () => {
           />
         </FormGroup>
       </div>
+      <Alert
+        isOpen={!appContext.state.accessCodeRecognised}
+        confirmButtonText="Okay"
+        onClose={handleCloseOverlay}
+      >
+        <p>The access code you entered was not recognised.</p>
+        <p>
+          Please check your code and try again. If the issue continues, please
+          contact us at help@successible.com.
+        </p>
+      </Alert>
     </PageLayout>
   );
 };
