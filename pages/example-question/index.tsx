@@ -82,7 +82,8 @@ const ExampleQuestion: NextPage = () => {
         <>
           <h3 className="text-center">Text size buttons</h3>
           <p className="text-center">
-            These buttons can be used to increase and decrease text size.
+            These buttons can be used to increase, decrease, and reset text
+            size.
           </p>
         </>
       ),

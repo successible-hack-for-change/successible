@@ -114,20 +114,20 @@ const QuestionDisplay = ({
               className="!w-8 !h-8 !rounded-l-md !rounded-r-none !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
               disabled={fontSize < 12 && true}
             >
-              <Icon icon="zoom-out" />
+              <Icon icon="zoom-out" color="grey-dark" />
             </Button>
             <Button
               onClick={handleOnResetClick}
               className="!w-8 !h-8 !rounded-none !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
             >
-              <Icon icon="reset" />
+              <Icon icon="reset" color="grey-dark" />
             </Button>
             <Button
               onClick={() => handleOnPlusClick(fontSize)}
               className="!w-8 !h-8 !rounded-r-md !rounded-l-none !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
               disabled={fontSize > 40 && true}
             >
-              <Icon icon="zoom-in" />
+              <Icon icon="zoom-in" color="grey-dark" />
             </Button>
           </div>
         </div>
