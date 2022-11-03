@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Header from '../components/header';
 import Footer from '../components/footer';
+import TestHeader from '../components/testHeader';
 
 type PageLayoutProps = { testInProgress?: boolean; children: React.ReactNode };
 
@@ -19,9 +20,9 @@ const PageLayout = ({
         />
         <link rel="icon" href="/successible-logo.svg" />
       </Head>
-      {!testInProgress && <Header />}
+      {testInProgress ? <TestHeader /> : <Header />}
       <main className="bg-white">{children}</main>
-      {!testInProgress && <Footer />}
+      <Footer />
     </div>
   );
 };
