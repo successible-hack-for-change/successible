@@ -34,18 +34,18 @@ const QuestionDisplay = ({
 }: QuestionDisplayProps): JSX.Element => {
   const [selectedAnswer, setSelectedAnswer] = useState('None');
   const [colorFilterSelected, setColorFilterSelected] = useState('none');
-  const [fontSize, setFontSize] = useState(16);
+  const [fontSize, setFontSize] = useState(1);
 
   const handleOnPlusClick = (oldSize: number) => {
-    setFontSize(oldSize + 5);
+    setFontSize(oldSize + 0.25);
   };
 
   const handleOnMinusClick = (oldSize: number) => {
-    setFontSize(oldSize - 5);
+    setFontSize(oldSize - 0.25);
   };
 
   const handleOnResetClick = () => {
-    setFontSize(16);
+    setFontSize(1);
   };
 
   const handleOnRadioClick = (event: FormEvent<HTMLInputElement>) => {
@@ -106,13 +106,13 @@ const QuestionDisplay = ({
       >
         <div className="flex-1 relative pb-10" id="question">
           <h3 id="heading-id">Question:</h3>
-          <p style={{ fontSize: fontSize }}>{question}</p>
+          <p style={{ fontSize: `${fontSize}rem` }}>{question}</p>
           <SpeechButton alwaysDisplay={isExample} textToSpeak={question} />
           <div className="absolute bottom-0" id="zoom-buttons">
             <Button
               onClick={() => handleOnMinusClick(fontSize)}
               className="!w-8 !h-8 !rounded-l-md !rounded-r-none !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
-              disabled={fontSize < 12 && true}
+              disabled={fontSize < 0.75 && true}
             >
               <Icon icon="zoom-out" color="grey-dark" />
             </Button>
@@ -125,7 +125,7 @@ const QuestionDisplay = ({
             <Button
               onClick={() => handleOnPlusClick(fontSize)}
               className="!w-8 !h-8 !rounded-r-md !rounded-l-none !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
-              disabled={fontSize > 40 && true}
+              disabled={fontSize > 2.5 && true}
             >
               <Icon icon="zoom-in" color="grey-dark" />
             </Button>
@@ -150,7 +150,7 @@ const QuestionDisplay = ({
               value={'A'}
               label={resA}
               className="flex flex-row items-center mb-2"
-              style={{ fontSize: fontSize }}
+              style={{ fontSize: `${fontSize}rem` }}
             >
               <SpeechButton textToSpeak={resA} answerButton />
             </Radio>
@@ -158,7 +158,7 @@ const QuestionDisplay = ({
               value={'B'}
               label={resB}
               className="flex flex-row items-center mb-2"
-              style={{ fontSize: fontSize }}
+              style={{ fontSize: `${fontSize}rem` }}
             >
               <SpeechButton textToSpeak={resB} answerButton />
             </Radio>
@@ -166,7 +166,7 @@ const QuestionDisplay = ({
               value={'C'}
               label={resC}
               className="flex flex-row items-center mb-2"
-              style={{ fontSize: fontSize }}
+              style={{ fontSize: `${fontSize}rem` }}
             >
               <SpeechButton textToSpeak={resC} answerButton />
             </Radio>
@@ -174,7 +174,7 @@ const QuestionDisplay = ({
               value={'D'}
               label={resD}
               className="flex flex-row items-center mb-2"
-              style={{ fontSize: fontSize }}
+              style={{ fontSize: `${fontSize}rem` }}
             >
               <SpeechButton textToSpeak={resD} answerButton />
             </Radio>
