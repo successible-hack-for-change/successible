@@ -8,7 +8,6 @@ import QuestionDisplay from '../../components/questionDisplay';
 import Break from '../../components/break';
 import AppContext from '../../context/AppContext';
 import DelayedSpinner from '../../components/delayedSpinner';
-import mockData from '../../data/questions.json';
 
 const TestInProgress: NextPage = () => {
   const router = useRouter();
@@ -33,8 +32,10 @@ const TestInProgress: NextPage = () => {
         if (error.response.data === 'Please check users access code') {
           appContext.setAccessCodeRecognised(false);
           router.push('/start-test');
+          setIsLoading(false);
         } else {
           router.push('/error');
+          setIsLoading(false);
         }
       });
   }, []);
@@ -63,7 +64,7 @@ const TestInProgress: NextPage = () => {
           setIsSubmitted(true);
         }
       })
-      .catch((error) => {
+      .catch(() => {
         router.push('/error');
       });
   };
