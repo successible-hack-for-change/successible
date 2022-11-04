@@ -189,7 +189,7 @@ const ExampleQuestion: NextPage = () => {
           image={
             "I like to be center of attention so everything else should be closed when I'm open."
           }
-          definition={"I'm just here to watch the fight."}
+          definitions={"I'm just here to watch the fight."}
           timeLimit={60}
           handleSubmitOnClick={handleSubmitBtnClick}
           clockIsAnimated={clockIsAnimated}

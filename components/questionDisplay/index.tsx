@@ -5,10 +5,9 @@ import OptionalExtras from '../optionalExtras';
 import type { Question } from '../../interfaces/questionTypes';
 import CustomButton from '../customButton';
 import SpeechButton from '../speechButton';
-import { isAnyArrayBuffer } from 'util/types';
 
 interface QuestionDisplayProps extends Question {
-  handleSubmitOnClick: () => void;
+  handleSubmitOnClick: (candidateAnswer: string) => void;
   totalQuestions?: number;
   clockIsAnimated: boolean;
   setClockIsAnimated: Dispatch<SetStateAction<boolean>>;
@@ -25,7 +24,7 @@ const QuestionDisplay = ({
   resD,
   highlight,
   image,
-  definition,
+  definitions,
   timeLimit,
   handleSubmitOnClick,
   totalQuestions,
@@ -33,7 +32,7 @@ const QuestionDisplay = ({
   setClockIsAnimated,
   isExample,
 }: QuestionDisplayProps): JSX.Element => {
-  const [selectedAnswer, setSelectedAnswer] = useState('');
+  const [selectedAnswer, setSelectedAnswer] = useState('None');
   const [colorFilterSelected, setColorFilterSelected] = useState('none');
 
   const handleOnRadioClick = (event: FormEvent<HTMLInputElement>) => {
@@ -71,7 +70,7 @@ const QuestionDisplay = ({
             size={75}
             onComplete={() => {
               if (!isExample) {
-                handleSubmitOnClick();
+                handleSubmitOnClick(selectedAnswer);
               }
             }}
           >
@@ -112,26 +111,40 @@ const QuestionDisplay = ({
             selectedValue={selectedAnswer}
             className="my-5 box-border"
           >
-            <div className="flex flex-row items-center mb-2">
-              <Radio value={'A'} label={resA} className="!mb-0 mr-3" />
-              <SpeechButton textToSpeak={resA} />
-            </div>
-            <div className="flex flex-row items-center mb-2">
-              <Radio value={'B'} label={resB} className="!mb-0 mr-3" />
-              <SpeechButton textToSpeak={resB} />
-            </div>
-            <div className="flex flex-row items-center mb-2">
-              <Radio value={'C'} label={resC} className="!mb-0 mr-3" />
-              <SpeechButton textToSpeak={resC} />
-            </div>
-            <div className="flex flex-row items-center mb-2">
-              <Radio value={'B'} label={resD} className="!mb-0 mr-3" />
-              <SpeechButton textToSpeak={resD} />
-            </div>
+            <Radio
+              value={'A'}
+              label={resA}
+              className="flex flex-row items-center mb-2"
+            >
+              <SpeechButton textToSpeak={resA} answerButton />
+            </Radio>
+            <Radio
+              value={'B'}
+              label={resB}
+              className="flex flex-row items-center mb-2"
+            >
+              <SpeechButton textToSpeak={resB} answerButton />
+            </Radio>
+            <Radio
+              value={'C'}
+              label={resC}
+              className="flex flex-row items-center mb-2"
+            >
+              <SpeechButton textToSpeak={resC} answerButton />
+            </Radio>
+            <Radio
+              value={'D'}
+              label={resD}
+              className="flex flex-row items-center mb-2"
+            >
+              <SpeechButton textToSpeak={resD} answerButton />
+            </Radio>
           </RadioGroup>
           <CustomButton
             type="submit"
-            onClick={handleSubmitOnClick}
+            onClick={() => {
+              handleSubmitOnClick(selectedAnswer);
+            }}
             id="submit-btn"
             title="Submit"
             noColor={colorFilterSelected !== 'none' ? true : false}
@@ -141,7 +154,7 @@ const QuestionDisplay = ({
       <OptionalExtras
         highlightContent={highlight}
         diagramContent={image}
-        definitionsContent={definition}
+        definitionsContent={definitions}
         retrieveColorFilterSelected={retrieveColorFilterSelected}
       />
     </div>
