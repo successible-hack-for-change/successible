@@ -1,5 +1,5 @@
 import { Dispatch, FormEvent, SetStateAction, useState } from 'react';
-import { Radio, RadioGroup, Button } from '@blueprintjs/core';
+import { Radio, RadioGroup, Button, Icon } from '@blueprintjs/core';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 import OptionalExtras from '../optionalExtras';
 import type { Question } from '../../interfaces/questionTypes';
@@ -34,6 +34,19 @@ const QuestionDisplay = ({
 }: QuestionDisplayProps): JSX.Element => {
   const [selectedAnswer, setSelectedAnswer] = useState('None');
   const [colorFilterSelected, setColorFilterSelected] = useState('none');
+  const [fontSize, setFontSize] = useState(1);
+
+  const handleOnPlusClick = (oldSize: number) => {
+    setFontSize(oldSize + 0.25);
+  };
+
+  const handleOnMinusClick = (oldSize: number) => {
+    setFontSize(oldSize - 0.25);
+  };
+
+  const handleOnResetClick = () => {
+    setFontSize(1);
+  };
 
   const handleOnRadioClick = (event: FormEvent<HTMLInputElement>) => {
     setSelectedAnswer(event.currentTarget.value);
@@ -91,10 +104,32 @@ const QuestionDisplay = ({
           colorFilterSelected === 'none' ? 'bg-light' : 'border'
         }`}
       >
-        <div className="flex-1" id="question">
+        <div className="flex-1 relative pb-10" id="question">
           <h3 id="heading-id">Question:</h3>
-          <p>{question}</p>
+          <p style={{ fontSize: `${fontSize}rem` }}>{question}</p>
           <SpeechButton alwaysDisplay={isExample} textToSpeak={question} />
+          <div className="absolute bottom-0" id="zoom-buttons">
+            <Button
+              onClick={() => handleOnMinusClick(fontSize)}
+              className="!w-8 !h-8 !rounded-l-md !rounded-r-none !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
+              disabled={fontSize < 0.75 && true}
+            >
+              <Icon icon="zoom-out" color="grey-dark" />
+            </Button>
+            <Button
+              onClick={handleOnResetClick}
+              className="!w-8 !h-8 !rounded-none !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
+            >
+              <Icon icon="reset" color="grey-dark" />
+            </Button>
+            <Button
+              onClick={() => handleOnPlusClick(fontSize)}
+              className="!w-8 !h-8 !rounded-r-md !rounded-l-none !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
+              disabled={fontSize > 2.5 && true}
+            >
+              <Icon icon="zoom-in" color="grey-dark" />
+            </Button>
+          </div>
         </div>
         <div
           className={`flex-1 rounded-lg px-3 ${
@@ -115,6 +150,7 @@ const QuestionDisplay = ({
               value={'A'}
               label={resA}
               className="flex flex-row items-center mb-2"
+              style={{ fontSize: `${fontSize}rem` }}
             >
               <SpeechButton textToSpeak={resA} answerButton />
             </Radio>
@@ -122,6 +158,7 @@ const QuestionDisplay = ({
               value={'B'}
               label={resB}
               className="flex flex-row items-center mb-2"
+              style={{ fontSize: `${fontSize}rem` }}
             >
               <SpeechButton textToSpeak={resB} answerButton />
             </Radio>
@@ -129,6 +166,7 @@ const QuestionDisplay = ({
               value={'C'}
               label={resC}
               className="flex flex-row items-center mb-2"
+              style={{ fontSize: `${fontSize}rem` }}
             >
               <SpeechButton textToSpeak={resC} answerButton />
             </Radio>
@@ -136,6 +174,7 @@ const QuestionDisplay = ({
               value={'D'}
               label={resD}
               className="flex flex-row items-center mb-2"
+              style={{ fontSize: `${fontSize}rem` }}
             >
               <SpeechButton textToSpeak={resD} answerButton />
             </Radio>
