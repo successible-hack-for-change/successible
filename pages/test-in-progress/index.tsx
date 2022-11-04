@@ -8,7 +8,6 @@ import QuestionDisplay from '../../components/questionDisplay';
 import Break from '../../components/break';
 import AppContext from '../../context/AppContext';
 import DelayedSpinner from '../../components/delayedSpinner';
-import mockData from '../../data/questions.json';
 
 const TestInProgress: NextPage = () => {
   const router = useRouter();
@@ -30,14 +29,13 @@ const TestInProgress: NextPage = () => {
         setIsLoading(false);
       })
       .catch((error) => {
-        // Update the logic here to tell them if the access code is wrong, go back and try entering the code again
-        // Can give them a call to action button
-        console.log(error.response.data);
         if (error.response.data === 'Please check users access code') {
           appContext.setAccessCodeRecognised(false);
           router.push('/start-test');
+          setIsLoading(false);
         } else {
           router.push('/error');
+          setIsLoading(false);
         }
       });
   }, []);
@@ -66,8 +64,7 @@ const TestInProgress: NextPage = () => {
           setIsSubmitted(true);
         }
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
         router.push('/error');
       });
   };
