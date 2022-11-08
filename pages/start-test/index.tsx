@@ -75,36 +75,46 @@ const StartTest: NextPage = () => {
         <FormGroup className="bg-light text-grey-darkest p-4 rounded-lg max-w-md !mx-auto !my-10 shadow">
           <Label className="pb-4">
             <h4 className="font-bold mb-0">Full Name</h4>
-            <InputGroup
-              leftIcon="person"
-              placeholder="Full name"
-              large
-              value={userFullName}
-              onChange={(e) => {
-                setUserFullName(e.target.value);
-                validateField('full name', e.target.value);
-              }}
-            />
-            <InlineError errorStatus={!isFullNameValid} field={' full name'} />
+            <div className="relative">
+              <InputGroup
+                leftIcon="person"
+                placeholder="Full name"
+                large
+                value={userFullName}
+                onChange={(e) => {
+                  setUserFullName(e.target.value);
+                  validateField('full name', e.target.value);
+                }}
+              />
+              <InlineError
+                errorStatus={!isFullNameValid}
+                field={' full name'}
+              />
+            </div>
           </Label>
           <Label className="pb-4">
             <h4 className="font-bold mb-0">Email address</h4>
-            <InputGroup
-              type="email"
-              leftIcon="envelope"
-              placeholder="Email address"
-              large
-              value={userEmail}
-              onChange={(e) => {
-                setUserEmail(e.target.value);
-                validateField('email', e.target.value);
-              }}
-            />
-            <InlineError errorStatus={!isEmailValid} field={' email address'} />
+            <div className="relative">
+              <InputGroup
+                type="email"
+                leftIcon="envelope"
+                placeholder="Email address"
+                large
+                value={userEmail}
+                onChange={(e) => {
+                  setUserEmail(e.target.value);
+                  validateField('email', e.target.value);
+                }}
+              />
+              <InlineError
+                errorStatus={!isEmailValid}
+                field={' email address'}
+              />
+            </div>
           </Label>
           <Label className="pb-2">
             <h4 className="font-bold mb-0">Entry code</h4>
-            <Tooltip2 content="This code was emailed to you with your invitation to take this test">
+            <div className="relative">
               <InputGroup
                 leftIcon="lock"
                 placeholder="Entry code"
@@ -115,11 +125,11 @@ const StartTest: NextPage = () => {
                   validateField('access code', e.target.value);
                 }}
               />
-            </Tooltip2>
-            <InlineError
-              errorStatus={!isAccessCodeValid}
-              field={' access code'}
-            />
+              <InlineError
+                errorStatus={!isAccessCodeValid}
+                field={' access code'}
+              />
+            </div>
           </Label>
           <CustomButton
             title="Start your test"
