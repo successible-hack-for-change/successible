@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import PageLayout from '../PageLayout';
 import { Callout } from '@blueprintjs/core';
 import LineHeading from '../../components/lineHeading';
+import Link from 'next/link';
 
 const Instructions: NextPage = () => {
   return (
@@ -11,7 +12,12 @@ const Instructions: NextPage = () => {
         <Callout title="Important!" className="mb-4 !bg-accent-light">
           Successible tests may be a little different to those you have taken
           before, so please read these instructions carefully and complete the
-          example question before beginning your test.
+          example question before beginning your test. For further information,
+          visit our FAQ page{' '}
+          <span className="!text-link !underline">
+            <Link href="/faqs">here</Link>
+          </span>
+          .
         </Callout>
         <LineHeading title="Starting your test" />
         <p>
@@ -31,10 +37,9 @@ const Instructions: NextPage = () => {
         <p>
           When your first question loads, your timer will begin. You will see
           the question, answers, submit button, timer, and optional extras laid
-          out exacty how they are in the example question, so please make sure
+          out exactly how they are in the example question, so please make sure
           you have taken the time to familiarise yourself with the layout of the
-          example question. Bear in mind, not all optional extras will show for
-          every question.
+          example question.
         </p>
         <p>
           After you have submitted your response your answer will be logged and

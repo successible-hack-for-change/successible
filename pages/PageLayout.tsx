@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import TestHeader from '../components/testHeader';
+import TestFooter from '../components/testFooter';
 
 type PageLayoutProps = { testInProgress?: boolean; children: React.ReactNode };
 
@@ -22,7 +23,7 @@ const PageLayout = ({
       </Head>
       {testInProgress ? <TestHeader /> : <Header />}
       <main className="bg-white">{children}</main>
-      <Footer />
+      {testInProgress ? <TestFooter /> : <Footer />}
     </div>
   );
 };
