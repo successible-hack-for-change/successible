@@ -27,7 +27,7 @@ const Footer = (): JSX.Element => {
           <p className="m-0">
             <Link href="/example-question">Example question</Link>
           </p>
-          <p className="m-0">
+          <p className="m-0" id="faq-link">
             <Link href="/faqs">FAQs</Link>
           </p>
         </div>

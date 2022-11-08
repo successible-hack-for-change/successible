@@ -164,6 +164,18 @@ const ExampleQuestion: NextPage = () => {
         </>
       ),
     },
+    {
+      element: '#faq-link',
+      intro: (
+        <>
+          <h3 className="text-center">FAQ page</h3>
+          <p className="text-center">
+            If you want more information, feel free to visit our Frequently
+            Asked Questions page.
+          </p>
+        </>
+      ),
+    },
   ];
 
   return (
