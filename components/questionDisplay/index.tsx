@@ -118,7 +118,7 @@ const QuestionDisplay = ({
             </Button>
             <Button
               onClick={handleOnResetClick}
-              className="!w-8 !h-8 !rounded-none !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
+              className="!w-8 !h-8 !rounded-none !shadow !bg-grey-lightest !border !border-solid !border-grey-dark !border-x-0"
             >
               <Icon icon="reset" color="grey-dark" />
             </Button>
