@@ -73,8 +73,8 @@ const StartTest: NextPage = () => {
           example question first. We recommend you take your test on a computer.
         </Callout>
         <FormGroup className="bg-light text-grey-darkest p-4 rounded-lg max-w-md !mx-auto !my-10 shadow">
-          <Label className="pb-3">
-            <p className="font-bold mb-0">Full Name</p>
+          <Label className="pb-4">
+            <h4 className="font-bold mb-0">Full Name</h4>
             <InputGroup
               leftIcon="person"
               placeholder="Full name"
@@ -85,10 +85,10 @@ const StartTest: NextPage = () => {
                 validateField('full name', e.target.value);
               }}
             />
-            <InlineError errorStatus={isFullNameValid} field={' full name'} />
+            <InlineError errorStatus={!isFullNameValid} field={' full name'} />
           </Label>
-          <Label className="pb-3">
-            <p className="font-bold mb-0">Email address</p>
+          <Label className="pb-4">
+            <h4 className="font-bold mb-0">Email address</h4>
             <InputGroup
               type="email"
               leftIcon="envelope"
@@ -100,10 +100,10 @@ const StartTest: NextPage = () => {
                 validateField('email', e.target.value);
               }}
             />
-            <InlineError errorStatus={isEmailValid} field={' email address'} />
+            <InlineError errorStatus={!isEmailValid} field={' email address'} />
           </Label>
-          <Label className="pb-3">
-            <p className="font-bold mb-0">Entry code</p>
+          <Label className="pb-2">
+            <h4 className="font-bold mb-0">Entry code</h4>
             <Tooltip2 content="This code was emailed to you with your invitation to take this test">
               <InputGroup
                 leftIcon="lock"
@@ -117,7 +117,7 @@ const StartTest: NextPage = () => {
               />
             </Tooltip2>
             <InlineError
-              errorStatus={isAccessCodeValid}
+              errorStatus={!isAccessCodeValid}
               field={' access code'}
             />
           </Label>
