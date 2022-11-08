@@ -77,6 +77,18 @@ const ExampleQuestion: NextPage = () => {
       ),
     },
     {
+      element: '#zoom-buttons',
+      intro: (
+        <>
+          <h3 className="text-center">Text size buttons</h3>
+          <p className="text-center">
+            These buttons can be used to increase, decrease, and reset text
+            size.
+          </p>
+        </>
+      ),
+    },
+    {
       element: '#optional-extras',
       intro: (
         <>
