@@ -1,4 +1,5 @@
 import { Icon } from '@blueprintjs/core';
+import { Tooltip2 } from '@blueprintjs/popover2';
 
 interface InlineErrorProps {
   errorStatus: boolean;
@@ -9,11 +10,15 @@ const InlineError = ({ errorStatus, field }: InlineErrorProps): JSX.Element => {
   return (
     <>
       {errorStatus ? (
-        <div className="h-5 my-2.5"></div>
+        <Tooltip2
+          content={`Please enter a valid ${field}`}
+          className="absolute right-2 bottom-2.5"
+        >
+          <Icon icon="delete" size={16} color="#8B1818" />
+        </Tooltip2>
       ) : (
-        <div className="flex flex-row mt-2.5 align-middle">
-          <Icon icon="issue" />
-          <p className="h-5 ml-2"> Please enter a valid {field}</p>
+        <div className="absolute right-2 bottom-2.5">
+          <Icon icon="tick-circle" size={16} color="#246B45" />
         </div>
       )}
     </>

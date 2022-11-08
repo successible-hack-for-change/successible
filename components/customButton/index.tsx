@@ -11,7 +11,7 @@ interface CustomButtonProps {
 
 const conditionalButtonStyles = (noColor?: boolean, disabled?: boolean) => {
   if (noColor) return '!border !border-solid  !bg-transparent !shadow-none';
-  if (disabled) return '!bg-lightgrey !shadow !text-black';
+  if (disabled) return '!bg-grey-light !shadow !text-black';
   return '!bg-action !text-white !shadow';
 };
 
