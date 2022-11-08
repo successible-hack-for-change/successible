@@ -16,7 +16,7 @@ Outside of the test itself, we provide candidates with an example question that 
 
 ## Tech stack
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). We are also using [TypeScript](https://www.typescriptlang.org/docs/), [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/), [Blueprint](https://blueprintjs.com/docs/) and [Tailwind CSS](https://tailwindcss.com/).
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). We are also using [TypeScript](https://www.typescriptlang.org/docs/), [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/), [Blueprint](https://blueprintjs.com/docs/) and [Tailwind CSS](https://tailwindcss.com/). We have deployed our frontend application to Vercel, with our production app available to view [here](https://successible.vercel.app/).
 
 ## Getting Started
 
