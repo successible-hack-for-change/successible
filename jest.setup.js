@@ -1,5 +1,8 @@
 // src/setupTests.js
 import { server } from './__mocks__/server.ts';
+import { TextEncoder } from 'util';
+
+global.TextEncoder = TextEncoder;
 // Establish API mocking before all tests.
 beforeAll(() => server.listen());
 
