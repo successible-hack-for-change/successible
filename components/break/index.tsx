@@ -1,4 +1,3 @@
-import { Button, Icon } from '@blueprintjs/core';
 import Image from 'next/image';
 import CustomButton from '../customButton';
 
