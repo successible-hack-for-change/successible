@@ -139,9 +139,13 @@ const OptionalExtras = ({
       </Collapse>
       <Collapse isOpen={isDiagramOpen}>
         <div className="my-5 p-5 border relative border-grey-light rounded-sm">
-          {/* Overriding eslint rule as Image component on Next.js didn't behave as desired */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={diagramContent} alt="Diagram for above question" />
+          {!diagramContent ? (
+            'No diagram available for this question'
+          ) : (
+            // Overriding eslint rule as Image component on Next.js didn't behave as desired
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={diagramContent} alt="Diagram for above question" />
+          )}
         </div>
       </Collapse>
       <Collapse isOpen={isDefinitionsOpen}>
