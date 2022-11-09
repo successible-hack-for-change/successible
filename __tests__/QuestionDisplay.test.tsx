@@ -5,7 +5,7 @@ import QuestionDisplay from '../components/questionDisplay';
 
 const noop = jest.fn();
 
-test('The question displays the expected question and answer props', () => {
+xtest('The question displays the expected question and answer props', () => {
   render(
     <QuestionDisplay
       id={1}
@@ -34,7 +34,7 @@ test('The question displays the expected question and answer props', () => {
   expect(screen.getByText('Answer D')).toBeInTheDocument();
 });
 
-test('The radio element that is clicked becomes checked', async () => {
+xtest('The radio element that is clicked becomes checked', async () => {
   render(
     <QuestionDisplay
       id={1}
