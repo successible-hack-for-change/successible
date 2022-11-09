@@ -4,9 +4,21 @@ import { RouterContext } from 'next/dist/shared/lib/router-context';
 import userEvent from '@testing-library/user-event';
 import createMockRouter from '../test-utils/createMockRouter';
 import TestInProgress from '../pages/test-in-progress';
+import AppContext from '../context/AppContext';
 
 xtest('It should contain question 1 on initial page load', () => {
-  render(<TestInProgress />);
+  render(
+    <AppContext.Provider
+      value={{
+        state: { userId: 1, accessCode: 'demo', accessCodeRecognised: true },
+        setUserId: jest.fn(),
+        setAccessCode: jest.fn(),
+        setAccessCodeRecognised: jest.fn(),
+      }}
+    >
+      <TestInProgress />
+    </AppContext.Provider>,
+  );
   expect(
     screen.getByRole('heading', { name: /Question 1/i }),
   ).toBeInTheDocument();
