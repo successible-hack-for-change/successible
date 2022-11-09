@@ -28,7 +28,7 @@ module.exports = {
       },
       action: '#18AF9D',
       yellow: '#ffffe0',
-      blue: '#add8e6',
+      blue: '#8CDAF6',
       link: '#1a0dab',
     },
   },
