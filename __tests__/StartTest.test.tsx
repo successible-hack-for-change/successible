@@ -32,4 +32,5 @@ test('The start button is disabled until the form is filled in correctly', async
 
   expect(startButton).toBeEnabled();
   userEvent.click(startButton);
+  await waitFor(() => expect(push).toHaveBeenCalledWith('/test-in-progress'));
 });
