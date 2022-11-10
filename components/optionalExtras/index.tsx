@@ -7,6 +7,7 @@ import {
   RadioGroup,
   Switch,
 } from '@blueprintjs/core';
+import Image from 'next/image';
 import React, { useState } from 'react';
 import Draggable from 'react-draggable';
 
@@ -137,8 +138,14 @@ const OptionalExtras = ({
         </div>
       </Collapse>
       <Collapse isOpen={isDiagramOpen}>
-        <div className="my-5 p-5 border border-grey-light rounded-sm">
-          {diagramContent}
+        <div className="my-5 p-5 border relative border-grey-light rounded-sm">
+          {!diagramContent ? (
+            'No diagram available for this question'
+          ) : (
+            // Overriding eslint rule as Image component on Next.js didn't behave as desired
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={diagramContent} alt="Diagram for above question" />
+          )}
         </div>
       </Collapse>
       <Collapse isOpen={isDefinitionsOpen}>
