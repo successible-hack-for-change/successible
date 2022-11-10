@@ -25,6 +25,7 @@ const customJestConfig = {
     '!.lintstagedrc.js',
     '!<rootDir>/test-utils/**',
     '!<rootDir>/pages/_app.tsx',
+    '!<rootDir>/components/speechButton/*',
   ],
 };
 
