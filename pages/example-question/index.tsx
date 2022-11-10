@@ -201,19 +201,15 @@ const ExampleQuestion: NextPage = () => {
       <PageLayout>
         <QuestionDisplay
           id={0}
-          question="If Daves Corner Shop had 16 employees in 2020 and and 21 employees
-          in 2022 what percentage increase of employees was there between 2020
-          and 2022?"
+          question="I went to bed at 8 o'clock in the evening. I wound up my watch and set the alarm to sound at 9 o'clock in the morning. How many hours of sleep would I get before being awoken by the alarm?"
           answer={'C'}
-          resA={'110% increase'}
-          resB={'14.7% increase'}
-          resC={'31.25% increase'}
-          resD={'20% increase'}
-          highlight={"Sometimes I hide because I'm shy."}
-          image={
-            "I like to be center of attention so everything else should be closed when I'm open."
-          }
-          definitions={"I'm just here to watch the fight."}
+          resA={'12 hours'}
+          resB={'13 hours'}
+          resC={'1 hour'}
+          resD={'10 hours'}
+          highlight={'Bed at 8pm, alarm at 9am'}
+          image={'/time-change.png'}
+          definitions={'Awoken - To stop sleeping or wake from sleep'}
           timeLimit={60}
           handleSubmitOnClick={handleSubmitBtnClick}
           clockIsAnimated={clockIsAnimated}
