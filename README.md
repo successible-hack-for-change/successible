@@ -49,7 +49,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Local Integration
 
-Alternatively, if you would like to connect with our backend service locally, follow the setup instructions for our local backend service _Insert correct repo link here_, and change the host in the axios requests from "https://successible-api-nqnaexycua-nw.a.run.app" to "http://localhost:8000".
+Alternatively, if you would like to connect with our backend service locally, follow the setup instructions for our local backend service [here](https://github.com/successible-hack-for-change/Successible-Api) using the "demo" branch, and change the host in the axios requests from "https://successible-api-nqnaexycua-nw.a.run.app" to "http://localhost:8000".
 
 ## Useful Scripts
 
