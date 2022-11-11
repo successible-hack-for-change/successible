@@ -1,5 +1,4 @@
-import { Button, Collapse, Pre } from '@blueprintjs/core';
-import React, { useState } from 'react';
+import React from 'react';
 
 interface FaqQuestionInterface {
   question: string;

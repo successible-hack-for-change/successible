@@ -61,6 +61,7 @@ const QuestionDisplay = ({
       className={`p-4 max-w-4xl flex-col justify-center mx-auto ${
         colorFilterSelected === 'yellow' && 'bg-yellow'
       } ${colorFilterSelected === 'blue' && 'bg-blue'}`}
+      data-testid="backgroundColourDiv"
     >
       <div className="flex flex-row py-3 items-center">
         <div className="flex-1" />
@@ -113,12 +114,14 @@ const QuestionDisplay = ({
               onClick={() => handleOnMinusClick(fontSize)}
               className="!w-8 !h-8 !rounded-l-md !rounded-r-none !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
               disabled={fontSize < 0.75 && true}
+              aria-label="reduce font size"
             >
               <Icon icon="zoom-out" color="grey-dark" />
             </Button>
             <Button
               onClick={handleOnResetClick}
               className="!w-8 !h-8 !rounded-none !shadow !bg-grey-lightest !border !border-solid !border-grey-dark !border-x-0"
+              aria-label="reset font size"
             >
               <Icon icon="reset" color="grey-dark" />
             </Button>
@@ -126,6 +129,7 @@ const QuestionDisplay = ({
               onClick={() => handleOnPlusClick(fontSize)}
               className="!w-8 !h-8 !rounded-r-md !rounded-l-none !shadow !bg-grey-lightest !border !border-solid !border-grey-dark"
               disabled={fontSize > 2.5 && true}
+              aria-label="increase font size"
             >
               <Icon icon="zoom-in" color="grey-dark" />
             </Button>

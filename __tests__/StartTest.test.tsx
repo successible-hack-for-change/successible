@@ -12,7 +12,7 @@ test('The start-test page should have a title including "Are you ready"', () => 
   ).toBeInTheDocument();
 });
 
-test('Clicking the start test button should navigate to the test-in-progress page', async () => {
+test('The start button is disabled until the form is filled in correctly', async () => {
   const push = jest.fn();
   render(
     <RouterContext.Provider value={createMockRouter({ push })}>
@@ -20,6 +20,17 @@ test('Clicking the start test button should navigate to the test-in-progress pag
     </RouterContext.Provider>,
   );
   const startButton = screen.getByRole('button', { name: 'Start your test' });
+  expect(startButton).toBeDisabled();
+  const fullNameInput = screen.getByRole('textbox', { name: 'Full Name' });
+  await userEvent.type(fullNameInput, 'Test User');
+
+  const emailInput = screen.getByRole('textbox', { name: 'Email address' });
+  await userEvent.type(emailInput, 'testuser@email.com');
+
+  const accessCodeInput = screen.getByRole('textbox', { name: 'Entry code' });
+  await userEvent.type(accessCodeInput, 'demo');
+
+  expect(startButton).toBeEnabled();
   userEvent.click(startButton);
   await waitFor(() => expect(push).toHaveBeenCalledWith('/test-in-progress'));
 });
