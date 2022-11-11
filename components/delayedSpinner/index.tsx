@@ -11,7 +11,7 @@ const DelayedSpinner = (): JSX.Element => {
     return () => clearTimeout(timer);
   });
 
-  if (showSpinner) return <Spinner intent="primary" />;
+  if (showSpinner) return <Spinner intent="primary" className="pt-24" />;
   return <></>;
 };
 
