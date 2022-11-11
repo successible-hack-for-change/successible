@@ -25,7 +25,7 @@ test('The start button is disabled until the form is filled in correctly', async
   await userEvent.type(fullNameInput, 'Test User');
 
   const emailInput = screen.getByRole('textbox', { name: 'Email address' });
-  await userEvent.type(emailInput, 'testuser2@email.com');
+  await userEvent.type(emailInput, 'testuser@email.com');
 
   const accessCodeInput = screen.getByRole('textbox', { name: 'Entry code' });
   await userEvent.type(accessCodeInput, 'demo');

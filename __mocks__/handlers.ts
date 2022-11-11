@@ -75,7 +75,7 @@ export const handlers = [
     },
   ),
 
-  // Handles a GETT to /postresponse
+  // Handles a GET to /postresponse
   rest.get(
     'https://successible-api-nqnaexycua-nw.a.run.app/user/1/postresponse',
     (req, res, ctx) => {
