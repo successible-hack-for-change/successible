@@ -1,73 +1,81 @@
+import { Callout, Card, UL } from '@blueprintjs/core';
 import type { NextPage } from 'next';
-import Head from 'next/head';
+import LineHeading from '../components/lineHeading';
+import PageLayout from './PageLayout';
 import Image from 'next/image';
-import styles from '../styles/Home.module.scss';
+import { Icon } from '@blueprintjs/core';
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Successible</title>
-        <meta
-          name="description"
-          content="Customisable skills assessments that are accessible for all"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>Successible</h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
-
-        <h1 className="text-3xl font-bold underline">Hello world!</h1>
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+    <PageLayout>
+      <section className="p-28 bg-gradient-to-r from-mid to-accent justify-center">
+        <div className="flex items-center justify-center pb-10">
+          <Image
+            src="/successible-logo.svg"
+            alt="Successible logo"
+            height={100}
+            width={100}
+          />
+          <div className="pl-3">
+            <h1 className="p-0">Successible</h1>
+            <h3 className="p-0">Opportunity for everyone</h3>
+          </div>
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
-    </div>
+        <Callout className="!bg-white/0 text-center max-w-lg mx-auto">
+          We provide automated pre-employment tests, with an emphasis on
+          accessibility for all. We aim to level the playing field for everyone
+          by providing an equal opportunity of employment regardless of
+          background, neurodiversity, or additional requirements.
+        </Callout>
+      </section>
+      <section className="p-4 max-w-4xl flex-col justify-center mx-auto">
+        <LineHeading title="The future of the work place" />
+        <p>
+          Having a more diverse workforce brings talents, perspectives and
+          skills that can be beneficial in many work environments. Hiring
+          diverse and neurodiverse employees can provide companies with a
+          competitive edge that brings measurable benefits, both financially and
+          in terms of workplace culture.
+        </p>
+        <LineHeading title="What makes Successible different" />
+        <div className="flex flex-row gap-10 mb-5">
+          <Card className="flex-1 !p-10 !rounded-xl !bg-light !shadow">
+            <div className="text-center py-4">
+              <Icon icon="time" size={80} />
+            </div>
+            <h2 className="text-center py-5">
+              Unlimited break time between questions
+            </h2>
+            <p>
+              Tests can be a very stressful ordeal for many, leading them to not
+              perform as well as they can do in their future workplaces. By
+              allowing candidates to have breaks between questions, it can allow
+              them to perform to their full potential.
+            </p>
+          </Card>
+          <Card className="flex-1 !p-10 !rounded-xl !bg-accent-light !shadow">
+            <div className="text-center py-4">
+              <Icon icon="add" size={80} />
+            </div>
+            <h2 className="text-center py-5">Optional extras</h2>
+            <p>
+              Many traditional tests cater best for candidates who interpret
+              information in a specific way. Our tests allow candidates to
+              choose to view each question in multiple ways. This means they
+              choose the way that works best for them.
+            </p>
+            <p>Options will vary depending on the question, but may include:</p>
+            <UL className="list-disc">
+              <li>Diagrams</li>
+              <li>Audio</li>
+              <li>Definitions</li>
+              <li>Highlights</li>
+              <li>Visual aids</li>
+            </UL>
+          </Card>
+        </div>
+      </section>
+    </PageLayout>
   );
 };
 

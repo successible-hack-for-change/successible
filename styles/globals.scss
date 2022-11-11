@@ -11,20 +11,54 @@ body {
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+  color: inherit !important;
+  text-decoration: inherit !important;
 }
 
 * {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  padding: 1rem 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 0.75rem 0;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  padding: 0.5rem 0;
+}
+
+h4 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+button:focus {
+  outline: none;
+}
+
+summary:focus {
+  outline: none;
+}
+
+.introjs-button {
+  background-color: #f8f9fa !important;
+  text-shadow: none !important;
+  border: solid 1px #757575 !important;
+}
+
+.introjs-nextbutton {
+  background-color: #18af9d !important;
+  text-shadow: none !important;
+  border: none !important;
+  color: white !important;
 }
