@@ -1,9 +1,12 @@
 # Successible
 
 This is team Successible's front end repo for the Bright Network Technology Academy Hack for Change 2022.
-Our idea is to provide automated pre-employment tests with an emphasis on accessibility for all. We aim to level the playing field for everyone by providing an equal opportunity of employment regardless of background, neurodiversity, or additional requirements.
 
-In practice, this means that we provide unlimited breaks between questions, which allows candidates to take as much time as they need to before attempting the next question. We also provide a range of optional extras which allow candidates to view the questions in the way that works best for them. We do not require candidates to declare if they have used any optional extras, and nor do we record this information to share with employers. Our optional extras are:
+We at Successible have decided to tackle diversity and inclusion in the workplace by starting from the beginning - hiring.
+
+Why? Because we believe that unfair hiring processes are resulting in workplaces missing out on diverse talent. We aim to level the playing field for everyone by providing an equal opportunity of employment regardless of background, neurodiversity, or additional requirements.
+
+We use Next.js, TypeScript, React, Python, Django, and GCP to provide automated pre-employment tests, with an emphasis on accessibility for all. In practice, this means that we provide unlimited breaks between questions, which allows candidates to take as much time as they need to before attempting the next question. We also provide a range of optional extras which allow candidates to view the questions in the way that works best for them. We do not require candidates to declare if they have used any optional extras, and nor do we record this information to share with employers. Our optional extras are:
 
 - Highlights for candidates who struggle to interpret large pieces of text
 - Diagrams for candidates who prefer to interpret questions visually
