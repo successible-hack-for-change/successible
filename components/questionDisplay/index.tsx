@@ -63,7 +63,7 @@ const QuestionDisplay = ({
       } ${colorFilterSelected === 'blue' && 'bg-blue'}`}
       data-testid="backgroundColourDiv"
     >
-      <div className="flex flex-row py-3 items-center">
+      <div className="flex flex-col md:flex-row py-3 items-center">
         <div className="flex-1" />
         <h1 className=" flex-2 text-center" id="question-title">
           {id === 0 ? 'Question 1 of 1' : `Question ${id} of ${totalQuestions}`}
@@ -101,7 +101,7 @@ const QuestionDisplay = ({
         </div>
       </div>
       <div
-        className={`flex gap-5 rounded-lg p-5 ${
+        className={`flex flex-col sm:flex-row gap-5 rounded-lg p-5 ${
           colorFilterSelected === 'none' ? 'bg-light' : 'border'
         }`}
       >

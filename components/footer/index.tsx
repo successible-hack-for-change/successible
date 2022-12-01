@@ -6,8 +6,8 @@ import Link from 'next/link';
 const Footer = (): JSX.Element => {
   return (
     <footer className="p-4 bg-darkest w-full text-white mt-auto">
-      <div className="flex flex-row items-center w-full">
-        <div className="flex items-center justify-center flex-1">
+      <div className="flex flex-col sm:flex-row items-center w-full">
+        <div className="flex items-center justify-center flex-1 m-4">
           <Image
             src="/successible-logo-white.svg"
             alt="Successible logo"
@@ -19,7 +19,7 @@ const Footer = (): JSX.Element => {
             <p className="p-0 m-0 text-xs">Opportunity for everyone</p>
           </div>
         </div>
-        <div className="flex-1 text-center">
+        <div className="flex-1 text-center m-4">
           <h4 className="pb-2">Information</h4>
           <p className="m-0">
             <Link href="/instructions">Instructions</Link>
@@ -31,7 +31,7 @@ const Footer = (): JSX.Element => {
             <Link href="/faqs">FAQs</Link>
           </p>
         </div>
-        <div className="flex-1 text-center">
+        <div className="flex-1 text-center m-4">
           <h4 className="pb-2">Contact us</h4>
           <p className="m-0">help@successible.com</p>
         </div>
