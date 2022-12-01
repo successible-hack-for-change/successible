@@ -6,10 +6,10 @@ interface LineHeadingProps {
 
 const LineHeading = ({ title }: LineHeadingProps): JSX.Element => {
   return (
-    <div className="flex flex-row items-center mt-5 mb-3">
-      <hr className="w-full" />
-      <h2 className="text-center whitespace-nowrap px-4">{title}</h2>
-      <hr className="w-full" />
+    <div className="flex flex-row items-center justify-center mt-5 mb-3">
+      <hr className="w-full hidden sm:flex" />
+      <h2 className="text-center sm:whitespace-nowrap px-4">{title}</h2>
+      <hr className="w-full hidden sm:flex" />
     </div>
   );
 };

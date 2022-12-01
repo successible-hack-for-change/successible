@@ -8,15 +8,15 @@ import { Icon } from '@blueprintjs/core';
 const Home: NextPage = () => {
   return (
     <PageLayout>
-      <section className="p-28 bg-gradient-to-r from-mid to-accent justify-center">
-        <div className="flex items-center justify-center pb-10">
+      <section className="px-10 py-20 sm:p-28 bg-gradient-to-r from-mid to-accent justify-center">
+        <div className="flex flex-col sm:flex-row items-center justify-center pb-10">
           <Image
             src="/successible-logo.svg"
             alt="Successible logo"
             height={100}
             width={100}
           />
-          <div className="pl-3">
+          <div className="pl-3 text-center sm:text-left">
             <h1 className="p-0">Successible</h1>
             <h3 className="p-0">Opportunity for everyone</h3>
           </div>
@@ -38,7 +38,7 @@ const Home: NextPage = () => {
           in terms of workplace culture.
         </p>
         <LineHeading title="What makes Successible different" />
-        <div className="flex flex-row gap-10 mb-5">
+        <div className="flex flex-col md:flex-row gap-10 mb-5">
           <Card className="flex-1 !p-10 !rounded-xl !bg-light !shadow">
             <div className="text-center py-4">
               <Icon icon="time" size={80} />
