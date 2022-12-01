@@ -189,6 +189,7 @@ const OptionalExtras = ({
             <button
               className="rounded-lg h-10 w-10 absolute top-0 right-0 flex items-center justify-center"
               onClick={handleOnClick}
+              onTouchStart={handleOnClick}
             >
               <Icon icon="cross" />
             </button>
