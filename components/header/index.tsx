@@ -45,7 +45,6 @@ const Header = (): JSX.Element => {
           </Link>
         </Navbar.Group>
       </Navbar>
-      {/* ========================================================================================== */}
       <Navbar className="md:hidden">
         <Navbar.Group>
           <Button
