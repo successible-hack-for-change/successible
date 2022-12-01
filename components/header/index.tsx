@@ -90,7 +90,7 @@ const Header = (): JSX.Element => {
             text="Example question"
           />
         </Link>
-        <Link href="/faq">
+        <Link href="/faqs">
           <Button className="bp4-minimal mt-2" icon="help" text="FAQs" />
         </Link>
         <Link href="/start-test">
