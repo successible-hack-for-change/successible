@@ -78,59 +78,66 @@ const OptionalExtras = ({
   return (
     <div id="optional-extras">
       <h3 className="mt-5">Optional extras</h3>
-      <ButtonGroup fill={true} className="flex flex-row gap-2 h-10">
-        <Button
-          id="highlights"
-          className={`!rounded-md ${
-            isHighlightsOpen ? 'opacity-100 underline' : 'opacity-75'
-          } ${
-            colorFilterSelected !== 'none'
-              ? '!border !border-solid !shadow-none'
-              : '!bg-dark !text-white !shadow-md'
-          }`}
-          onClick={() => handleHighlightsOnClick(isHighlightsOpen)}
-        >
-          Highlights
-        </Button>
-        <Button
-          id="diagram"
-          className={`!rounded-md ${
-            isDiagramOpen ? 'opacity-100 underline' : 'opacity-75'
-          } ${
-            colorFilterSelected !== 'none'
-              ? '!border !border-solid !shadow-none'
-              : '!bg-dark !text-white !shadow-md'
-          }`}
-          onClick={() => handleDiagramOnClick(isDiagramOpen)}
-        >
-          Diagram
-        </Button>
-        <Button
-          id="definitions"
-          className={`!rounded-md ${
-            isDefinitionsOpen ? 'opacity-100 underline' : 'opacity-75'
-          } ${
-            colorFilterSelected !== 'none'
-              ? '!border !border-solid !shadow-none'
-              : '!bg-dark !text-white !shadow-md'
-          }`}
-          onClick={() => handleDefinitionsOnClick(isDefinitionsOpen)}
-        >
-          Definitions
-        </Button>
-        <Button
-          id="visual-aids"
-          className={`!rounded-md ${
-            isVisualAidsOpen ? 'opacity-100 underline' : 'opacity-75'
-          } ${
-            colorFilterSelected !== 'none'
-              ? '!border !border-solid !shadow-none'
-              : '!bg-dark !text-white !shadow-md'
-          }`}
-          onClick={() => handleVisualAidsOnClick(isVisualAidsOpen)}
-        >
-          Visual aids
-        </Button>
+      <ButtonGroup
+        fill={true}
+        className="flex flex-col sm:flex-row gap-2 h-20 sm:h-10"
+      >
+        <div className=" flex flex-1 flex-row gap-2 h-10">
+          <Button
+            id="highlights"
+            className={`!flex-1 !rounded-md ${
+              isHighlightsOpen ? 'opacity-100 underline' : 'opacity-75'
+            } ${
+              colorFilterSelected !== 'none'
+                ? '!border !border-solid !shadow-none'
+                : '!bg-dark !text-white !shadow-md'
+            }`}
+            onClick={() => handleHighlightsOnClick(isHighlightsOpen)}
+          >
+            Highlights
+          </Button>
+          <Button
+            id="diagram"
+            className={`!flex-1 !rounded-md ${
+              isDiagramOpen ? 'opacity-100 underline' : 'opacity-75'
+            } ${
+              colorFilterSelected !== 'none'
+                ? '!border !border-solid !shadow-none'
+                : '!bg-dark !text-white !shadow-md'
+            }`}
+            onClick={() => handleDiagramOnClick(isDiagramOpen)}
+          >
+            Diagram
+          </Button>
+        </div>
+        <div className="flex flex-1 flex-row gap-2 h-10">
+          <Button
+            id="definitions"
+            className={`!flex-1 !rounded-md ${
+              isDefinitionsOpen ? 'opacity-100 underline' : 'opacity-75'
+            } ${
+              colorFilterSelected !== 'none'
+                ? '!border !border-solid !shadow-none'
+                : '!bg-dark !text-white !shadow-md'
+            }`}
+            onClick={() => handleDefinitionsOnClick(isDefinitionsOpen)}
+          >
+            Definitions
+          </Button>
+          <Button
+            id="visual-aids"
+            className={`!flex-1 !rounded-md ${
+              isVisualAidsOpen ? 'opacity-100 underline' : 'opacity-75'
+            } ${
+              colorFilterSelected !== 'none'
+                ? '!border !border-solid !shadow-none'
+                : '!bg-dark !text-white !shadow-md'
+            }`}
+            onClick={() => handleVisualAidsOnClick(isVisualAidsOpen)}
+          >
+            Visual aids
+          </Button>
+        </div>
       </ButtonGroup>
       <Collapse isOpen={isHighlightsOpen}>
         <div className="my-5 p-5 border border-grey-light rounded-sm">
